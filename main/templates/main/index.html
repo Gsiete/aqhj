@@ -1,0 +1,67 @@
+{% load tz %}
+{% load staticfiles %}
+{% load aqhj_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="{% static "main/js/jquery.countdown.min.js" %}"></script>
+    <link href="{% static "main/css/aqhj.css" %}"  rel="stylesheet">
+</head>
+<body>
+{{ timezone }}
+{% with local_time=next_match.time|astimezone:timezone stadium_time=next_match.time|astimezone:next_match.stadium.timezone %}
+<div class="match-box container-fluid">
+    <div class="row upper-half">
+        <div class="left-column c6-of-11">
+            <h3>{{ next_match.team_a }}</h3>
+            <h3>{{ next_match.team_b }}</h3>
+            <hr>
+            <div>
+                Stadium: {{ next_match.stadium.name }}
+            </div>
+            <div></div>
+        </div>
+        <div class="c5-of-11 clocks">
+            <div class="row">
+                <div class="left-column col-xs-6">
+                    {% include 'main/date_box.html' with datetime=stadium_time.timetuple %}
+                    <div>{{ stadium_time.tzname }}</div>
+                </div>
+                <div class="col-xs-6">
+                    {% include 'main/date_box.html' with datetime=local_time.timetuple %}
+                    <div>{{ local_time.tzname }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="match-box-footer row">
+        <div class="left-column c6-of-11">Other matches</div>
+        <div class="c5-of-11">
+            <div class="countdown" data-until="{{ next_match.time|isotime }}"></div>
+        </div>
+    </div>
+</div>
+{% endwith %}
+<script>
+$(document).ready(function(){
+    $('.countdown').each(function(){
+        var until_date = new Date($(this).data('until'));
+        $(this).countdown(until_date, function(event) {
+            console.log(event);
+            var dateFormat = '%-H hora%!H %-M min %-S seg';
+            if(event.offset.totalDays > 0){
+                dateFormat = '%-D día%!D '+dateFormat;
+            }
+            $(this).text(event.strftime(dateFormat));
+        });
+    });
+
+});
+</script>
+</body>
+</html>
