@@ -136,8 +136,8 @@ GOOGLE_TZ_API_ENDPOINT = 'https://maps.googleapis.com/maps/api/timezone/json'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 AWS_STORAGE_BUCKET_NAME = 'sng-files2'
-AWS_ACCESS_KEY_ID = 'AKIAJ2MOEL32EE62WVVQ'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = os.environ('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ('AWS_SECRET_ACCESS_KEY')
 
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
