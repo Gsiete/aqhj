@@ -20,6 +20,9 @@ connect_default_signals(Region)
 
 class City(AbstractCity):
     timezone = TimeZoneField()
+
+    def get_display_name(self):
+        return '%s, %s' % (self.name, self.country.name)
 connect_default_signals(City)
 
 
