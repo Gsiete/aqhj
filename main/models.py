@@ -6,7 +6,7 @@ from cities.models import City
 class Tournament(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=50, default='')
-    logo = models.ImageField(upload_to='tournament/logo/')
+    logo = models.ImageField(upload_to='tournament/logo/', null=True)
 
     def __str__(self):
         return self.name
