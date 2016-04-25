@@ -14,7 +14,7 @@
 </head>
 <body>
 {{ timezone }}
-{% with local_time=next_match.time|astimezone:timezone stadium_time=next_match.time|astimezone:next_match.stadium.timezone %}
+{% with local_time=next_match.time|astimezone:timezone stadium_time=next_match.time|astimezone:next_match.stadium_time %}
 <div class="match-box container-fluid">
     <div class="row upper-half">
         <div class="left-column c6-of-11">
