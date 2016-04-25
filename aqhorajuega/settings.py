@@ -145,7 +145,9 @@ AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
 }
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 #STATIC_URL = '/static/'
-STATIC_URL = "https://%s/aqhj/static/" % AWS_S3_CUSTOM_DOMAIN
-MEDIA_URL = "https://%s/aqhj/media/" % AWS_S3_CUSTOM_DOMAIN
+MEDIA_FILES_LOCATION = "aqhj/media"
+STATIC_FILES_LOCATION = "aqhj/static"
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIA_FILES_LOCATION)
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATIC_FILES_LOCATION)
 STATICFILES_STORAGE = 'aqhorajuega.s3utils.StaticRouteS3BotoStorage'
 DEFAULT_FILE_STORAGE = 'aqhorajuega.s3utils.MediaRouteS3BotoStorage'
