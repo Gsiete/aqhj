@@ -28,13 +28,13 @@
         </div>
         <div class="c5-of-11 clocks">
             <div class="row">
-                <div class="left-column col-xs-6">
-                    {% include 'main/date_box.html' with datetime=next_match.stadium_time.timetuple %}
-                    <div>{{ next_match.stadium_time.tzname }}</div>
-                </div>
                 <div class="col-xs-6">
                     {% include 'main/date_box.html' with datetime=local_time.timetuple %}
                     <div>{{ local_time.tzname }}</div>
+                </div>
+                <div class="left-column col-xs-6">
+                    {% include 'main/date_box.html' with datetime=next_match.stadium_time.timetuple %}
+                    <div>{{ next_match.stadium.city }}({{ next_match.stadium_time.tzname }})</div>
                 </div>
             </div>
         </div>
