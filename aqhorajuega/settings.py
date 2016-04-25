@@ -148,4 +148,4 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 STATIC_URL = "https://%s/aqhj/static/" % AWS_S3_CUSTOM_DOMAIN
 MEDIA_URL = "https://%s/aqhj/media/" % AWS_S3_CUSTOM_DOMAIN
 STATICFILES_STORAGE = 'aqhorajuega.s3utils.StaticRouteS3BotoStorage'
-MEDIAFILES_STORAGE = 'aqhorajuega.s3utils.MediaRouteS3BotoStorage'
+DEFAULT_FILE_STORAGE = 'aqhorajuega.s3utils.MediaRouteS3BotoStorage'
