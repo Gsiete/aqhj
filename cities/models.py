@@ -23,14 +23,6 @@ class City(AbstractCity):
 connect_default_signals(City)
 
 
-class IPtz(models.Model):
-    ip = models.GenericIPAddressField()
-    timezone = TimeZoneField()
-
-    def __str__(self):
-        return self.ip
-
-
 @receiver(cities_light.signals.city_items_post_import)
 def set_city_fields(sender, instance, items, **kwargs):
     instance.timezone = pytz.timezone(items[ICity.timezone])
