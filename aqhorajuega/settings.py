@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': 'aqhj',
         'USER': 'aqhj_user',
         'PASSWORD': 'aqhj12348765',
-        'HOST': 'localhost',
+        'HOST': 'sng.ces9zlqxeeow.eu-central-1.rds.amazonaws.com',
 #        'HOST': 'sng.ces9zlqxeeow.eu-central-1.rds.amazonaws.com',
         'OPTIONS': {
                     'charset': 'utf8',
