@@ -18,10 +18,23 @@
 <div class="match-box container-fluid">
     <div class="row upper-half">
         <div class="left-column col-xs-6">
-            <img height="32" src="{{ next_match.team_a.logo.url }}">
-            <h3>{{ next_match.team_a }}</h3>
-            <img height="32" src="{{ next_match.team_b.logo.url }}">
-            <h3>{{ next_match.team_b }}</h3>
+            <div class="row">
+                <div class="col-xs-2">
+                    <img class="team-logo" src="{{ next_match.team_a.logo.url }}">
+                </div>
+                <div class="col-xs-10">
+                    <h3>{{ next_match.team_a }}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2">
+                    <img class="team-logo" src="{{ next_match.team_b.logo.url }}">
+                </div>
+                <div class="col-xs-10">
+                    <h3>{{ next_match.team_b }}</h3>
+                </div>
+            </div>
+
             <hr>
             <div>
                 Stadium: {{ next_match.stadium.name }}
