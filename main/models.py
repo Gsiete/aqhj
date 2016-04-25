@@ -46,7 +46,7 @@ class Team(models.Model):
 class Match(models.Model):
     class Meta:
         verbose_name_plural = "matches"
-    GAMES_IN_SEASON = ['Fecha %d' % x for x in range(1, 40)] + ['Ronda de 16' + 'Cuartos de final' + 'Semi-final' + 'Final']
+    GAMES_IN_SEASON = ['Fecha %d' % x for x in range(1, 40)] + ['Ronda de 16', 'Cuartos de final', 'Semi-final', 'Final']
 
     team_a = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_a')
     team_b = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_b')
@@ -54,7 +54,7 @@ class Match(models.Model):
     score_team_b = models.IntegerField(null=True, blank=True)
     stadium = models.ForeignKey(Stadium, on_delete=models.SET_NULL, null=True)
     season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)
-    game_in_season = models.CharField(choices=GAMES_IN_SEASON)
+    game_in_season = models.CharField(choices=[(x, x) for x in GAMES_IN_SEASON], max_length=20)
     time = models.DateTimeField('local time of the match')
 
     def stadium_time(self):
