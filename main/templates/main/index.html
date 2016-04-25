@@ -55,9 +55,9 @@
         </div>
     </div>
     <div class="match-box-footer row">
-        <div class="left-column col-xs-6">Other matches</div>
+        <div class="left-column col-xs-6">Próximos partidos</div>
         <div class="col-xs-6">
-            <div class="countdown" data-until="{{ next_match.time|isotime }}"></div>
+        <div>Faltan <span class="countdown" data-until="{{ next_match.time|isotime }}"></span></div>
         </div>
     </div>
 </div>
@@ -68,7 +68,7 @@ $(document).ready(function(){
         var until_date = new Date($(this).data('until'));
         $(this).countdown(until_date, function(event) {
             console.log(event);
-            var dateFormat = '%-H hora%!H %-M min %-S seg';
+            var dateFormat = '%-H h %-M m %-S s';
             if(event.offset.totalDays > 0){
                 dateFormat = '%-D día%!D '+dateFormat;
             }
