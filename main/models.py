@@ -20,7 +20,7 @@ class Season(models.Model):
     end = models.DateTimeField('end of the tournament')
 
     def __str__(self):
-        return self.name
+        return '%s - %s' % self.tournament.name, self.name
 
 
 class Stadium(models.Model):
