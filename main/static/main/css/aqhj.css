@@ -49,3 +49,9 @@
     float: left;
     text-align: center;
 }
+.stadium-time h2 b {
+    color: #08708A;
+}
+.local-time h2 b {
+    color: #032B2F;
+}
