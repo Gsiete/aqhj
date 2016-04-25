@@ -17,7 +17,7 @@
 {% with local_time=next_match.time|astimezone:timezone %}
 <div class="match-box container-fluid">
     <div class="row upper-half">
-        <div class="left-column c6-of-11">
+        <div class="left-column col-xs-6">
             <h3>{{ next_match.team_a }}</h3>
             <h3>{{ next_match.team_b }}</h3>
             <hr>
@@ -26,13 +26,13 @@
             </div>
             <div></div>
         </div>
-        <div class="c5-of-11 clocks">
+        <div class="col-xs-6 clocks">
             <div class="row">
-                <div class="col-xs-6">
+                <div class="left-column col-xs-6">
                     {% include 'main/date_box.html' with datetime=local_time.timetuple %}
                     <div>{{ local_time.tzname }}</div>
                 </div>
-                <div class="left-column col-xs-6">
+                <div class="col-xs-6">
                     {% include 'main/date_box.html' with datetime=next_match.stadium_time.timetuple %}
                     <div>{{ next_match.stadium.city }}({{ next_match.stadium_time.tzname }})</div>
                 </div>
