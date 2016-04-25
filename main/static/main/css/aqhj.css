@@ -37,4 +37,8 @@
 
 .team-logo {
     height: 32px;
+    margin-top:20px;
+}
+.team-name {
+    line-height: 32px;
 }
