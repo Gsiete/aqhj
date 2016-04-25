@@ -6,7 +6,7 @@ from cities.models import City
 class Tournament(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=50, default='')
-    logo = models.ImageField(upload_to='tournament/logo/', null=True)
+    logo = models.ImageField(upload_to='tournament/logo/', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -36,7 +36,7 @@ class Team(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=50, default='')
     stadium = models.ForeignKey(Stadium)
-    logo = models.ImageField(upload_to='team/logo/')
+    logo = models.ImageField(upload_to='team/logo/', null=True)
     is_domain_team = models.BooleanField('is the main team of the domain')
 
     def __str__(self):
