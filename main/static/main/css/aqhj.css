@@ -35,10 +35,17 @@
     background-color: lightgrey;
 }
 
-.team-logo {
+.team-logo img {
     height: 32px;
     margin-top:20px;
 }
 .team-name {
     line-height: 32px;
+    width: 78%;
+    float: left;
+}
+.team-logo {
+    width: 22%;
+    float: left;
+    text-align: center;
 }
