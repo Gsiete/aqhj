@@ -32,4 +32,6 @@ def set_city_fields(sender, instance, items, **kwargs):
 
 @receiver(cities_light.signals.country_items_post_import)
 def process_country_import(sender, instance, items, **kwargs):
-    instance.capital = City.objects.get(name=items[ICountry.capital], country=instance)
+    print(items[ICountry.capital])
+    print(instance)
+    instance.capital = City.objects.get(name=items[ICountry.capital], country=instance.id)
