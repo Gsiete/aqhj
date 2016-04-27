@@ -37,13 +37,10 @@
 
 .team-logo img {
     height: 32px;
-    margin-top:20px;
+    margin-top:10px;
 }
 .team-name {
     line-height: 32px;
-}
-.team-logo {
-    width: 22%;
 }
 .time h2 {
     font-family: Lato;
