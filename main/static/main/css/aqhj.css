@@ -61,6 +61,9 @@
 .stadium-time h2 {
     color : #56B1BF;
 }
+.stadium-time h2 b {
+    color : #08708A;
+}
 .time .date {
     font-size : 12px;
 }
