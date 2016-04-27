@@ -23,7 +23,7 @@
                     <img src="{{ next_match.team_a.logo.url }}">
                 </div>
                 <div class="team-name">
-                    <h3>{{ next_match.team_a }}</h3>
+                    <h4>{{ next_match.team_a }}</h4>
                 </div>
             </div>
             <div class="row">
@@ -31,7 +31,7 @@
                     <img src="{{ next_match.team_b.logo.url }}">
                 </div>
                 <div class="team-name">
-                    <h3>{{ next_match.team_b }}</h3>
+                    <h4>{{ next_match.team_b }}</h4>
                 </div>
             </div>
 
@@ -43,13 +43,11 @@
         </div>
         <div class="col-xs-6 clocks">
             <div class="row">
-                <div class="left-column col-xs-6 local-time">
-                    {% include 'main/date_box.html' with datetime=local_time %}
-                    <div>{{ local_time.tzname }}</div>
+                <div class="left-column col-xs-6 time local-time">
+                    {% include 'main/date_box.html' with datetime=local_time city=next_match.stadium.city %}
                 </div>
-                <div class="col-xs-6 stadium-time">
-                    {% include 'main/date_box.html' with datetime=next_match.stadium_time %}
-                    <div>{{ next_match.stadium.city.get_display_name }}({{ next_match.stadium_time.tzname }})</div>
+                <div class="col-xs-6 time stadium-time">
+                    {% include 'main/date_box.html' with datetime=next_match.stadium_time city=next_match.stadium.city %}
                 </div>
             </div>
         </div>
