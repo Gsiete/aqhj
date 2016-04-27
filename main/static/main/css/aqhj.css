@@ -55,6 +55,10 @@
 .time h2 b {
     font-weight: 900;
 }
+.time h2 .am-pm {
+    font-size : 14px;
+    text-transform: lowercase;
+}
 .local-time h2 b {
     color : #032B2F;
 }

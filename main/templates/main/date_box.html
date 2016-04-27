@@ -3,7 +3,7 @@
     {% if format == '24' %}
     <b>{{ datetime|date:'G' }}</b>:{{ datetime|date:'i' }}
     {% else %}
-    <b>{{ datetime|date:'g' }}</b>:{{ datetime|date:'i' }} {{ datetime|date:'A' }}
+    <b>{{ datetime|date:'g' }}</b>:{{ datetime|date:'i' }} <span class="am-pm">{{ datetime|date:'A' }}</span>
     {% endif %}
     </h2>
 {% endwith %}
