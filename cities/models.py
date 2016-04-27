@@ -26,6 +26,10 @@ class City(AbstractCity):
 connect_default_signals(City)
 
 
+class Country(AbstractCountry):
+    capital = models.ForeignKey(City)
+connect_default_signals(Country)
+
 @receiver(cities_light.signals.city_items_post_import)
 def set_city_fields(sender, instance, items, **kwargs):
     instance.timezone = pytz.timezone(items[ICity.timezone])
