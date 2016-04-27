@@ -28,7 +28,7 @@ def get_user_city(request):
         city_array = City.objects.get(name=city_internal['city'], country__code2=city_internal['country_code'])[:1]
         city = city_array[0] if city_array else None
     elif city_internal['country_code']:
-        country = Country.objects.get(code2=city_internal['country_code'])[:1]
+        country = Country.objects.get(code2=city_internal['country_code'])
         city = country.capital
 
     return city
