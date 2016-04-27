@@ -5,7 +5,7 @@ from django.conf import settings
 from django.contrib.gis.geoip2 import GeoIP2
 from geoip2.errors import AddressNotFoundError
 import random
-from cities.models import City
+from cities.models import City, Country
 
 
 def get_user_city(request):
@@ -22,10 +22,16 @@ def get_user_city(request):
             except AddressNotFoundError:
                 pass
 
+    city = None
     city_internal = g.city(ip)
-    city = City.objects.filter(name=city_internal['city'], country__code2=city_internal['country_code'])[:1]
+    if city_internal['city']:
+        city_array = City.objects.get(name=city_internal['city'], country__code2=city_internal['country_code'])[:1]
+        city = city_array[0] if city_array else None
+    elif city_internal['country_code']:
+        country = Country.objects.get(name=city_internal['city'], country__code2=city_internal['country_code'])[:1]
+        city = country.capital
 
-    return city[0] if city else None
+    return city
 
 
 def get_client_ip(request):
