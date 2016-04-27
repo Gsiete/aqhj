@@ -1,0 +1,27 @@
+Except: Capital:St. John's, country_id=4
+RAM used: 36792 kB ETA:  0:00:05 Done:   2%|                                  |Except: Capital:, country_id=9
+RAM used: 36792 kB ETA:  0:00:04 Done:   8%|###                               |Except: Capital:, country_id=30
+RAM used: 36792 kB ETA:  0:00:04 Done:  10%|###                               |Except: Capital:, country_id=34
+RAM used: 36792 kB ETA:  0:00:04 Done:  15%|#####                             |Except: Capital:San Jose, country_id=50
+RAM used: 36792 kB ETA:  0:00:04 Done:  20%|######                            |Except: Capital:El-Aaiun, country_id=66
+RAM used: 36792 kB ETA:  0:00:03 Done:  23%|#######                           |Except: Capital:Palikir, country_id=73
+RAM used: 36792 kB ETA:  0:00:03 Done:  25%|########                          |Except: Capital:St. George's, country_id=78
+Except: Capital:St Peter Port, country_id=81
+RAM used: 36792 kB ETA:  0:00:03 Done:  30%|##########                        |Except: Capital:, country_id=96
+RAM used: 36792 kB ETA:  0:00:03 Done:  34%|###########                       |Except: Capital:Diego Garcia, country_id=106
+RAM used: 36792 kB ETA:  0:00:02 Done:  48%|################                  |Except: Capital:Macao, country_id=149
+RAM used: 36792 kB ETA:  0:00:02 Done:  57%|###################               |Except: Capital:Panama City, country_id=174
+RAM used: 36792 kB ETA:  0:00:02 Done:  59%|####################              |Except: Capital:East Jerusalem, country_id=184
+RAM used: 36792 kB ETA:  0:00:01 Done:  72%|########################          |Except: Capital:, country_id=221
+RAM used: 36792 kB ETA:  0:00:01 Done:  73%|#########################         |Except: Capital:Nuku'alofa, country_id=225
+RAM used: 36792 kB ETA:  0:00:01 Done:  76%|#########################         |Except: Capital:, country_id=233
+Except: Capital:Washington, country_id=234
+RAM used: 36792 kB ETA:  0:00:01 Done:  79%|###########################       |Except: Capital:Port Vila, country_id=243
+Except: Capital:Mata Utu, country_id=244
+RAM used: 36792 kB ETA:  0:00:00 Done:  82%|############################      |Except: Capital:Belgrade, country_id=251
+Except: Capital:Willemstad, country_id=252
+RAM used: 36792 kB Time: 0:00:04 Done: 100%|##################################|
+Assuming local download is up to date for http://download.geonames.org/export/dump/admin1CodesASCII.txt
+Assuming local download is up to date for http://download.geonames.org/export/dump/cities15000.zip
+Assuming local download is up to date for http://download.geonames.org/export/dump/alternateNames.zip
+ubuntu@ip-172-31-31-214:~/aqhj$ 
