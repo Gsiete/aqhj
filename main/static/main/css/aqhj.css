@@ -50,6 +50,7 @@
 }
 .time h2 {
     font-size : 40px;
+    font-weight: 300;
 }
 .time h2 b {
     font-weight: 900;

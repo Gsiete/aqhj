@@ -9,10 +9,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,900,100,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,700,900' rel='stylesheet' type='text/css'>
+    <link href="{% static "main/css/aqhj.css" %}" rel="stylesheet" type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="{% static "main/js/jquery.countdown.min.js" %}"></script>
-    <link href="{% static "main/css/aqhj.css" %}"  rel="stylesheet">
 </head>
 <body>
 {{ timezone }}
@@ -67,7 +67,6 @@ $(document).ready(function(){
     $('.countdown').each(function(){
         var until_date = new Date($(this).data('until'));
         $(this).countdown(until_date, function(event) {
-            console.log(event);
             var dateFormat = '%-H h %-M m %-S s';
             if(event.offset.totalDays > 0){
                 dateFormat = '%-D día%!D '+dateFormat;
