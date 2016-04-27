@@ -1,8 +1,4 @@
-{% with format='G:i' %}
+{% with format='<\b>G</\b>:i' %}
 <h2>{{ datetime|date:format }}</h2>
 {% endwith %}
 <div>{{ datetime|date:'l j E ' }}</div>
-<div>{{ datetime.tm_year }}/{{ datetime.tm_mon }}/{{ datetime.tm_mday }}</div>
-
-
-|date:"D d M Y"
