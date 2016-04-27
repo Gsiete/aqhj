@@ -25,7 +25,7 @@ def get_user_city(request):
     city_internal = g.city(ip)
     city = City.objects.filter(name=city_internal['city'], country__code2=city_internal['country_code'])[:1]
 
-    return city[0].timezone if city else None
+    return city[0] if city else None
 
 
 def get_client_ip(request):
