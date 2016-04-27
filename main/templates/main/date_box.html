@@ -1,4 +1,10 @@
-{% with format='<\b>G</\b>:i' %}
-<h2>{{ datetime|date:format }}</h2>
+{% with format='12' %}
+    <h2>
+    {% if format == '24' %}
+    <b>{{ datetime|date:'G' }}</b>:{{ datetime|date:'i' }}
+    {% else %}
+    <b>{{ datetime|date:'g' }}</b>:{{ datetime|date:'i' }} {{ datetime|date:'A' }}
+    {% endif %}
+    </h2>
 {% endwith %}
 <div>{{ datetime|date:'l j E ' }}</div>
