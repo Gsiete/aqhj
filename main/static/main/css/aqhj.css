@@ -1,13 +1,14 @@
 .match-box {
     border: 1px solid grey;
     border-radius: 3px;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-weight: 300;
 }
-
-@media screen and (min-width: 768px){
+/*@media screen and (min-width: 768px){*/
     .match-box {
         width: 660px;
     }
-}
+/*}*/
 .c6-of-11 {
     width:54.55%;
     float:left;
@@ -42,12 +43,13 @@
 .team-name {
     line-height: 32px;
 }
-.time h2 {
-    font-family: Lato, Helvetica, Arial, sans-serif;
+
+.time {
+    color : #08708A;
+    font-weight: 300;
 }
 .time h2 {
     font-size : 40px;
-    font-weight: 300;
 }
 .time h2 b {
     font-weight: 900;
@@ -55,29 +57,17 @@
 .local-time h2 b {
     color : #032B2F;
 }
-.local-time h2 {
-    color : #08708A;
-}
-.stadium-time h2 b {
-    color : #08708A;
-}
 .stadium-time h2 {
     color : #56B1BF;
 }
 .time .date {
-  font-size : 12px;
-  font-weight: 300;
-  color : #08708A;
+    font-size : 12px;
 }
 .time .city {
-  font-size : 10px;
-  font-weight: 300;
-  color : #08708A;
+    font-size : 10px;
 }
 .match-box h4 {
-  font-family: Lato, Helvetica, Arial, sans-serif;
-  font-size : 20px;
-  font-weight: 300;
-  letter-spacing : -0.2px;
-  color : #032B2F;
+    font-size : 20px;
+    letter-spacing : -0.2px;
+    color : #032B2F;
 }
