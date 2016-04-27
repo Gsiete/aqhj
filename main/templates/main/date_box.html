@@ -1,2 +1,8 @@
-<h2><b>{{ datetime.tm_hour }}</b>:{{ datetime.tm_min }}</h2>
+{% with format='G:i' %}
+<h2>{{ datetime|date:format }}</h2>
+{% endwith %}
+<div>{{ datetime|date:'l j E ' }}</div>
 <div>{{ datetime.tm_year }}/{{ datetime.tm_mon }}/{{ datetime.tm_mday }}</div>
+
+
+|date:"D d M Y"

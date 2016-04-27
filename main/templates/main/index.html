@@ -44,11 +44,11 @@
         <div class="col-xs-6 clocks">
             <div class="row">
                 <div class="left-column col-xs-6 local-time">
-                    {% include 'main/date_box.html' with datetime=local_time.timetuple %}
+                    {% include 'main/date_box.html' with datetime=local_time %}
                     <div>{{ local_time.tzname }}</div>
                 </div>
                 <div class="col-xs-6 stadium-time">
-                    {% include 'main/date_box.html' with datetime=next_match.stadium_time.timetuple %}
+                    {% include 'main/date_box.html' with datetime=next_match.stadium_time %}
                     <div>{{ next_match.stadium.city.get_display_name }}({{ next_match.stadium_time.tzname }})</div>
                 </div>
             </div>
