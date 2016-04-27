@@ -22,7 +22,7 @@ connect_default_signals(City)
 
 
 class Country(AbstractCountry):
-    capital = models.ForeignKey(City, related_name='country_is_capital')
+    capital = models.ForeignKey(City, related_name='country_is_capital', null=True)
 connect_default_signals(Country)
 
 @receiver(cities_light.signals.city_items_post_import)
