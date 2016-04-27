@@ -8,11 +8,6 @@ from django.db import models
 import pytz
 
 
-class Country(AbstractCountry):
-    capital = models.ForeignKey(City)
-connect_default_signals(Country)
-
-
 class Region(AbstractRegion):
     pass
 connect_default_signals(Region)
