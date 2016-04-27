@@ -8,6 +8,8 @@ from django.db import models
 import pytz
 import logging
 
+logger = logging.getLogger(__name__)
+
 
 class Region(AbstractRegion):
     pass
@@ -37,11 +39,11 @@ def process_country_import(sender, instance, items, **kwargs):
     try:
         capital = City.objects.get(name=items[ICountry.capital], country=instance.id)
     except:
-        logging.error('Except: Capital:%s, country_id=%d' % (items[ICountry.capital], instance.id))
+        logger.error('Except: Capital:%s, country_id=%d' % (items[ICountry.capital], instance.id))
         return
 
     if capital is None:
-        logging.error('None: Capital:%s, country_id=%d' % (items[ICountry.capital], instance.id))
+        logger.error('None: Capital:%s, country_id=%d' % (items[ICountry.capital], instance.id))
         return
 
     instance.capital = City.objects.get(name=items[ICountry.capital], country__id=instance.id)
