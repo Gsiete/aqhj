@@ -6,6 +6,7 @@ from timezone_field import TimeZoneField
 from django.dispatch import receiver
 from django.db import models
 import pytz
+import logging
 
 
 class Region(AbstractRegion):
@@ -25,6 +26,7 @@ class Country(AbstractCountry):
     capital = models.ForeignKey(City, related_name='country_is_capital', null=True)
 connect_default_signals(Country)
 
+
 @receiver(cities_light.signals.city_items_post_import)
 def set_city_fields(sender, instance, items, **kwargs):
     instance.timezone = pytz.timezone(items[ICity.timezone])
@@ -32,6 +34,14 @@ def set_city_fields(sender, instance, items, **kwargs):
 
 @receiver(cities_light.signals.country_items_post_import)
 def process_country_import(sender, instance, items, **kwargs):
-    print(items[ICountry.capital])
-    print(instance)
-    instance.capital = City.objects.get(name=items[ICountry.capital], country=instance.id)
+    try:
+        capital = City.objects.get(name=items[ICountry.capital], country=instance.id)
+    except:
+        logging.error('Except: Capital:%s, country_id=%d' % (items[ICountry.capital], instance.id))
+        return
+
+    if capital is None:
+        logging.error('None: Capital:%s, country_id=%d' % (items[ICountry.capital], instance.id))
+        return
+
+    instance.capital = City.objects.get(name=items[ICountry.capital], country__id=instance.id)
