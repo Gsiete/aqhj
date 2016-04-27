@@ -15,8 +15,8 @@
     <script src="{% static "main/js/jquery.countdown.min.js" %}"></script>
 </head>
 <body>
-{{ timezone }}
-{% with local_time=next_match.time|astimezone:timezone %}
+{{ user_city }}{{ user_city.timezone }}
+{% with local_time=next_match.time|astimezone:user_city.timezone %}
 <div class="match-box container-fluid">
     <div class="row upper-half">
         <div class="left-column col-xs-6">
@@ -46,7 +46,7 @@
         <div class="col-xs-6 clocks">
             <div class="row">
                 <div class="left-column col-xs-6 time local-time">
-                    {% include 'main/date_box.html' with datetime=local_time city=next_match.stadium.city %}
+                    {% include 'main/date_box.html' with datetime=local_time city=user_city %}
                 </div>
                 <div class="col-xs-6 time stadium-time">
                     {% include 'main/date_box.html' with datetime=next_match.stadium_time city=next_match.stadium.city %}

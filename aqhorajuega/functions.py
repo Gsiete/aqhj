@@ -8,7 +8,7 @@ import random
 from cities.models import City
 
 
-def get_user_timezone(request):
+def get_user_city(request):
     g = GeoIP2()
     ip = get_client_ip(request)
     if ip == "127.0.0.1":
@@ -24,11 +24,8 @@ def get_user_timezone(request):
 
     city_internal = g.city(ip)
     city = City.objects.filter(name=city_internal['city'], country__code2=city_internal['country_code'])[:1]
-    if city:
-        return city[0].timezone
 
-    lat_lon = g.lat_lon(ip)
-    return get_timezone_from_coords(*lat_lon)
+    return city[0].timezone if city else None
 
 
 def get_client_ip(request):
@@ -40,14 +37,14 @@ def get_client_ip(request):
     return ip
 
 
-def get_timezone_from_coords(latitude, longitude):
-    api_response = requests.get(settings.GOOGLE_TZ_API_ENDPOINT,
-                                {'location': '{0},{1}'.format(latitude, longitude),
-                                 'timestamp': time.time(),
-                                 'key': settings.GOOGLE_API_KEY})
-
-    api_response_dict = api_response.json()
-    if api_response_dict['status'] == 'OK':
-        return pytz.timezone(api_response_dict['timeZoneId'])
-
-    return None
+# def get_timezone_from_coords(latitude, longitude):
+#     api_response = requests.get(settings.GOOGLE_TZ_API_ENDPOINT,
+#                                 {'location': '{0},{1}'.format(latitude, longitude),
+#                                  'timestamp': time.time(),
+#                                  'key': settings.GOOGLE_API_KEY})
+#
+#     api_response_dict = api_response.json()
+#     if api_response_dict['status'] == 'OK':
+#         return pytz.timezone(api_response_dict['timeZoneId'])
+#
+#     return None
