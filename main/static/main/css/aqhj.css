@@ -43,11 +43,11 @@
     line-height: 32px;
 }
 .time h2 {
-    font-family: Lato;
+    font-family: Lato, Helvetica, Arial, sans-serif;
 }
 .time h2 {
     font-size : 40px;
-    font-weight: 200;
+    font-weight: 300;
 }
 .time h2 b {
     font-weight: 900;
@@ -66,18 +66,18 @@
 }
 .time .date {
   font-size : 12px;
-  font-weight: 200;
+  font-weight: 300;
   color : #08708A;
 }
 .time .city {
   font-size : 10px;
-  font-weight: 200;
+  font-weight: 300;
   color : #08708A;
 }
 .match-box h4 {
-  font-family : Lato;
+  font-family: Lato, Helvetica, Arial, sans-serif;
   font-size : 20px;
-  font-weight: 200;
+  font-weight: 300;
   letter-spacing : -0.2px;
   color : #032B2F;
 }
