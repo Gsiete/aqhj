@@ -8,8 +8,8 @@
     <b>{{ datetime|date:'g' }}</b>:{{ datetime|date:'i' }} <span class="am-pm">{{ datetime|date:'A' }}</span>
     {% endif %}
     </h2>
-{% endtimezone %}
-{% endwith %}
 <div class="date">{{ datetime|date:'l j E ' }}</div>
 <hr>
 <div class="city">{{ city.get_display_name }}({{ datetime.tzname }})</div>
+{% endtimezone %}
+{% endwith %}
