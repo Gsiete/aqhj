@@ -22,6 +22,7 @@ def get_user_city(request):
             except AddressNotFoundError:
                 pass
 
+    ip = '201.231.108.8'
     city = None
     city_internal = g.city(ip)
     if city_internal['city']:

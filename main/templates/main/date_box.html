@@ -1,4 +1,6 @@
+{% load tz %}
 {% with format='12' %}
+{% timezone city.timezone %}
     <h2>
     {% if format == '24' %}
     <b>{{ datetime|date:'G' }}</b>:{{ datetime|date:'i' }}
@@ -6,6 +8,7 @@
     <b>{{ datetime|date:'g' }}</b>:{{ datetime|date:'i' }} <span class="am-pm">{{ datetime|date:'A' }}</span>
     {% endif %}
     </h2>
+{% endtimezone %}
 {% endwith %}
 <div class="date">{{ datetime|date:'l j E ' }}</div>
 <hr>
