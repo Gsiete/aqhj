@@ -38,7 +38,9 @@
 
             <hr>
             <div>
-                Stadium: {{ next_match.stadium.name }}
+                {{ next_match.season.tournament.name }}<br>
+                {{ next_match.game_in_season }}<br>
+                {{ next_match.stadium.name }}, {{ next_match.stadium.city.name }}
             </div>
             <div></div>
         </div>
