@@ -18,7 +18,7 @@
 {{ user_city }}{{ user_city.timezone }}
 <div class="match-box container-fluid">
     <div class="row upper-half">
-        <div class="left-column col-xs-6">
+        <div class="left-column-sm col-xs-12 col-sm-6">
             <div class="row">
                 <div class="col-xs-3 team-logo">
                     <img src="{{ next_match.team_a.logo.url }}">
@@ -42,7 +42,7 @@
             </div>
             <div></div>
         </div>
-        <div class="col-xs-6 clocks">
+        <div class="col-xs-12 col-sm-6 clocks">
             <div class="row">
                 <div class="left-column col-xs-6 time local-time">
                     {% include 'main/date_box.html' with datetime=next_match.time city=user_city %}
@@ -54,10 +54,10 @@
         </div>
     </div>
     <div class="match-box-footer row">
-        <div class="left-column col-xs-6">Próximos partidos</div>
-        <div class="col-xs-6">
-        <div>Faltan <span class="countdown" data-until="{{ next_match.time|isotime }}"></span></div>
+        <div class="col-xs-12 col-sm-6 pull-right">
+            <div>Faltan <span class="countdown" data-until="{{ next_match.time|isotime }}"></span></div>
         </div>
+        <div class="left-column-sm col-xs-12 col-sm-6">Próximos partidos</div>
     </div>
 </div>
 <script>
