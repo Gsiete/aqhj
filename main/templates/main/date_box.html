@@ -1,8 +1,7 @@
 {% load tz %}
-{% with format='12' %}
 {% timezone city.timezone %}
     <h2>
-    {% if format == '24' %}
+    {% if time_format == '24' %}
     <b>{{ datetime|date:'G' }}</b>:{{ datetime|date:'i' }}
     {% else %}
     <b>{{ datetime|date:'g' }}</b>:{{ datetime|date:'i' }} <span class="am-pm">{{ datetime|date:'A' }}</span>
@@ -12,4 +11,3 @@
 <hr>
 <div class="city">{{ city.get_display_name }}({{ datetime.tzname }})</div>
 {% endtimezone %}
-{% endwith %}
