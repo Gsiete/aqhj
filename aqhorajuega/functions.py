@@ -14,20 +14,14 @@ def get_user_city(request):
     g = GeoIP2()
     ip = get_client_ip(request)
     if ip == "127.0.0.1":
-        while True:
-            try:
-                ip = '{0}.{1}.{2}.{3}'.format(*(random.randrange(255) for _ in range(4)))
-                # ip = '28.19.213.230'
-                g.lat_lon(ip)
-                break
-            except AddressNotFoundError:
-                pass
+        get_random_ip()
+
     fake_ip = request.GET.get('fake-ip', False)
     if fake_ip:
         if ips.get(fake_ip, False):
             ip = ips.get(request.GET.get('fake-ip', False), False)
         elif fake_ip == 'rand':
-            ip = '.' . join(str(random.randrange(255)) for _ in range(4))
+            ip = get_random_ip()
 
     city = None
     city_internal = g.city(ip)
@@ -50,6 +44,18 @@ def get_client_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
+
+def get_random_ip():
+    ip = ''
+    while True:
+        try:
+            ip = '{0}.{1}.{2}.{3}'.format(*(random.randrange(255) for _ in range(4)))
+            # ip = '28.19.213.230'
+            g.lat_lon(ip)
+            break
+        except AddressNotFoundError:
+            pass
+    return ip
 
 # def get_timezone_from_coords(latitude, longitude):
 #     api_response = requests.get(settings.GOOGLE_TZ_API_ENDPOINT,
