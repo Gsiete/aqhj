@@ -7,6 +7,7 @@ from geoip2.errors import AddressNotFoundError
 import random
 from cities.models import City, Country
 
+ips={'ar':'201.231.108.8'}
 
 def get_user_city(request):
     g = GeoIP2()
@@ -15,14 +16,18 @@ def get_user_city(request):
         while True:
             try:
                 ip = '{0}.{1}.{2}.{3}'.format(*(random.randrange(255) for _ in range(4)))
-                # ip = '.'.join(str(random.randrange(255)) for _ in range(4))
                 # ip = '28.19.213.230'
                 g.lat_lon(ip)
                 break
             except AddressNotFoundError:
                 pass
+    fake_ip = request.GET.get('fake-ip', False)
+    if fake_ip:
+        if ips.get(fake_ip, False):
+            ip = ips.get(request.GET.get('fake-ip', False), False)
+        elif fake_ip == 'rand':
+            ip = '.' . join(str(random.randrange(255)) for _ in range(4))
 
-    ip = '201.231.108.8'
     city = None
     city_internal = g.city(ip)
     if city_internal['city']:
