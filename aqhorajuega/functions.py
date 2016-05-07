@@ -14,14 +14,14 @@ def get_user_city(request):
     g = GeoIP2()
     ip = get_client_ip(request)
     if ip == "127.0.0.1":
-        get_random_ip()
+        get_random_ip(g)
 
     fake_ip = request.GET.get('fake-ip', False)
     if fake_ip:
         if ips.get(fake_ip, False):
             ip = ips.get(request.GET.get('fake-ip', False), False)
         elif fake_ip == 'rand':
-            ip = get_random_ip()
+            ip = get_random_ip(g)
 
     city = None
     city_internal = g.city(ip)
@@ -45,7 +45,7 @@ def get_client_ip(request):
     return ip
 
 
-def get_random_ip():
+def get_random_ip(g):
     ip = ''
     while True:
         try:
