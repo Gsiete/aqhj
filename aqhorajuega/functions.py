@@ -7,7 +7,8 @@ from geoip2.errors import AddressNotFoundError
 import random
 from cities.models import City, Country
 
-ips={'ar':'201.231.108.8'}
+ips = {'ar': '201.231.108.8'}
+
 
 def get_user_city(request):
     g = GeoIP2()
