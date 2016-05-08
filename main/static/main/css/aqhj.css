@@ -102,3 +102,6 @@
     border-left: 1px solid #EFEFEF;
     margin-left: -1px;
 }
+#header, #footer {
+    background-color: #032b2f;
+}
