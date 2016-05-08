@@ -1,0 +1,16 @@
+{% for match in following_matches %}
+<div class="row following-match">
+    <div class="fm-main left-column">
+        <div class="row">
+            <div class="fm-team-a-logo"><img src="{{ next_match.team_a.logo.url }}"></div>
+            <div class="fm-team-a-name"><h4>{{ next_match.team_a }}</h4></div>
+            <div class="fm-vs"> vs </div>
+            <div class="fm-team-b-name"><h4>{{ next_match.team_b }}</h4></div>
+            <div class="fm-team-b-logo"><img src="{{ next_match.team_b.logo.url }}"></div>
+        </div>
+    </div>
+    <div class="fm-date">
+        {% include 'main/date_box_tiny.html' with datetime=match.time city=user_city %}
+    </div>
+</div>
+{% endfor %}

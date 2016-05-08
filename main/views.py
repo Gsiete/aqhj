@@ -9,5 +9,10 @@ def index(request):
     user_city = aqhorajuega.functions.get_user_city(request)
     user_city = user_city if user_city else next_match.stadium.city
     time_format = request.GET.get('format', '24')
+    following_matches = [next_match for _ in range(5)]
 
-    return render(request, 'main/index.html', {'time_format': time_format, 'next_match': next_match, 'user_city': user_city})
+    return render(request, 'main/index.html', {
+       'following_matches': following_matches,
+       'time_format': time_format,
+       'next_match': next_match,
+       'user_city': user_city})

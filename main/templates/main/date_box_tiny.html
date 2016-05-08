@@ -1,0 +1,15 @@
+{% load tz %}
+{% timezone city.timezone %}
+    <h2>
+    {% if time_format == '24' %}
+    <b>{{ datetime|date:'G' }}</b>:{{ datetime|date:'i' }}
+    {% else %}
+    <b>{{ datetime|date:'g' }}</b>:{{ datetime|date:'i' }} <span class="am-pm">{{ datetime|date:'A' }}</span>
+    {% endif %}
+    </h2>
+<div class="date">
+    <span class="day-week">{{ datetime|date:'D' }}</span>
+    <span class="day-month">{{ datetime|date:'j' }}</span>
+    <span class="month">{{ datetime|date:'E' }}</span>
+</div>
+{% endtimezone %}
