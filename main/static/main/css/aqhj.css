@@ -1,5 +1,5 @@
 #container {
-    border: 1px solid grey;
+    border: 1px solid #EFEFEF;
     font-family: Lato, Helvetica, Arial, sans-serif;
     font-weight: 300;
 }
@@ -15,19 +15,19 @@
     height: 300px;
 }
 .left-column {
-    border-right: 1px solid grey;
+    border-right: 1px solid #EFEFEF;
 }
 @media (min-width: 768px) {
     .left-column-sm {
-        border-right: 1px solid grey;
+        border-right: 1px solid #EFEFEF;
     }
 }
 @media (max-width: 767px) {
     .left-column-sm {
-        border-bottom: 1px solid grey;
+        border-bottom: 1px solid #EFEFEF;
     }
     .match-box-footer .left-column-sm {
-        border-top: 1px solid grey;
+        border-top: 1px solid #EFEFEF;
         border-bottom-width: 0;
     }
 }
@@ -36,8 +36,7 @@
     text-align: center;
 }
 .match-box-footer {
-    border-top: 1px solid grey;
-    background-color: lightgrey;
+    border-top: 1px solid #EFEFEF;
 }
 
 .team-logo img {
@@ -90,7 +89,7 @@
     text-align: right;
 }
 #following-matches .following-match {
-    border-top: 1px solid grey;
+    border-top: 1px solid #EFEFEF;
 }
 .fm-date {
     text-align: center;
@@ -100,6 +99,6 @@
     margin-bottom: -1px;
 }
 .right-column {
-    border-left: 1px solid grey;
+    border-left: 1px solid #EFEFEF;
     margin-left: -1px;
 }
