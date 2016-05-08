@@ -52,5 +52,6 @@
     }
     .fm-team-b-name {
         text-align: left;
+        float: right;
     }
 }
