@@ -102,6 +102,7 @@
 }
 #header, #footer {
     background-color: #032b2f;
+    color: #d0d3c5;
 }
 #header .container {
     width: 1140px;
