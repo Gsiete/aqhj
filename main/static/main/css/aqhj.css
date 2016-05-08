@@ -107,7 +107,9 @@
 #header .container {
     width: 1140px;
     text-align: right;
+    font-size: 24px;
 }
 #footer .container {
     width: 860px;
+    font-size: 15px;
 }
