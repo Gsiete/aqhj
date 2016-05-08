@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="match-box">
+    <section class="match-box">
         <div class="row upper-half">
             <div class="left-column-sm col-xs-12 col-sm-6">
                 <div class="row">
@@ -57,10 +57,10 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="following-matches" class="collapse">
+    </section>
+    <section id="following-matches" class="collapse">
         {% include 'main/following_matches.html' %}
-    </div>
+    </section>
 {% endblock %}
 
 {% block footer_script %}
