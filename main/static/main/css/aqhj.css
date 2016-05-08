@@ -95,3 +95,7 @@
 .fm-date {
     text-align: center;
 }
+#fm-toggle.collapsed{
+    border-bottom: 1px solid white;
+    margin-bottom: -1px;
+}
