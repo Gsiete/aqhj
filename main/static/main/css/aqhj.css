@@ -101,7 +101,7 @@
     border-left: 1px solid #EFEFEF;
     margin-left: -1px;
 }
-#header, #footer {
+#header, #footer, #header a, #footer a {
     background-color: #032b2f;
     color: #d0d3c5;
 }
@@ -113,4 +113,34 @@
 #footer .container {
     width: 860px;
     font-size: 15px;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+}
+.btn {
+    border-radius: 0;
+    border: 1px solid #bebebe;
+}
+.btn.btn-primary, .btn.btn-right.activated {
+    background-color: #08708a;
+    border: 1px solid #08708a;
+}
+.btn.btn-info, .btn.btn-left.activated {
+    background-color: #56b1bf;
+    border: 1px solid #56b1bf;
+}
+#settings-modal {
+    text-align: center;
 }

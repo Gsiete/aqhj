@@ -1,0 +1,19 @@
+{% spaceless %}
+<h2>¡Bienvenido!</h2>
+<div>Detectamos que tu zona horaria* es la de</div>
+
+<section>
+    <div class="city"><b>{{ user_city.name }},</b> {{ user_city.name }}</div>
+    <button class="btn btn-left">Cambiar</button>
+    <button class="btn btn-right activated">Es correcto</button>
+</section>
+
+<section>
+    <div>Elige tu formato horario*</div>
+    <button class="btn btn-left{% if time_format == '12' %} activated{% endif %}">12-h (AM/PM)</button>
+    <button class="btn btn-right{% if time_format == '24' %} activated{% endif %}">24-h</button>
+</section>
+
+<button class="btn btn-primary" data-dismiss="modal">Al sitio</button>
+<p class="clarification">*Podrás modificar tu configuración dentro del sitio.</p>
+{% endspaceless %}

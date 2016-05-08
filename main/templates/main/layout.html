@@ -28,12 +28,25 @@
         <div class="container">
             <i class="fa fa-facebook"></i>
             <i class="fa fa-twitter"></i>
-            <i class="glyphicon glyphicon-cog"></i>
+            <a href="#" data-toggle="modal" data-target="#settings-modal">
+                <i class="glyphicon glyphicon-cog"></i>
+            </a>
         </div>
     {% endblock %}
     </header>
 
-    {{ user_city }}{{ user_city.timezone }}
+
+    <!-- Modal -->
+    <div id="settings-modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+            {% include 'main/settings-modal.html' %}
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="content" class="container">
         {% block content %}
         {% endblock %}
