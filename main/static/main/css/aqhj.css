@@ -103,3 +103,10 @@
 #header, #footer {
     background-color: #032b2f;
 }
+#header .container {
+    width: 1140px;
+    text-align: right;
+}
+#footer .container {
+    width: 860px;
+}
