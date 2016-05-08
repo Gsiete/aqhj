@@ -3,23 +3,14 @@
     font-family: Lato, Helvetica, Arial, sans-serif;
     font-weight: 300;
 }
-/*@media screen and (min-width: 768px){*/
+#container {
+    width: 660px;
+}
+/*@media screen and (min-width: 768px){
     #container {
-        width: 660px;
+        width: 420px;
     }
-/*}*/
-.c6-of-11 {
-    width:54.55%;
-    float:left;
-}
-.c5-of-11 {
-    width:45.45%;
-    float:left;
-}
-.c5-of-11, .c6-of-11 {
-    padding-right: 15px;
-    padding-left: 15px;
-}
+}*/
 .upper-half .left-column, .upper-half .left-column-sm{
     height: 300px;
 }
@@ -95,33 +86,12 @@
 #following-matches img {
     width: 30px;
 }
-.fm-main {
-    width: 80%;
-}
-.fm-date {
-    width: 20%;
-}
-.fm-vs {
-    width: 5%;
-}
-.fm-team-a-name, .fm-team-b-name {
-    width: 34.2%;
-}
-.fm-team-a-logo, .fm-team-b-logo {
-    width: 13.3%;
-}
-.fm-main, .fm-date, .fm-team-a-logo, .fm-team-b-logo, .fm-team-a-name, .fm-team-b-name, .fm-vs {
-    float: left;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 .fm-team-a-logo, .fm-team-b-name {
     text-align: right;
 }
-.fm-team-b-logo, .fm-team-a-name {
-    text-align: left;
-}
 #following-matches .following-match {
     border-top: 1px solid grey;
+}
+.fm-date {
+    text-align: center;
 }
