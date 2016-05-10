@@ -2,12 +2,22 @@
 {% timezone city.timezone %}
     <h2>
     {% if time_format == '24' %}
-    <b>{{ datetime|date:'G' }}</b>:{{ datetime|date:'i' }}
+        <b class="var-time" data-tformat="HH">{{ datetime|date:'G' }}</b>:<span class="var-time" data-tformat="mm">{{ datetime|date:'i' }}</span>
     {% else %}
-    <b>{{ datetime|date:'g' }}</b>:{{ datetime|date:'i' }} <span class="am-pm">{{ datetime|date:'A' }}</span>
+    <b class="var-time" data-tformat="hh">{{ datetime|date:'g' }}</b>:<span class="var-time" data-tformat="mm">{{ datetime|date:'i' }}</span>
+        <span class="am-pm var-time" data-tformat="a">{{ datetime|date:'A' }}</span>
     {% endif %}
     </h2>
-<div class="date">{{ datetime|date:'l j E' }}</div>
-<hr>
-<div class="city">{{ city.get_display_name }}({{ datetime|date:'e' }})</div>
+    <span class="day-week var-time" data-tformat="dddd">{{ datetime|date:'l' }}</span>
+    <span class="day-month var-time" data-tformat="D">{{ datetime|date:'j' }}</span>
+    <span class="month var-time" data-tformat="MMMM">{{ datetime|date:'E' }}</span>
+    <hr>
+    <div class="city">
+        {% if local %}
+        <span class="var-city">{{ city.get_display_name }}</span>
+        {% else %}
+        {{ city.get_display_name }}
+        {% endif %}
+        (<span class="var-time" data-tformat="z">{{ datetime|date:'e' }}</span>)
+    </div>
 {% endtimezone %}

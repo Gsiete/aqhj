@@ -36,8 +36,8 @@
             </div>
             <div class="col-xs-12 col-sm-6 clocks right-column">
                 <div class="row">
-                    <div class="left-column col-xs-6 time local-time">
-                        {% include 'main/date_box.html' with datetime=next_match.time city=user_city %}
+                    <div class="left-column col-xs-6 time local-time js-local-time" data-time="{{ next_match.time|isotime }}">
+                        {% include 'main/date_box.html' with datetime=next_match.time city=user_city local=True %}
                     </div>
                     <div class="col-xs-6 time stadium-time">
                         {% include 'main/date_box.html' with datetime=next_match.time city=next_match.stadium.city %}

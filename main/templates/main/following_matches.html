@@ -14,7 +14,7 @@
             {{ match.stadium.name }}, {{ match.stadium.city.name }}
         </div>
     </div>
-    <div class="fm-date right-column">
+    <div class="fm-date right-column js-local-time" data-time="{{ match.time|isotime }}">
         {% include 'main/date_box_tiny.html' with datetime=match.time city=user_city %}
     </div>
 </div>
