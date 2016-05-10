@@ -1,7 +1,10 @@
+import random
+
 from django.contrib.gis.geoip2 import GeoIP2
 from geoip2.errors import AddressNotFoundError
-import random
+
 from cities.models import City, Country
+
 ips = {'ar': '201.231.108.8'}
 
 
