@@ -1,16 +1,17 @@
+{% load aqhj_tags %}
 {% for match in following_matches %}
 <div class="row following-match">
     <div class="fm-main left-column">
         <div class="row">
-            <div class="fm-team-a-logo"><img src="{{ next_match.team_a.logo.url }}"></div>
-            <div class="fm-team-a-name"><h4>{{ next_match.team_a }}</h4></div>
+            <div class="fm-team-a-logo"><img src="{{ match.team_a.logo.url }}"></div>
+            <div class="fm-team-a-name"><h4>{{ match.team_a }}</h4></div>
             <div class="fm-vs"> vs </div>
-            <div class="fm-team-b-name"><h4>{{ next_match.team_b }}</h4></div>
-            <div class="fm-team-b-logo"><img src="{{ next_match.team_b.logo.url }}"></div>
+            <div class="fm-team-b-name"><h4>{{ match.team_b }}</h4></div>
+            <div class="fm-team-b-logo"><img src="{{ match.team_b.logo.url }}"></div>
         </div>
         <div>
-            {{ next_match.season.tournament.name }}, {{ next_match.game_in_season }}<br>
-            {{ next_match.stadium.name }}, {{ next_match.stadium.city.name }}
+            {{ match.season.tournament.name }}, {{ match.game_in_season }}<br>
+            {{ match.stadium.name }}, {{ match.stadium.city.name }}
         </div>
     </div>
     <div class="fm-date right-column">
