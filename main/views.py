@@ -16,7 +16,7 @@ def index(request):
 
     user_city = user_city if user_city else next_match.stadium.city
 
-    time_format = request.GET.get('format', '24')
+    time_format = request.COOKIES.get('tformat', '24')
     following_matches = [next_match for _ in range(5)]
 
     response = render(request, 'main/index.html', {
