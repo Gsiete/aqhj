@@ -7,7 +7,7 @@ class CityAutocomplete(autocomplete.Select2QuerySetView):
         qs = City.objects.all()
 
         if self.q:
-            qs = qs.filter(name__startswith=self.q)
+            qs = qs.filter(name__istartswith=self.q)
 
         return qs
 
