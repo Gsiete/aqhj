@@ -1,7 +1,3 @@
-/**
- * Created by gab on 08/05/16.
- */
-
 $(document).ready(function(){
     var fm = $('#following-matches'), fmToggle = $('#fm-toggle');
 
