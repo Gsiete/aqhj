@@ -14,3 +14,7 @@ $(document).ready(function(){
         fmToggle.removeClass('collapsed');
     });
 });
+
+String.prototype.boldUntil = function(delimiter) {
+    return '<b>' + this.replace(delimiter, delimiter + '</b>');
+};

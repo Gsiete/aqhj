@@ -11,6 +11,23 @@ $(document).ready(function(){
         $settingsModal.modal('show');
     }
 
+    $('#format-12').on('click', function() {
+        $("#format-24").removeClass('activated');
+        $("#format-12").addClass('activated');
+        $(".am-pm").removeClass('hidden');
+        document.cookie = "tformat=12; path=/";
+        $('.var-tformat').data('tformat', 'h:mm');
+        $(document).trigger('tformat-change');
+    });
+    $('#format-24').on('click', function() {
+        $("#format-12").removeClass('activated');
+        $("#format-24").addClass('activated');
+        $(".am-pm").addClass('hidden');
+        document.cookie = "tformat=24; path=/";
+        $('.var-tformat').data('tformat', 'H:mm');
+        $(document).trigger('tformat-change');
+    });
+
     $changeCityButton.on('click', function() {
         if($cityElement.find('select').length == 0){
             $changeCityButton.addClass('activated');
@@ -40,8 +57,7 @@ $(document).ready(function(){
                 var $selectedCity = $cityElement.find('.city-elem'), cityName = $(this).text(), cityId = $(this).val();
 
                 $(document).trigger('tz-change', [$selectedCity.data('tz'), cityName, cityId]);
-                var formattedCityName = '<b>' + cityName.replace(',', ',</b>');
-                $cityElement.html(formattedCityName);
+                $cityElement.html(cityName.boldUntil(','));
             });
         }
     });

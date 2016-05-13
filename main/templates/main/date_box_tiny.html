@@ -2,15 +2,24 @@
 {% timezone city.timezone %}
     <h2>
     {% if time_format == '24' %}
-        <b class="var-time" data-tformat="HH">{{ datetime|date:'G' }}</b>:<span class="var-time" data-tformat="mm">{{ datetime|date:'i' }}</span>
+        <span class="var-time" data-bold-hours="true" data-tformat="H:mm">
+            <b>{{ datetime|date:'G' }}</b>:{{ datetime|date:'i' }}
+        </span>
+        <span class="am-pm var-time hidden" data-tformat="a">
+            {{ datetime|date:'A' }}
+        </span>
     {% else %}
-    <b class="var-time" data-tformat="hh">{{ datetime|date:'g' }}</b>:<span class="var-time" data-tformat="mm">{{ datetime|date:'i' }}</span>
-        <span class="am-pm var-time" data-tformat="a">{{ datetime|date:'A' }}</span>
+        <span class="var-time" data-bold-hours="true" data-tformat="h:mm">
+            <b>{{ datetime|date:'g' }}</b>:{{ datetime|date:'i' }}
+        </span>
+        <span class="am-pm var-time" data-tformat="a">
+            {{ datetime|date:'A' }}
+        </span>
     {% endif %}
     </h2>
 <div class="date">
-    <span class="day-week var-time" data-tformat="ddd">{{ datetime|date:'D' }}</span>
+    <span class="day-week var-time" data-ucfirst="true" data-tformat="ddd">{{ datetime|date:'D' }}</span>
     <span class="day-month var-time" data-tformat="D">{{ datetime|date:'j' }}</span>
-    <span class="month var-time" data-tformat="MMMM">{{ datetime|date:'E' }}</span>
+    <span class="month var-time" data-ucfirst="true" data-tformat="MMMM">{{ datetime|date:'E' }}</span>
 </div>
 {% endtimezone %}

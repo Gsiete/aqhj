@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    <section class="match-box">
+    <section class="match-box" data-time="{{ next_match.time|isotime }}">
         <div class="row upper-half">
             <div class="left-column-sm col-xs-12 col-sm-6">
                 <div class="row">
@@ -36,10 +36,10 @@
             </div>
             <div class="col-xs-12 col-sm-6 clocks right-column">
                 <div class="row">
-                    <div class="left-column col-xs-6 time local-time js-local-time" data-time="{{ next_match.time|isotime }}">
+                    <div class="left-column col-xs-6 time local-time js-local-time" data-time="{{ next_match.time|isotime }}" data-tz="{{ user_city.timezone }}">
                         {% include 'main/date_box.html' with datetime=next_match.time city=user_city local=True %}
                     </div>
-                    <div class="col-xs-6 time stadium-time">
+                    <div class="col-xs-6 time stadium-time" data-time="{{ next_match.time|isotime }}" data-tz="{{ next_match.stadium.city.timezone }}">
                         {% include 'main/date_box.html' with datetime=next_match.time city=next_match.stadium.city %}
                     </div>
                 </div>
