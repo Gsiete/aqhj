@@ -18,9 +18,9 @@
         </span>
     {% endif %}
     </h2>
-    <span class="day-week var-time" data-ucfirst="true" data-tformat="dddd">{{ datetime|date:'l' }}</span>
+    <span class="day-week var-time" data-tformat="dddd">{{ datetime|date:'l' }}</span>
     <span class="day-month var-time" data-tformat="D">{{ datetime|date:'j' }}</span>
-    <span class="month var-time" data-ucfirst="true" data-tformat="MMMM">{{ datetime|date:'E' }}</span>
+    <span class="month var-time" data-tformat="MMMM">{{ datetime|date:'E' }}</span>
     <hr>
     <div class="city">
         {% if local %}
