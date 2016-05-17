@@ -32,15 +32,22 @@
     <header id="header">
     {% block header %}
         <div class="container">
-            <i class="fa fa-facebook"></i>
-            <i class="fa fa-twitter"></i>
+            <a><i class="fa fa-facebook"></i></a>
+            <a><i class="fa fa-twitter"></i></a>
             <a href="#" data-toggle="modal" data-target="#settings-modal">
                 <i class="glyphicon glyphicon-cog"></i>
             </a>
         </div>
     {% endblock %}
     </header>
-
+    <nav id="main-nav">
+      <ul>
+        <li><a href="/home.htm">Cuando Juega</a></li>
+        <li><a href="/resultados.htm">Resultados y Videos</a></li>
+        <li><a href="/posiciones.htm">Tabla de Posiciones</a></li>
+        <li><a href="http://www.bet365.com/" target="blank">¡Apuesta ahora!</a></li>
+      </ul>
+    </nav>
 
     <!-- Modal -->
     <div id="settings-modal" class="modal fade" role="dialog" data-show='{{ city_is_new|yesno:'yes,no' }}'>
@@ -60,14 +67,59 @@
 
     <footer id="footer">
     {% block footer %}
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 col-xs-6">Contact</div>
-                <div class="col-sm-3 col-xs-6">Newsletter</div>
-                <div class="col-sm-3 col-xs-6">Twitter</div>
-                <div class="col-sm-3 col-xs-6">Facebook</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-7 col-xs-6">
+            <div class="sign-up">
+              <h1>NO TE PIERDAS EL PRÓXIMO PARTIDO DEL BARCELONA</h1>
+              <p>Te avisamos por email a qué hora juega en tu zona horaria.</p>
+
+              <div class="row">
+                <form>
+                    <div class="form-group">
+                      <div class="col-sm-3">
+                      <input type="text" class="form-control" id="usr"placeholder="Tu nombre">
+                      </div>
+                      <div class="col-sm-5">
+                      <input type="text" class="form-control" id="usr"placeholder="Tu email">
+                      </div>
+                      <div class="col-sm-4">
+                      <button type="button" class="btn btn-danger">SUSCRÍBEME</button>
+                      </div>
+
+                    </div>
+
+                </form>
+              </div>
+              <h5>Tal como a ti, no nos gusta el SPAM.</h5>
             </div>
+          </div>
+          <div class="col-sm-1 col-xs-6"></div>
+
+          <div class="col-sm-2 col-xs-6">
+          <h4>AQUÍ</h4>
+          <nav>
+            <ul>
+              <li>Cuando Juega</li>
+              <li>Resultados</li>
+              <li>Posiciones</li>
+              <li>Sobre nosotros</li>
+              <li>Contacto</li>
+            </ul>
+          </nav>
+          </div>
+          <div class="col-sm-2 col-xs-6">
+            <h4>ALLÁ</h4>
+            <nav>
+              <ul>
+                <li>Twitter</li>
+                <li>Facebook</li>
+                <li>¡Apuesta ahora!</li>
+              </ul>
+            </nav>
+          </div>
         </div>
+      </div>
     {% endblock %}
     </footer>
 

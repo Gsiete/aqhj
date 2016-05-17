@@ -3,15 +3,20 @@
 <div class="row following-match">
     <div class="fm-main left-column">
         <div class="row">
-            <div class="fm-team-a-logo"><img src="{{ match.team_a.logo.url }}"></div>
-            <div class="fm-team-a-name"><h4>{{ match.team_a }}</h4></div>
-            <div class="fm-vs"> vs </div>
-            <div class="fm-team-b-name"><h4>{{ match.team_b }}</h4></div>
-            <div class="fm-team-b-logo"><img src="{{ match.team_b.logo.url }}"></div>
+          <div class="col-xs-5 fm-team-a">
+            <img src="{{ match.team_a.logo.url }}">
+            <h4>{{ match.team_a }}</h4>
+          </div>
+          <div class="col-xs-2">
+            <p>vs</p>
+          </div>
+          <div class="col-xs-5 fm-team-b">
+            <img src="{{ match.team_b.logo.url }}">
+            <h4>{{ match.team_b }}</h4>
+          </div>
         </div>
-        <div>
-            {{ match.season.tournament.name }}, {{ match.game_in_season }}<br>
-            {{ match.stadium.name }}, {{ match.stadium.city.name }}
+        <div class="match-info-fm">
+            {{ match.season.tournament.name }}, {{ match.game_in_season }}  |  {{ match.stadium.name }}, {{ match.stadium.city.name }}
         </div>
     </div>
     <div class="fm-date right-column time js-local-time" data-time="{{ match.time|isotime }}" data-tz="{{ user_city.timezone }}">

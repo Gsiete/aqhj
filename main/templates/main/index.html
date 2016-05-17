@@ -1,82 +1,120 @@
 {% extends 'main/layout.html' %}
 {% load tz %}
 {% load aqhj_tags %}
+{% load staticfiles %}
 {% block head_extra %}
-    <title>Title</title>
+  <title>Title</title>
 {% endblock %}
 
 {% block content %}
-    <section class="match-box" data-time="{{ next_match.time|isotime }}">
-        <div class="row upper-half">
-            <div class="left-column-sm col-xs-12 col-sm-6">
-                <div class="row">
-                    <div class="col-xs-3 team-logo">
-                        <img src="{{ next_match.team_a.logo.url }}">
-                    </div>
-                    <div class="col-xs-9 team-name">
-                        <h4>{{ next_match.team_a }}</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3 team-logo">
-                        <img src="{{ next_match.team_b.logo.url }}">
-                    </div>
-                    <div class="col-xs-9 team-name">
-                        <h4>{{ next_match.team_b }}</h4>
-                    </div>
-                </div>
+  <h1>¿Cuándo juega el Barcelona?</h1>
+  <h3>Entérate a qué hora juega el Barcelona hoy en tu país.</h3>
+  <section class="match-box" data-time="{{ next_match.time|isotime }}">
+    <div class="row upper-half">
+      <div class="left-column-sm col-xs-12 col-sm-6">
+        <div class="ver-space"></div>
+        <div class="row">
+          <div class="col-xs-12 team-logo">
+            <img src="{{ next_match.team_a.logo.url }}">
+            <h4>{{ next_match.team_a }}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 team-logo">
+            <img src="{{ next_match.team_b.logo.url }}">
+            <h4>{{ next_match.team_b }}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="match-info">
+          {{ next_match.season.tournament.name }}<br>
+          {{ next_match.game_in_season }}<br>
+          {{ next_match.stadium.name }}, {{ next_match.stadium.city.name }}
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 clocks right-column">
+        <div class="row">
+          <div class="left-column col-xs-6 time local-time js-local-time" data-time="{{ next_match.time|isotime }}"
+               data-tz="{{ user_city.timezone }}">
+            {% include 'main/date_box.html' with datetime=next_match.time city=user_city local=True %}
+          </div>
+          <div class="col-xs-6 time stadium-time" data-time="{{ next_match.time|isotime }}"
+               data-tz="{{ next_match.stadium.city.timezone }}">
+            {% include 'main/date_box.html' with datetime=next_match.time city=next_match.stadium.city %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="match-box-footer row">
+      <div class="col-xs-12 col-sm-6 pull-right">
+        <div>Faltan <span class="countdown" data-until="{{ next_match.time|isotime }}"></span></div>
+      </div>
+      <div id="fm-toggle" class="left-column-sm col-xs-12 col-sm-6">
+        <div class="row">
+          <div class="col-xs-4 col-sm-2"><span class="glyphicon glyphicon-menu-down"></span></div>
+          <div class="col-xs-4 col-sm-8">Próximos partidos</div>
+          <div class="col-xs-4 col-sm-2"><span class="glyphicon glyphicon-menu-down"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                <hr>
-                <div>
-                    {{ next_match.season.tournament.name }}<br>
-                    {{ next_match.game_in_season }}<br>
-                    {{ next_match.stadium.name }}, {{ next_match.stadium.city.name }}
-                </div>
-                <div></div>
-            </div>
-            <div class="col-xs-12 col-sm-6 clocks right-column">
-                <div class="row">
-                    <div class="left-column col-xs-6 time local-time js-local-time" data-time="{{ next_match.time|isotime }}" data-tz="{{ user_city.timezone }}">
-                        {% include 'main/date_box.html' with datetime=next_match.time city=user_city local=True %}
-                    </div>
-                    <div class="col-xs-6 time stadium-time" data-time="{{ next_match.time|isotime }}" data-tz="{{ next_match.stadium.city.timezone }}">
-                        {% include 'main/date_box.html' with datetime=next_match.time city=next_match.stadium.city %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="match-box-footer row">
-            <div class="col-xs-12 col-sm-6 pull-right">
-                <div>Faltan <span class="countdown" data-until="{{ next_match.time|isotime }}"></span></div>
-            </div>
-            <div id="fm-toggle" class="left-column-sm col-xs-12 col-sm-6">
-                <div class="row">
-                    <div class="col-xs-4 col-sm-2"><span class="glyphicon glyphicon-menu-down"></span></div>
-                    <div class="col-xs-4 col-sm-8">Próximos partidos</div>
-                    <div class="col-xs-4 col-sm-2"><span class="glyphicon glyphicon-menu-down"></span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="following-matches" class="collapse">
-        {% include 'main/following_matches.html' %}
-    </section>
+  <section id="following-matches" class="collapse">
+    {% include 'main/following_matches.html' %}
+  </section>
+
+  <section class="article-three">
+    <h2>Tres cosas que deberías saber antes del partido</h2>
+    <h3>{{ next_match.team_a }} contra {{ next_match.team_b }}</h3>
+
+    <div class="row">
+      <div class="col-xs-1">
+        <img src="{% static "main/img/point-1.png" %}"/>
+      </div>
+      <div class="col-xs-11">
+        <p>Lorem Ipsum. Ei usu patrioque cotidieque, eirmod minimum salutandi mel ad, vidit sonet imperdiet usu cu.
+          Putant melius reprehendunt id mei, id paulo dolorum qui. Ne duo rationibus referrentur. Et sonet salutandi
+          pro, choro noster repudiare ne per, in paulo appellantur vim. Ea modus error quo.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-1">
+        <img src="{% static "main/img/point-2.png" %}"/>
+      </div>
+      <div class="col-xs-11">
+        <p>Te wisi debitis mea, mel propriae delicata molestiae et. No malis adipisci vix. Ad impetus fabellas usu, ius
+          postea sanctus id. Dico omnes vis id, his ex possim aperiam evertitur, et mel atqui dolore placerat.
+          Moderatius voluptatibus ex vim, ne utamur persius usu.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-1">
+        <img src="{% static "main/img/point-3.png" %}"/>
+      </div>
+      <div class="col-xs-11">
+        <p>No his graeco molestie constituto, vix ut ubique quaerendum. Ei primis doctus per. Duis labores id mea. Id
+          odio omnes omittantur sea, qui at decore honestatis adversarium, ad case affert philosophia sed. Eum essent
+          delicata postulant ne, purto timeam dignissim ei mel.</p>
+      </div>
+    </div>
+  </section>
 {% endblock %}
 
 {% block footer_script %}
-<script>
-$(document).ready(function(){
-    $('.countdown').each(function(){
+  <script>
+    $(document).ready(function () {
+      $('.countdown').each(function () {
         var until_date = new Date($(this).data('until'));
-        $(this).countdown(until_date, function(event) {
-            var dateFormat = '%-H h %-M m %-S s';
-            if(event.offset.totalDays > 0){
-                dateFormat = '%-D día%!D '+dateFormat;
-            }
-            $(this).text(event.strftime(dateFormat));
+        $(this).countdown(until_date, function (event) {
+          var dateFormat = '%-H h %-M m %-S s';
+          if (event.offset.totalDays > 0) {
+            dateFormat = '%-D día%!D ' + dateFormat;
+          }
+          $(this).text(event.strftime(dateFormat));
         });
-    });
+      });
 
-});
-</script>
+    });
+  </script>
 {% endblock %}

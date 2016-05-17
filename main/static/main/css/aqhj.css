@@ -1,9 +1,33 @@
+
 #content {
-    border: 1px solid #DFDFDF;
     font-family: Lato, Helvetica, Arial, sans-serif;
     font-weight: 300;
-    width: 660px;
-    margin-bottom: 150px;
+    width: 720px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#content .match-box {
+    border: 1px solid #DFDFDF;
+    text-align: left;
+    width: 100%;
+}
+
+#content h1 {
+    font-weight: 800;
+    letter-spacing: -0.36px;
+    color: #032B2F;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#content h3 {
+    letter-spacing: 0.02em;
+    font-size: 22px;
+    font-weight: 300;
+    color: #BEBFB6;
+    margin-top: 5px;
+    margin-bottom: 44px;
 }
 
 @media screen and (max-width: 767px) {
@@ -14,7 +38,11 @@
 }
 
 .upper-half .left-column, .upper-half .left-column-sm {
-    height: 300px;
+    height: 240px;
+}
+
+.upper-half .stadium-time {
+    height: 240px;
 }
 
 .left-column {
@@ -39,38 +67,84 @@
 }
 
 .clocks, .match-box-footer {
-    line-height: 3em;
+    line-height: 1em;
     text-align: center;
 }
 
 .match-box-footer {
     border-top: 1px solid #DFDFDF;
+    height: 60px;
 }
 
 .team-logo img {
-    height: 32px;
-    margin-top: 10px;
+    height: 36px;
+    margin-top: 24px;
+    margin-left: 0;
+    float: left;
+    margin-right: 15px;
 }
 
 .team-name {
     line-height: 32px;
+    padding-left: -10px;
 }
 
-.time {
+.match-info {
+    padding-left: 18px;
+    padding-top: 26px;
+    line-height: 18px;
+    color: #BEBFB6;
+    font-weight: 300;
+}
+
+.match-info-fm {
+    color: #BEBFB6;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.hr-dif {
+    color: #EB040A;
+    font-weight: 400;
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
+
+.match-box-footer {
+    font-size: 20px;
+    color: #BEBFB6;
+    letter-spacing: -0.2px;
+    height: 60px;
+}
+
+.pull-right {
+    padding: 18px 0 10px 0;
+}
+
+#fm-toggle {
+    padding: 18px 0 20px 0;
+}
+
+.match-box .time {
     color: #08708A;
     font-weight: 300;
 }
 
-.time h2 {
-    font-size: 40px;
+.match-box .time h2 {
+    font-size: 48px;
     font-weight: 300;
+    margin-top: 70px;
 }
 
-.time h2 b {
-    font-weight: 900;
+.match-box .time h2 b {
+    font-weight: 800;
 }
 
-.time h2 .am-pm {
+.match-box .time h2 .am-pm {
     font-size: 14px;
     text-transform: lowercase;
 }
@@ -87,30 +161,119 @@
     color: #08708A;
 }
 
-.time .date {
-    font-size: 12px;
+.match-box .time .date {
+    font-size: 14px;
+    color: #08708A;
 }
 
-.time .city {
-    font-size: 10px;
-}
-
-.match-box h4 {
-    font-size: 20px;
-    letter-spacing: -0.2px;
+.day-week {
     color: #032B2F;
 }
 
+.day-month {
+    color: #08708A;
+}
+
+.month {
+    color: #56B1BF;
+}
+
+.match-box .time .city {
+    font-size: 12px;
+}
+
+.match-box .time hr {
+    margin: 5px auto;
+    border-color: #08708A;
+    width: 86%;
+}
+
+.stadium-time hr {
+    border-color: #56B1BF;
+}
+
+.stadium-time .date {
+    color: #56B1BF;
+}
+
+.stadium-time .city {
+    color: #56B1BF;
+}
+
+#main-nav {
+    border-bottom: 1px solid #032B2F;
+    padding-top: 3px;
+    padding-bottom: 0;
+    text-align: center;
+    width: 900px;
+    margin: 25px auto 15px;
+}
+
+#main-nav ul a {
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    color: #08708A;
+    margin-right: 55px;
+}
+
+.ver-space {
+    height: 18px
+}
+
+.match-box h4 {
+    font-size: 24px;
+    letter-spacing: -0.24px;
+    font-weight: 300;
+    color: #032B2F;
+    margin-top: 29px;
+}
+
 #following-matches img {
-    width: 30px;
+    height: 21px;
+    margin: 10px 10px 0 10px;
 }
 
 .fm-team-a-logo, .fm-team-b-name {
     text-align: right;
 }
 
+.fm-team-a img, .fm-team-a h4 {
+    float: left;
+}
+
+.fm-team-b img, .fm-team-b h4 {
+    float: right;
+}
+
 #following-matches .following-match {
-    border-top: 1px solid #DFDFDF;
+    border: 1px solid #DFDFDF;
+    border-top: 0;
+    max-height: 60px;
+}
+
+#following-matches .left-column {
+    padding: 8px 0 0 0;
+    margin-bottom: 0;
+}
+
+#following-matches .left-column h4 {
+    margin: 11px 0 0 0;
+    font-weight: 300;
+}
+
+#following-matches .left-column p {
+    color: #BEBFB6;
+    font-size: 18px;
+    margin: 8px 0 0 0;
+}
+
+#following-matches .right-column h2 {
+    font-size: 26px;
+    color: #BEBFB6;
+    font-weight: 300;
+    margin: 7px 0 0 0;
 }
 
 .fm-date {
@@ -136,11 +299,25 @@
     margin-right: 30px;
     text-align: right;
     font-size: 24px;
+    line-height: 2.25em;
+}
+
+#header .container a {
+    padding: 16px 32px 10px 0;
+    text-decoration: none;
+}
+
+#main-nav li {
+    display: inline;
 }
 
 #footer .container {
-    width: 860px;
-    font-size: 15px;
+    width: 900px;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    padding: 25px;
+    font-family: Lato, Helvetica, Arial, sans-serif;;
 }
 
 html {
@@ -150,7 +327,7 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    margin-bottom: 340px;
 }
 
 #footer {
@@ -158,7 +335,7 @@ body {
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
-    height: 60px;
+    height: 290px;
 }
 
 .btn {
@@ -178,4 +355,85 @@ body {
 
 #settings-modal {
     text-align: center;
+}
+
+#content .article-three {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+#content .article-three h2 {
+    font-family: Lato, Helvetica, Arial, sans-serif;;
+    font-size: 44px;
+    font-weight: 400;
+    color: #032B2F;
+}
+
+.article-three .row {
+    text-align: left;
+    font-family: Merriweather, Helvetica, Arial, sans-serif;;
+    font-size: 18px;
+    line-height: 27px;
+    color: #032B2F;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+#footer .btn {
+    color: #F0F2E7;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    background-color: #EB040A;
+    height: 45px;
+    border-radius: 3px;
+    border: 1px solid #EB040A;
+}
+
+#footer .form-control {
+    background-color: transparent;
+    height: 45px;
+    border-radius: 3px;
+    border: 1px solid #EB040A;
+    color: #EB040A;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+#footer ul {
+    padding-left: 0;
+}
+#footer li {
+    list-style-type: none;
+    line-height: 36px;
+}
+
+#footer .container h1 {
+    font-size: 30px;
+    letter-spacing: 0.05em;
+    font-weight: 800;
+    padding-left: 10px;
+}
+
+#footer .container p {
+    padding-left: 10px;
+}
+
+#footer .container h4 {
+    margin-top: 20px;
+    color: #F0F2E7;
+}
+
+#footer .container h5 {
+    font-size: 14px;
+    font-weight: 300;
+    padding-left: 10px;
+}
+
+.sign-up {
+}
+.row {
+    margin-right: 0;
+    margin-left: 0;
 }
