@@ -56,6 +56,11 @@ class Match(models.Model):
     season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)
     game_in_season = models.CharField(choices=[(x, x) for x in GAMES_IN_SEASON], max_length=20)
     time = models.DateTimeField('local time of the match')
+    end_time = models.DateTimeField('time the match ends', null=True)
+    preview_part1 = models.TextField(blank=True)
+    preview_part2 = models.TextField(blank=True)
+    preview_part3 = models.TextField(blank=True)
+    summary = models.TextField(blank=True)
 
     def stadium_time(self):
         return self.time.astimezone(self.stadium.city.timezone)
