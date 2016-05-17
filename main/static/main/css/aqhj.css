@@ -1,147 +1,181 @@
 #content {
-    border: 1px solid #EFEFEF;
+    border: 1px solid #DFDFDF;
     font-family: Lato, Helvetica, Arial, sans-serif;
     font-weight: 300;
     width: 660px;
     margin-bottom: 150px;
 }
-@media screen and (max-width: 767px){
+
+@media screen and (max-width: 767px) {
     #content {
         width: 90%;
         max-width: 360px;
     }
 }
-.upper-half .left-column, .upper-half .left-column-sm{
+
+.upper-half .left-column, .upper-half .left-column-sm {
     height: 300px;
 }
+
 .left-column {
-    border-right: 1px solid #EFEFEF;
+    border-right: 1px solid #DFDFDF;
 }
+
 @media (min-width: 768px) {
     .left-column-sm {
-        border-right: 1px solid #EFEFEF;
+        border-right: 1px solid #DFDFDF;
     }
 }
+
 @media (max-width: 767px) {
     .left-column-sm {
-        border-bottom: 1px solid #EFEFEF;
+        border-bottom: 1px solid #DFDFDF;
     }
+
     .match-box-footer .left-column-sm {
-        border-top: 1px solid #EFEFEF;
+        border-top: 1px solid #DFDFDF;
         border-bottom-width: 0;
     }
 }
+
 .clocks, .match-box-footer {
     line-height: 3em;
     text-align: center;
 }
+
 .match-box-footer {
-    border-top: 1px solid #EFEFEF;
+    border-top: 1px solid #DFDFDF;
 }
 
 .team-logo img {
     height: 32px;
-    margin-top:10px;
+    margin-top: 10px;
 }
+
 .team-name {
     line-height: 32px;
 }
 
 .time {
-    color : #08708A;
+    color: #08708A;
     font-weight: 300;
 }
+
 .time h2 {
-    font-size : 40px;
+    font-size: 40px;
     font-weight: 300;
 }
+
 .time h2 b {
     font-weight: 900;
 }
+
 .time h2 .am-pm {
-    font-size : 14px;
+    font-size: 14px;
     text-transform: lowercase;
 }
+
 .local-time h2 b {
-    color : #032B2F;
+    color: #032B2F;
 }
+
 .stadium-time h2 {
-    color : #56B1BF;
+    color: #56B1BF;
 }
+
 .stadium-time h2 b {
-    color : #08708A;
+    color: #08708A;
 }
+
 .time .date {
-    font-size : 12px;
+    font-size: 12px;
 }
+
 .time .city {
-    font-size : 10px;
+    font-size: 10px;
 }
+
 .match-box h4 {
-    font-size : 20px;
-    letter-spacing : -0.2px;
-    color : #032B2F;
+    font-size: 20px;
+    letter-spacing: -0.2px;
+    color: #032B2F;
 }
+
 #following-matches img {
     width: 30px;
 }
+
 .fm-team-a-logo, .fm-team-b-name {
     text-align: right;
 }
+
 #following-matches .following-match {
-    border-top: 1px solid #EFEFEF;
+    border-top: 1px solid #DFDFDF;
 }
+
 .fm-date {
     text-align: center;
 }
-#fm-toggle.collapsed{
+
+#fm-toggle.collapsed {
     border-bottom: 1px solid white;
     margin-bottom: -1px;
 }
+
 .right-column {
-    border-left: 1px solid #EFEFEF;
+    border-left: 1px solid #DFDFDF;
     margin-left: -1px;
 }
+
 #header, #footer, #header a, #footer a {
     background-color: #032b2f;
     color: #d0d3c5;
 }
+
 #header .container {
     margin-right: 30px;
     text-align: right;
     font-size: 24px;
 }
+
 #footer .container {
     width: 860px;
     font-size: 15px;
 }
+
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
+
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
 #footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
 }
+
 .btn {
     border-radius: 0;
     border: 1px solid #bebebe;
 }
+
 .btn.btn-primary, .btn.btn-right.activated {
     background-color: #08708a;
     border: 1px solid #08708a;
 }
+
 .btn.btn-info, .btn.btn-left.activated {
     background-color: #56b1bf;
     border: 1px solid #56b1bf;
 }
+
 #settings-modal {
     text-align: center;
 }
