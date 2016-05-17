@@ -14,7 +14,7 @@
 }
 
 #content h1 {
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: -0.36px;
     color: #032B2F;
     margin-top: 10px;
@@ -141,12 +141,13 @@
 }
 
 .match-box .time h2 b {
-    font-weight: 800;
+    font-weight: 900;
 }
 
-.match-box .time h2 .am-pm {
-    font-size: 14px;
+.am-pm {
+    font-weight: 900;
     text-transform: lowercase;
+    font-size: 35%;
 }
 
 .local-time h2 b {
@@ -161,7 +162,7 @@
     color: #08708A;
 }
 
-.match-box .time .date {
+.match-box .local-time .date {
     font-size: 14px;
     color: #08708A;
 }
@@ -182,10 +183,12 @@
     font-size: 12px;
 }
 
-.match-box .time hr {
+.time hr {
     margin: 5px auto;
-    border-color: #08708A;
     width: 86%;
+}
+.match-box .local-time hr {
+    border-color: #08708A;
 }
 
 .stadium-time hr {
@@ -384,7 +387,7 @@ body {
 /* Footer */
 #footer .btn {
     color: #F0F2E7;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 0.06em;
     background-color: #EB040A;
     height: 45px;
@@ -412,7 +415,7 @@ body {
 #footer .container h1 {
     font-size: 30px;
     letter-spacing: 0.05em;
-    font-weight: 800;
+    font-weight: 900;
     padding-left: 10px;
 }
 
@@ -433,7 +436,10 @@ body {
 
 .sign-up {
 }
-.row {
+#following-matches .row, .match-box-footer.row {
     margin-right: 0;
     margin-left: 0;
+}
+.match-info, .team-logo {
+    margin-left: 10px;
 }
