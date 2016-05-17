@@ -69,34 +69,34 @@
     <h3>{{ next_match.team_a }} contra {{ next_match.team_b }}</h3>
 
     <div class="row">
+      {% if next_match.preview_part1 %}
       <div class="col-xs-1">
         <img src="{% static "main/img/point-1.png" %}"/>
       </div>
       <div class="col-xs-11">
-        <p>Lorem Ipsum. Ei usu patrioque cotidieque, eirmod minimum salutandi mel ad, vidit sonet imperdiet usu cu.
-          Putant melius reprehendunt id mei, id paulo dolorum qui. Ne duo rationibus referrentur. Et sonet salutandi
-          pro, choro noster repudiare ne per, in paulo appellantur vim. Ea modus error quo.</p>
+        <p>{{ next_match.preview_part1 }}</p>
       </div>
+      {% endif %}
     </div>
     <div class="row">
+      {% if next_match.preview_part2 %}
       <div class="col-xs-1">
         <img src="{% static "main/img/point-2.png" %}"/>
       </div>
       <div class="col-xs-11">
-        <p>Te wisi debitis mea, mel propriae delicata molestiae et. No malis adipisci vix. Ad impetus fabellas usu, ius
-          postea sanctus id. Dico omnes vis id, his ex possim aperiam evertitur, et mel atqui dolore placerat.
-          Moderatius voluptatibus ex vim, ne utamur persius usu.</p>
+        <p>{{ next_match.preview_part2 }}</p>
       </div>
+      {% endif %}
     </div>
     <div class="row">
+      {% if next_match.preview_part3 %}
       <div class="col-xs-1">
         <img src="{% static "main/img/point-3.png" %}"/>
       </div>
       <div class="col-xs-11">
-        <p>No his graeco molestie constituto, vix ut ubique quaerendum. Ei primis doctus per. Duis labores id mea. Id
-          odio omnes omittantur sea, qui at decore honestatis adversarium, ad case affert philosophia sed. Eum essent
-          delicata postulant ne, purto timeam dignissim ei mel.</p>
+        <p>{{ next_match.preview_part3 }}</p>
       </div>
+      {% endif %}
     </div>
   </section>
 {% endblock %}
