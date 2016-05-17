@@ -25,7 +25,7 @@ var updateTime = function($elem, tz) {
         $elem.find('.var-time').each(function () {
             var dateTimePart = localTime.format($(this).data('tformat'));
             if ($(this).data('bold-hours')) {
-                dateTimePart = dateTimePart.boldUntil(':');
+                dateTimePart = dateTimePart.boldBefore(':');
             }
             $(this).html(dateTimePart);
         });
