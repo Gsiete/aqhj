@@ -8,9 +8,3 @@ def index(request):
     following_matches = [next_match for _ in range(5)]
 
     return aqhj_render(request, 'main/index.html', {'following_matches': following_matches, 'next_match': next_match})
-
-
-def ucf(str):
-    str_a=str.split('_')
-    n_str = '_'.join([s[0].upper() + s[1:] for s in str_a])
-    return n_str.replace('.','')
