@@ -1,6 +1,7 @@
-from aqhorajuega.functions import aqhj_render
-from main.models import Match
 from django.utils import timezone
+
+from main.functions import aqhj_render
+from main.models import Match
 
 
 def index(request):
