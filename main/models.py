@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 from cities.models import City
-
+from tinymce.models import HTMLField
 
 class Tournament(models.Model):
     name = models.CharField(max_length=200)
@@ -57,10 +57,10 @@ class Match(models.Model):
     game_in_season = models.CharField(choices=[(x, x) for x in GAMES_IN_SEASON], max_length=20)
     time = models.DateTimeField('local time of the match')
     end_time = models.DateTimeField('time the match ends', null=True, blank=True)
-    preview_part1 = models.TextField(blank=True)
-    preview_part2 = models.TextField(blank=True)
-    preview_part3 = models.TextField(blank=True)
-    summary = models.TextField(blank=True)
+    preview_part1 = HTMLField(blank=True)
+    preview_part2 = HTMLField(blank=True)
+    preview_part3 = HTMLField(blank=True)
+    summary = HTMLField(blank=True)
 
     def stadium_time(self):
         return self.time.astimezone(self.stadium.city.timezone)

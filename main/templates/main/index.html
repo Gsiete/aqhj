@@ -74,7 +74,7 @@
         <img src="{% static "main/img/point-1.png" %}"/>
       </div>
       <div class="col-xs-11">
-        <p>{{ next_match.preview_part1 }}</p>
+        <p>{{ next_match.preview_part1|safe }}</p>
       </div>
       {% endif %}
     </div>
@@ -84,7 +84,7 @@
         <img src="{% static "main/img/point-2.png" %}"/>
       </div>
       <div class="col-xs-11">
-        <p>{{ next_match.preview_part2 }}</p>
+        <p>{{ next_match.preview_part2|safe }}</p>
       </div>
       {% endif %}
     </div>
@@ -94,7 +94,7 @@
         <img src="{% static "main/img/point-3.png" %}"/>
       </div>
       <div class="col-xs-11">
-        <p>{{ next_match.preview_part3 }}</p>
+        <p>{{ next_match.preview_part3|safe }}</p>
       </div>
       {% endif %}
     </div>
