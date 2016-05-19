@@ -20,5 +20,5 @@ urlpatterns = [
     url(r'^main/', include('main.urls')),
     url(r'^cities/', include('cities.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^redactor/', include('redactor.urls')),
 ]

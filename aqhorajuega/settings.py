@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'cities_light',
     'cities',
     'storages',
-    'tinymce',
+    'redactor',
 ]
 
 CITIES_LIGHT_APP_NAME = 'cities'
@@ -154,3 +154,6 @@ STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATIC_FILES_LOCATION)
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIA_FILES_LOCATION)
 STATICFILES_STORAGE = 'aqhorajuega.s3utils.StaticRouteS3BotoStorage'
 DEFAULT_FILE_STORAGE = 'aqhorajuega.s3utils.MediaRouteS3BotoStorage'
+
+REDACTOR_OPTIONS = {'lang': 'en'}
+REDACTOR_FILE_STORAGE = 'aqhorajuega.s3utils.MediaRouteS3BotoStorage'
