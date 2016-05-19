@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cities_light',
     'cities',
     'storages',
+    'tinymce',
 ]
 
 CITIES_LIGHT_APP_NAME = 'cities'
@@ -149,7 +150,7 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 #STATIC_URL = '/static/'
 MEDIA_FILES_LOCATION = "aqhj/media"
 STATIC_FILES_LOCATION = "aqhj/static"
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIA_FILES_LOCATION)
-MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATIC_FILES_LOCATION)
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATIC_FILES_LOCATION)
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIA_FILES_LOCATION)
 STATICFILES_STORAGE = 'aqhorajuega.s3utils.StaticRouteS3BotoStorage'
 DEFAULT_FILE_STORAGE = 'aqhorajuega.s3utils.MediaRouteS3BotoStorage'
