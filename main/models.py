@@ -1,11 +1,12 @@
-from django.conf import settings
 from django.db import models
 from redactor.fields import RedactorField
 
 from cities.models import City
 
+
 class Tournament(models.Model):
     name = models.CharField(max_length=200)
+    short_name = models.CharField(max_length=150)
     slug = models.SlugField(max_length=50, default='')
     logo = models.ImageField(upload_to='tournament/logo/', null=True, blank=True)
 
@@ -26,6 +27,7 @@ class Season(models.Model):
 
 class Stadium(models.Model):
     name = models.CharField(max_length=200)
+    short_name = models.CharField(max_length=150)
     city = models.ForeignKey(City)
 
     def __str__(self):
@@ -35,6 +37,7 @@ class Stadium(models.Model):
 # https://docs.djangoproject.com/en/1.9/ref/models/fields/#imagefield
 class Team(models.Model):
     name = models.CharField(max_length=200)
+    short_name = models.CharField(max_length=150)
     slug = models.SlugField(max_length=50, default='')
     stadium = models.ForeignKey(Stadium)
     logo = models.ImageField(upload_to='team/logo/', null=True)
@@ -47,7 +50,9 @@ class Team(models.Model):
 class Match(models.Model):
     class Meta:
         verbose_name_plural = "matches"
-    GAMES_IN_SEASON = ['Fecha %d' % x for x in range(1, 40)] + ['Ronda de 16', 'Cuartos de final', 'Semi-final', 'Final']
+
+    GAMES_IN_SEASON = ['Fecha %d' % x for x in range(1, 40)] + ['Ronda de 16', 'Cuartos de final', 'Semi-final',
+                                                                'Final']
 
     team_a = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_a')
     team_b = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_b')
