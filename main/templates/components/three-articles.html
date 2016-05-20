@@ -1,0 +1,38 @@
+{% load staticfiles %}
+{% if match.preview_part1 %}
+<section class="article-three">
+  <h2>Tres cosas que deberías saber antes del partido</h2>
+  <h3>{{ match.team_a }} contra {{ match.team_b }}</h3>
+
+  <div class="row">
+    {% if match.preview_part1 %}
+    <div class="col-xs-1">
+      <img src="{% static "main/img/point-1.png" %}"/>
+    </div>
+    <div class="col-xs-11">
+      <p>{{ match.preview_part1|safe }}</p>
+    </div>
+    {% endif %}
+  </div>
+  <div class="row">
+    {% if match.preview_part2 %}
+    <div class="col-xs-1">
+      <img src="{% static "main/img/point-2.png" %}"/>
+    </div>
+    <div class="col-xs-11">
+      <p>{{ match.preview_part2|safe }}</p>
+    </div>
+    {% endif %}
+  </div>
+  <div class="row">
+    {% if match.preview_part3 %}
+    <div class="col-xs-1">
+      <img src="{% static "main/img/point-3.png" %}"/>
+    </div>
+    <div class="col-xs-11">
+      <p>{{ match.preview_part3|safe }}</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}

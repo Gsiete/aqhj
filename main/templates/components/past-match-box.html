@@ -1,0 +1,43 @@
+{% load aqhj_tags %}
+{% load tz %}
+<section class="match-box mb-smaller" data-time="{{ match.time|isotime }}">
+  <div class="row upper-half">
+    <a href="/main">
+    <div class="left-column-sm col-xs-12 col-sm-6">
+      <div class="ver-space"></div>
+      <div class="row{% if match.team_a_winner %} winner{% endif %}">
+        <div class="col-xs-10 team-logo">
+          <img src="{{ match.team_a.logo.url }}">
+          <h4>{{ match.team_a }}</h4>
+          <h5>{{ match.detail_goals_team_a }}</h5>
+        </div>
+        <div class="col-xm-2 score">
+          <h4>{{ match.score_team_a }}</h4>
+        </div>
+
+      </div>
+      <div class="row{% if match.team_b_winner %} winner{% endif %}">
+        <div class="col-xs-10 team-logo">
+          <img src="{{ match.team_b.logo.url }}">
+          <h4>{{ match.team_b }}</h4>
+          <h5>{{ match.detail_goals_team_b }}</h5>
+        </div>
+        <div class="col-xm-2 score">
+          <h4>{{ match.score_team_b }}</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="match-info">
+          {{ match.season.short }}, {{ match.game_in_season }}<br>
+          {% timezone match.stadium.city.timezone %}
+          {{ match.time|date:'j' }} de {{ match.time|date:'E Y - H:i' }}
+          {% endtimezone %}
+        </div>
+      </div>
+    </div>
+    </a>
+    <div class="col-xs-12 col-sm-6  video">
+      <iframe width="360" height="203" src="https://www.youtube.com/embed/KZaCBHEUeko" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>

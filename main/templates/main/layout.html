@@ -33,7 +33,7 @@
         {% endblock %}
     {% endblock %}
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
     <header id="header">
     {% block header %}
         <div class="container">
@@ -60,7 +60,7 @@
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-body">
-            {% include 'main/../components/settings-modal.html' %}
+            {% include 'components/settings-modal.html' %}
           </div>
         </div>
       </div>

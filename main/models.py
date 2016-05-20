@@ -10,6 +10,10 @@ class Tournament(models.Model):
     slug = models.SlugField(max_length=50, default='')
     logo = models.ImageField(upload_to='tournament/logo/', null=True, blank=True)
 
+    @property
+    def short(self):
+        return self.short_name or self.name
+
     def __str__(self):
         return self.name
 
@@ -20,6 +24,10 @@ class Season(models.Model):
     slug = models.SlugField(max_length=50, default='')
     start = models.DateTimeField('start of the tournament')
     end = models.DateTimeField('end of the tournament')
+
+    @property
+    def short(self):
+        return '%s %s' % (self.tournament.short, self.name)
 
     def __str__(self):
         return '%s - %s' % (self.tournament.name, self.name)
@@ -58,7 +66,9 @@ class Match(models.Model):
     team_a = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_a')
     team_b = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_b')
     score_team_a = models.IntegerField(null=True, blank=True)
+    detail_goals_team_a = models.CharField(null=True, blank=True, max_length=100)
     score_team_b = models.IntegerField(null=True, blank=True)
+    detail_goals_team_b = models.CharField(null=True, blank=True, max_length=100)
     stadium = models.ForeignKey(Stadium, on_delete=models.SET_NULL, null=True)
     season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)
     game_in_season = models.CharField(choices=[(x, x) for x in GAMES_IN_SEASON], max_length=20)
@@ -68,6 +78,14 @@ class Match(models.Model):
     preview_part2 = RedactorField(blank=True)
     preview_part3 = RedactorField(blank=True)
     summary = RedactorField(blank=True)
+
+    @property
+    def team_a_winner(self):
+        return self.score_team_a is not None and self.score_team_b is not None and self.score_team_a > self.score_team_b
+
+    @property
+    def team_b_winner(self):
+        return self.score_team_a is not None and self.score_team_b is not None and self.score_team_a < self.score_team_b
 
     def stadium_time(self):
         return self.time.astimezone(self.stadium.city.timezone)

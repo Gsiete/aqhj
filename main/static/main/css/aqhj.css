@@ -5,12 +5,14 @@
     width: 720px;
     margin-bottom: 50px;
     text-align: center;
+    padding: 0;
 }
 
 #content .match-box {
     border: 1px solid #DFDFDF;
     text-align: left;
     width: 100%;
+    margin-bottom: 60px;
 }
 
 #content h1 {
@@ -28,6 +30,7 @@
     color: #BEBFB6;
     margin-top: 5px;
     margin-bottom: 44px;
+    line-height: 1.364em;
 }
 
 @media screen and (max-width: 767px) {
@@ -37,11 +40,7 @@
     }
 }
 
-.upper-half .left-column, .upper-half .left-column-sm {
-    height: 240px;
-}
-
-.upper-half .stadium-time {
+.upper-half .left-column, .upper-half .left-column-sm, .upper-half .stadium-time {
     height: 240px;
 }
 
@@ -187,6 +186,7 @@
     margin: 5px auto;
     width: 86%;
 }
+
 .match-box .local-time hr {
     border-color: #08708A;
 }
@@ -372,6 +372,7 @@ body {
     font-size: 44px;
     font-weight: 400;
     color: #032B2F;
+    padding-top: 11px;
 }
 
 .article-three .row {
@@ -407,6 +408,7 @@ body {
 #footer ul {
     padding-left: 0;
 }
+
 #footer li {
     list-style-type: none;
     line-height: 36px;
@@ -416,11 +418,6 @@ body {
     font-size: 30px;
     letter-spacing: 0.05em;
     font-weight: 900;
-    padding-left: 10px;
-}
-
-#footer .container p {
-    padding-left: 10px;
 }
 
 #footer .container h4 {
@@ -431,15 +428,66 @@ body {
 #footer .container h5 {
     font-size: 14px;
     font-weight: 300;
-    padding-left: 10px;
 }
 
 .sign-up {
 }
+
 #following-matches .row, .match-box-footer.row {
     margin-right: 0;
     margin-left: 0;
 }
+
 .match-info, .team-logo {
     margin-left: 10px;
+    padding-left: 20px;
+}
+
+/*------ Past-match box ------*/
+.video {
+    max-height: 203px;
+    padding: 0;
+}
+
+.mb-smaller .upper-half .left-column, .mb-smaller .upper-half .left-column-sm {
+    height: auto;
+}
+
+.score h4 {
+    margin-top: 28px;
+    margin-left: 0;
+    font-size: 26px;
+}
+
+.mb-smaller .team-logo img {
+    margin-top: 17px;
+    margin-bottom: 8px;
+}
+
+.mb-smaller.match-box h4 {
+    margin-top: 22px;
+    margin-bottom: 2px;
+}
+
+.mb-smaller.match-box h5 {
+    font-size: 12px;
+    font-weight: 300;
+    color: #032B2F;
+    margin: 0 0 0 63px;
+    position: absolute;
+}
+
+.mb-smaller .ver-space {
+    height: 12px;
+}
+
+.mb-smaller .match-info {
+    line-height: 1.5em;
+    font-size: 16px;
+    padding-top: 15px;
+    padding-left: 28px;
+}
+
+.winner h4 {
+    font-weight: bold;
 }

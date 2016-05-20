@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+{% load tz %}
+{% load aqhj_tags %}
+{% load staticfiles %}
+{% block head_extra %}
+  <title>{{ match }}</title>
+{% endblock %}
+
+{% block body_class %}past-match{% endblock %}
+
+{% block content %}
+  <h1>¿Cuándo juega el Barcelona?</h1>
+  <h3>Entérate a qué hora juega el Barcelona hoy en tu país.</h3>
+
+  {% include 'components/past-match-box.html' %}
+
+  <section id="following-matches" class="collapse">
+    {% include 'components/following_matches.html' %}
+  </section>
+
+  {% include 'components/three-articles.html' %}
+{% endblock %}

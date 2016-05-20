@@ -9,3 +9,9 @@ def index(request):
     following_matches = [next_match for _ in range(5)]
 
     return aqhj_render(request, 'main/index.html', {'following_matches': following_matches, 'next_match': next_match})
+
+
+def past_match(request):
+    last_match = Match.objects.filter(time__lte=timezone.now()).order_by('-time')[0]
+
+    return aqhj_render(request, 'main/past-match.html', {'match': last_match})
