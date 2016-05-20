@@ -6,7 +6,7 @@ from cities.models import City
 
 class Tournament(models.Model):
     name = models.CharField(max_length=200)
-    short_name = models.CharField(max_length=150)
+    short_name = models.CharField(max_length=150, blank=True)
     slug = models.SlugField(max_length=50, default='')
     logo = models.ImageField(upload_to='tournament/logo/', null=True, blank=True)
 
@@ -27,7 +27,7 @@ class Season(models.Model):
 
 class Stadium(models.Model):
     name = models.CharField(max_length=200)
-    short_name = models.CharField(max_length=150)
+    short_name = models.CharField(max_length=150, blank=True)
     city = models.ForeignKey(City)
 
     def __str__(self):
@@ -37,7 +37,7 @@ class Stadium(models.Model):
 # https://docs.djangoproject.com/en/1.9/ref/models/fields/#imagefield
 class Team(models.Model):
     name = models.CharField(max_length=200)
-    short_name = models.CharField(max_length=150)
+    short_name = models.CharField(max_length=150, blank=True)
     slug = models.SlugField(max_length=50, default='')
     stadium = models.ForeignKey(Stadium)
     logo = models.ImageField(upload_to='team/logo/', null=True)
