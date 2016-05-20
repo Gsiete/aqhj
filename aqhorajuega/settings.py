@@ -163,22 +163,9 @@ COMPRESS_STORAGE = STATICFILES_STORAGE
 COMPRESS_ENABLED = True
 COMPRESS_ROOT = 'compress'
 COMPRESS_OFFLINE = True
-# ###########
-#
-# # MEDIA_ROOT = 'client_media'
-# STATIC_ROOT = 'static_media'
-# ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-# # STATICFILES_DIRS = (
-# #     join(DIRNAME, 'static'),
-# # )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
-#
-# COMPRESS_ENABLED = True
-# COMPRESS_URL = STATIC_URL
-# COMPRESS_STORAGE = 'storage.CachedS3BotoStorage'
-# STATICFILES_STORAGE = COMPRESS_STORAGE
