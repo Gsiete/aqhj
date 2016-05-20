@@ -37,11 +37,11 @@
         <div class="row">
           <div class="left-column col-xs-6 time local-time js-local-time" data-time="{{ next_match.time|isotime }}"
                data-tz="{{ user_city.timezone }}">
-            {% include 'main/date_box.html' with datetime=next_match.time city=user_city local=True %}
+            {% include 'main/../components/date_box.html' with datetime=next_match.time city=user_city local=True %}
           </div>
           <div class="col-xs-6 time stadium-time" data-time="{{ next_match.time|isotime }}"
                data-tz="{{ next_match.stadium.city.timezone }}">
-            {% include 'main/date_box.html' with datetime=next_match.time city=next_match.stadium.city %}
+            {% include 'main/../components/date_box.html' with datetime=next_match.time city=next_match.stadium.city %}
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
   </section>
 
   <section id="following-matches" class="collapse">
-    {% include 'main/following_matches.html' %}
+    {% include 'main/../components/following_matches.html' %}
   </section>
 
   <section class="article-three">
