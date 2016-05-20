@@ -51,8 +51,9 @@ class Match(models.Model):
     class Meta:
         verbose_name_plural = "matches"
 
-    GAMES_IN_SEASON = ['Fecha %d' % x for x in range(1, 40)] + ['Ronda de 16', 'Cuartos de final', 'Semi-final',
-                                                                'Final']
+    GAMES_IN_SEASON = ['Fase de grupo - Partido %d' % x for x in range(1, 4)] + \
+                      ['Ronda de 16', 'Cuartos de final', 'Semi-final', 'Final'] + \
+                      ['Fecha %d' % x for x in range(1, 40)]
 
     team_a = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_a')
     team_b = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_b')
