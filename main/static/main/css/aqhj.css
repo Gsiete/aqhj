@@ -251,9 +251,7 @@
 }
 
 #following-matches .following-match {
-    border: 1px solid #DFDFDF;
-    border-top: 0;
-    max-height: 60px;
+    border-top: 1px solid #DFDFDF;
 }
 
 #following-matches .left-column {
