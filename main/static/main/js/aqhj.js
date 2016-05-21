@@ -2,12 +2,8 @@ $(document).ready(function(){
     var fm = $('#following-matches'), fmToggle = $('#fm-toggle');
 
     fmToggle.on('click', function(){
+        fmToggle.toggleClass('collapsed');
         fm.collapse('toggle');
-    });
-    fm.on('show.bs.collapse', function(){
-        fmToggle.addClass('collapsed');
-    }).on('hide.bs.collapse', function(){
-        fmToggle.removeClass('collapsed');
     });
 });
 
