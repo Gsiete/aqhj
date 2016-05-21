@@ -1,44 +1,44 @@
 {% load aqhj_tags %}
-<section class="match-box" data-time="{{ next_match.time|isotime }}">
+<section class="match-box" data-time="{{ match.time|isotime }}">
   <div class="row upper-half">
     <div class="left-column-sm col-xs-12 col-sm-6">
       <div class="ver-space"></div>
       <div class="row">
         <div class="col-xs-12 team-logo">
-          <img src="{{ next_match.team_a.logo.url }}">
-          <h4>{{ next_match.team_a }}</h4>
+          <img src="{{ match.team_a.logo.url }}">
+          <h4>{{ match.team_a }}</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12 team-logo">
-          <img src="{{ next_match.team_b.logo.url }}">
-          <h4>{{ next_match.team_b }}</h4>
+          <img src="{{ match.team_b.logo.url }}">
+          <h4>{{ match.team_b }}</h4>
         </div>
       </div>
       <div class="row">
         <div class="match-info">
-        {{ next_match.season.tournament.name }}<br>
-        {{ next_match.game_in_season_literal }}<br>
-        {{ next_match.stadium.name }}, {{ next_match.stadium.city.name }}
+        {{ match.season.tournament.name }}<br>
+        {{ match.game_in_season_literal }}<br>
+        {{ match.stadium.name }}, {{ match.stadium.city.name }}
         </div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-6 clocks right-column">
       <div class="row">
-        <div class="left-column col-xs-6 time local-time js-local-time" data-time="{{ next_match.time|isotime }}"
+        <div class="left-column col-xs-6 time local-time js-local-time" data-time="{{ match.time|isotime }}"
              data-tz="{{ user_city.timezone }}">
-          {% include 'components/date_box.html' with datetime=next_match.time city=user_city local=True %}
+          {% include 'components/date_box.html' with datetime=match.time city=user_city local=True %}
         </div>
-        <div class="col-xs-6 time stadium-time" data-time="{{ next_match.time|isotime }}"
-             data-tz="{{ next_match.stadium.city.timezone }}">
-          {% include 'components/date_box.html' with datetime=next_match.time city=next_match.stadium.city %}
+        <div class="col-xs-6 time stadium-time" data-time="{{ match.time|isotime }}"
+             data-tz="{{ match.stadium.city.timezone }}">
+          {% include 'components/date_box.html' with datetime=match.time city=match.stadium.city %}
         </div>
       </div>
     </div>
   </div>
   <div class="match-box-footer row">
     <div class="col-xs-12 col-sm-6 pull-right">
-      <div>Faltan <span class="countdown" data-until="{{ next_match.time|isotime }}"></span></div>
+      <div>Faltan <span class="countdown" data-until="{{ match.time|isotime }}"></span></div>
     </div>
     <div id="fm-toggle" class="left-column-sm col-xs-12 col-sm-6">
       <div class="row">
