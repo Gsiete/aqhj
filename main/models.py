@@ -76,7 +76,7 @@ class Match(models.Model):
     detail_goals_team_b = models.CharField(null=True, blank=True, max_length=100)
     stadium = models.ForeignKey(Stadium, on_delete=models.SET_NULL, null=True)
     season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)
-    game_in_season = models.CharField(choices=GAMES_IN_SEASON_CHOICES, max_length=20)
+    game_in_season = models.CharField(choices=GAMES_IN_SEASON_CHOICES, max_length=30, blank=True, null=True)
     time = models.DateTimeField('local time of the match')
     end_time = models.DateTimeField('time the match ends', null=True, blank=True)
     preview_part1 = RedactorField(blank=True)
