@@ -37,8 +37,12 @@
     <header id="header">
     {% block header %}
         <div class="container">
-            <a><i class="fa fa-facebook"></i></a>
-            <a><i class="fa fa-twitter"></i></a>
+            <a>
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=http://aquehorajuega.com/text={{'Hola Mundo' | urlencode}}">
+              <i class="fa fa-twitter"></i>
+            </a>
             <a href="#" data-toggle="modal" data-target="#settings-modal">
                 <i class="fa fa-cog"></i>
             </a>
@@ -66,6 +70,8 @@
       </div>
     </div>
     <div id="content" class="container">
+        {% block content_title %}
+        {% endblock %}
         {% block content %}
         {% endblock %}
     </div>

@@ -3,7 +3,7 @@
 {% load aqhj_tags %}
 {% load staticfiles %}
 {% block head_extra %}
-  <title>{{ match }}</title>
+  <title>Ultimos Resultados</title>
 {% endblock %}
 
 {% block content_title %}
@@ -12,11 +12,7 @@
 {% endblock %}
 
 {% block content %}
-  {% include 'components/past-match-box.html' %}
-
-  <section id="following-matches" class="collapse">
-    {% include 'components/following_matches.html' %}
-  </section>
-
-  {% include 'components/three-articles.html' %}
+  {% for match in last_matches %}
+  {% include 'components/past-match-box.html' with linked=match.summary %}
+  {% endfor %}
 {% endblock %}

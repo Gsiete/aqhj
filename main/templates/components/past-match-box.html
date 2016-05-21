@@ -2,7 +2,7 @@
 {% load tz %}
 <section class="match-box mb-smaller" data-time="{{ match.time|isotime }}">
   <div class="row upper-half">
-    <a href="/main">
+    {% if linked %}<a href="{{ 'past_match'|url_from_object:match }}">{% endif %}
       <div class="left-column-sm col-xs-12 col-sm-6">
         <div class="ver-space"></div>
         <div class="row{% if match.team_a_winner %} winner{% endif %}">
@@ -27,14 +27,14 @@
         </div>
         <div class="row">
           <div class="match-info">
-            {{ match.season.short }}, {{ match.game_in_season }}<br>
+            {{ match.season.short }}, {{ match.game_in_season_literal }}<br>
             {% timezone match.stadium.city.timezone %}
               {{ match.time|date:'j' }} de {{ match.time|date:'E Y - H:i' }}
             {% endtimezone %}
           </div>
         </div>
       </div>
-    </a>
+    {% if linked %}</a>{% endif %}
     <div class="col-xs-12 col-sm-6  video">
       <iframe width="360" height="203" src="https://www.youtube.com/embed/KZaCBHEUeko" frameborder="0" allowfullscreen></iframe>
     </div>

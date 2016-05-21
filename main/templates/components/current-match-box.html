@@ -18,7 +18,7 @@
       <div class="row">
         <div class="match-info">
         {{ next_match.season.tournament.name }}<br>
-        {{ next_match.game_in_season }}<br>
+        {{ next_match.game_in_season_literal }}<br>
         {{ next_match.stadium.name }}, {{ next_match.stadium.city.name }}
         </div>
       </div>
@@ -47,5 +47,8 @@
         <div class="col-xs-4 col-sm-2"><span class="glyphicon glyphicon-menu-down"></span></div>
       </div>
     </div>
+  </div>
+  <div id="following-matches" class="collapse">
+    {% include 'components/following_matches.html' %}
   </div>
 </section>

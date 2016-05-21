@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="match-info-fm">
-            {{ match.season.tournament.name }}, {{ match.game_in_season }}  |  {{ match.stadium.name }}, {{ match.stadium.city.name }}
+            {{ match.season.tournament.name }}, {{ match.game_in_season_literal }}  |  {{ match.stadium.name }}, {{ match.stadium.city.name }}
         </div>
     </div>
     <div class="fm-date right-column time js-local-time" data-time="{{ match.time|isotime }}" data-tz="{{ user_city.timezone }}">

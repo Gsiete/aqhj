@@ -6,15 +6,13 @@
   <title>{{ next_match }}</title>
 {% endblock %}
 
-{% block content %}
+{% block content_title %}
   <h1>¿Cuándo juega el Barcelona?</h1>
   <h3>Entérate a qué hora juega el Barcelona hoy en tu país.</h3>
+{% endblock %}
 
+{% block content %}
   {% include 'components/current-match-box.html' %}
-
-  <section id="following-matches" class="collapse">
-    {% include 'components/following_matches.html' %}
-  </section>
 
   {% include 'components/three-articles.html' with match=next_match %}
 {% endblock %}
