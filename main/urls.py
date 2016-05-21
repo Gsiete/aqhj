@@ -9,6 +9,8 @@ past_match_pattern = match_pattern + r'-(?P<score_team_a>[0-9]+)-(?P<score_team_
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^' + past_match_pattern + r'$', views.past_match, name='past_match'),
+    url(r'^' + match_pattern + r'/hoy$', views.match_before, name='match_today', kwargs={'hoy': True}),
+    url(r'^' + match_pattern + r'$', views.match_before, name='match_before'),
     url(r'^last-matches$', views.last_matches, name='last_matches'),
 ]
 # https://docs.djangoproject.com/en/1.9/topics/http/urls/#including-other-urlconfs

@@ -1,3 +1,4 @@
+from datetime import timedelta
 from django.utils import timezone
 
 from main.functions import aqhj_render
@@ -9,16 +10,26 @@ def index(request):
     next_match = Match.objects.filter(time__gte=timezone.now()).order_by('time')[0]
     following_matches = Match.objects.filter(time__gte=timezone.now()).order_by('time')[1:7]
 
-    return aqhj_render(request, 'main/index.html', {'following_matches': following_matches, 'next_match': next_match})
+    return aqhj_render(request, 'main/match-before.html', {'following_matches': following_matches, 'next_match': next_match})
+
+
+def match_before(request, **kwargs):
+    today = kwargs.pop('hoy', False)
+    time_criteria = {'time__gte': timezone.now()}
+    if today:
+        time_criteria['time__lte'] = timezone.now() + timedelta(1)
+    next_match = get_object_or_404(Match, **kwargs)
+
+    return aqhj_render(request, 'main/match-before.html', {'next_match': next_match, 'today': today})
 
 
 def past_match(request, **kwargs):
     last_match = get_object_or_404(Match, **kwargs)
 
-    return aqhj_render(request, 'main/past-match.html', {'match': last_match})
+    return aqhj_render(request, 'main/match-after.html', {'match': last_match})
 
 
 def last_matches(request):
-    last_matches = Match.objects.filter(time__lte=timezone.now()).order_by('-time')[:10]
+    latest_matches = Match.objects.filter(time__lte=timezone.now()).order_by('-time')[:10]
 
-    return aqhj_render(request, 'main/last-matches.html', {'last_matches': last_matches})
+    return aqhj_render(request, 'main/last-matches.html', {'last_matches': latest_matches})
