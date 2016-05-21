@@ -489,3 +489,6 @@ body {
 .winner h4 {
     font-weight: bold;
 }
+#following-matches {
+    margin-top: 1px;
+}
