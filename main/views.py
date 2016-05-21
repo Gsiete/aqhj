@@ -18,6 +18,7 @@ def match_before(request, **kwargs):
     time_criteria = {'time__gte': timezone.now()}
     if today:
         time_criteria['time__lte'] = timezone.now() + timedelta(1)
+    kwargs.update(time_criteria)
     next_match = get_object_or_404(Match, **kwargs)
 
     return aqhj_render(request, 'main/match-before.html', {'next_match': next_match, 'today': today})
