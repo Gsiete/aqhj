@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 from redactor.fields import RedactorField
 
 from cities.models import City
@@ -62,6 +63,7 @@ class Match(models.Model):
     GAMES_IN_SEASON = ['Fase de grupo - Partido %d' % x for x in range(1, 4)] + \
                       ['Ronda de 16', 'Cuartos de final', 'Semi-final', 'Final'] + \
                       ['Fecha %d' % x for x in range(1, 40)]
+    GAMES_IN_SEASON_CHOICES = [(slugify(gis), gis) for gis in GAMES_IN_SEASON]
 
     team_a = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_a')
     team_b = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_b')
@@ -71,7 +73,7 @@ class Match(models.Model):
     detail_goals_team_b = models.CharField(null=True, blank=True, max_length=100)
     stadium = models.ForeignKey(Stadium, on_delete=models.SET_NULL, null=True)
     season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)
-    game_in_season = models.CharField(choices=[(x, x) for x in GAMES_IN_SEASON], max_length=20)
+    game_in_season = models.CharField(choices=GAMES_IN_SEASON_CHOICES, max_length=20)
     time = models.DateTimeField('local time of the match')
     end_time = models.DateTimeField('time the match ends', null=True, blank=True)
     preview_part1 = RedactorField(blank=True)
@@ -89,6 +91,10 @@ class Match(models.Model):
 
     def stadium_time(self):
         return self.time.astimezone(self.stadium.city.timezone)
+
+    @property
+    def game_in_season_literal(self):
+        return dict(self.GAMES_IN_SEASON_CHOICES)[self.game_in_season]
 
     def __str__(self):
         return str(self.team_a) + ' - ' + str(self.team_b) + ' (' + str(self.time) + ')'
