@@ -97,7 +97,7 @@ class Match(models.Model):
 
     @property
     def game_in_season_literal(self):
-        return dict(self.GAMES_IN_SEASON_CHOICES)[self.game_in_season]
+        return dict(self.GAMES_IN_SEASON_CHOICES)[self.game_in_season] if self.game_in_season else ''
 
     @property
     def match_status(self):
