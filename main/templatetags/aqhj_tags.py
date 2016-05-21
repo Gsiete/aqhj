@@ -1,5 +1,6 @@
 from django import template
-from django.core.urlresolvers import get_resolver, reverse
+
+from main.functions import reverse_from_object
 
 register = template.Library()
 
@@ -21,21 +22,4 @@ def isotime(time):
 
 @register.filter
 def url_from_object(route, obj):
-    resolver = get_resolver(None)
-    parameters = resolver.reverse_dict[route][0][0][1]
-    kwargs = {}
-    args = []
-    for field in parameters:
-        field_path = field.split('__')
-        kwargs[field] = str(get_value_from_field_path(obj, field_path))
-        args.append(str(get_value_from_field_path(obj, field_path)))
-    # return reverse(route, kwargs=kwargs)
-    return reverse(route, args=args)
-
-
-def get_value_from_field_path(obj, fields_path):
-    value = obj
-    for field in fields_path:
-        value = getattr(value, field)
-
-    return value
+    return reverse_from_object(route, obj)
