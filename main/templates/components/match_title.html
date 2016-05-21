@@ -1,0 +1,17 @@
+{% load aqhj_tags %}
+{# test yesno instead of if *mightbe shorter #}
+<h1>
+  {% if home %}
+    ¿A qué hora juega {{ next_match.team_a }}{% if next_match.is_today %} hoy{% endif %}?
+  {% else %}
+    {% if match.match_status == 'before' %}
+      ¿A qué hora juega {{ next_match.team_a }}{% if next_match.is_today %} hoy{% endif %} vs {{ next_match.team_b }}?
+    {% elif match.match_status == 'ongoing' %}
+      ¿A qué hora juega {{ next_match.team_a }} hoy vs {{ next_match.team_b }}?
+    {% elif match.match_status == 'after' %}
+      Resultados de {{ next_match.team_a }}{% if next_match.is_today %} hoy{% endif %} vs {{ next_match.team_b }}
+      ({{ next_match.score_team_a }}-{{ next_match.score_team_b }})
+    {% endif %}
+  {% endif %}
+</h1>
+<h3>Entérate a qué hora juega Argentina{% if next_match.is_today %} hoy{% endif %} en tu país.</h3>
