@@ -1,5 +1,8 @@
+from datetime import timedelta
+
 from django.db import models
 from django.utils.text import slugify
+from django.utils import timezone
 from redactor.fields import RedactorField
 
 from cities.models import City
@@ -95,6 +98,19 @@ class Match(models.Model):
     @property
     def game_in_season_literal(self):
         return dict(self.GAMES_IN_SEASON_CHOICES)[self.game_in_season]
+
+    @property
+    def match_status(self):
+        if self.time < timezone.now():
+            return 'before'
+        elif self.time < timezone.now() < self.end_time:
+            return 'ongoing'
+        elif timezone.now() < self.time:
+            return 'after'
+
+    @property
+    def is_today(self):
+        return self.time - timedelta(1) > timezone.now() > self.end_time + timedelta(1)
 
     def __str__(self):
         return str(self.team_a) + ' - ' + str(self.team_b) + ' (' + str(self.time) + ')'
