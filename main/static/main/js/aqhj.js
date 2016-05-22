@@ -1,9 +1,8 @@
 $(document).ready(function(){
-    var fm = $('#following-matches'), fmToggle = $('#fm-toggle');
-
-    fmToggle.on('click', function(){
-        fmToggle.toggleClass('collapsed');
-        fm.collapse('toggle');
+    $('#fm-toggle').on('click', function(){
+        $(this).toggleClass('collapsed');
+        $('#following-matches').collapse('toggle');
+        $('#time-clarification').collapse('toggle');
     });
 });
 

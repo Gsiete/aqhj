@@ -1,6 +1,6 @@
 {% load aqhj_tags %}
 {% load tz %}
-<section class="match-box mb-smaller" data-time="{{ match.time|isotime }}">
+<section class="match-box container mb-smaller" data-time="{{ match.time|isotime }}">
   <div class="row upper-half">
     {% if linked %}<a href="{{ 'past_match'|url_from_object:match }}">{% endif %}
       <div class="left-column-sm col-xs-12 col-sm-6">

@@ -9,7 +9,7 @@
 }
 
 #content .match-box {
-    border: 1px solid #DFDFDF;
+    border-top: 1px solid #DFDFDF;
     text-align: left;
     width: 100%;
     margin-bottom: 60px;
@@ -72,7 +72,6 @@
 
 .match-box-footer {
     border-top: 1px solid #DFDFDF;
-    height: 60px;
 }
 
 .team-logo img {
@@ -89,7 +88,6 @@
 }
 
 .match-info {
-    padding-left: 18px;
     padding-top: 26px;
     line-height: 18px;
     color: #BEBFB6;
@@ -114,18 +112,13 @@
 }
 
 .match-box-footer {
+    line-height: 3em;
     font-size: 20px;
     color: #BEBFB6;
     letter-spacing: -0.2px;
-    height: 60px;
-}
-
-.pull-right {
-    padding: 18px 0 10px 0;
 }
 
 #fm-toggle {
-    padding: 18px 0 20px 0;
     transition: border-bottom 1s;
 }
 
@@ -250,8 +243,12 @@
 .fm-team-b img, .fm-team-b h4 {
     float: right;
 }
-
-#following-matches .following-match {
+@media screen and (max-width: 767px) {
+    .fm-team-b img, .fm-team-b h4 {
+        float: left;
+    }
+}
+#following-matches .following-match:not(:first-child) {
     border-top: 1px solid #DFDFDF;
 }
 
@@ -282,9 +279,11 @@
     text-align: center;
 }
 
-#fm-toggle.collapsed {
-    border-bottom: 1px solid white;
-    margin-bottom: -1px;
+@media screen and (min-width: 768px) {
+    #fm-toggle.collapsed {
+        border-bottom: 1px solid white;
+        margin-bottom: -1px;
+    }
 }
 
 .right-column {
@@ -432,13 +431,7 @@ body {
 .sign-up {
 }
 
-#following-matches .row, .match-box-footer.row {
-    margin-right: 0;
-    margin-left: 0;
-}
-
 .match-info, .team-logo {
-    margin-left: 10px;
     padding-left: 20px;
 }
 
@@ -490,6 +483,12 @@ body {
 .winner h4 {
     font-weight: bold;
 }
-#following-matches {
-    margin-top: 1px;
+.fm-vs {
+    text-align: center;
 }
+
+.match-box > .row, #following-matches > .row {
+    border: 1px solid #dfdfdf;
+    border-top: 0;
+}
+￼

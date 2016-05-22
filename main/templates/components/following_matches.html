@@ -1,30 +1,38 @@
 {% load aqhj_tags %}
-{% for following_match in following_matches %}
-  <div class="row following-match">
-    <a href="{{ 'match_before'|url_from_object:following_match }}">
-      <div class="fm-main left-column">
-        <div class="row">
-          <div class="col-xs-12 col-sm-5 fm-team-a">
-            <img src="{{ following_match.team_a.logo.url }}">
-            <h4>{{ following_match.team_a }}</h4>
+<div id="following-matches" class="row collapse">
+  <div class="col-xs-12">
+  {% for following_match in following_matches %}
+    <div class="row following-match">
+      <a href="{{ 'match_before'|url_from_object:following_match }}">
+        <div class="fm-main left-column">
+          <div class="row">
+            <div class="col-xs-12 col-sm-5 fm-team-a">
+              <img src="{{ following_match.team_a.logo.url }}">
+              <h4>{{ following_match.team_a }}</h4>
+            </div>
+            <div class="col-xs-2 fm-vs">
+              <p>vs</p>
+            </div>
+            <div class="col-xs-12 col-sm-5 fm-team-b">
+              <img class="fm-team-b-logo" src="{{ following_match.team_b.logo.url }}">
+              <h4  class="fm-team-b-name" >{{ following_match.team_b }}</h4>
+            </div>
           </div>
-          <div class="col-xs-2 fm-vs">
-            <p>vs</p>
-          </div>
-          <div class="col-xs-12 col-sm-5 fm-team-b">
-            <img src="{{ following_match.team_b.logo.url }}">
-            <h4>{{ following_match.team_b }}</h4>
+          <div class="match-info-fm">
+            {{ following_match.season.tournament.name }}, {{ following_match.game_in_season_literal }}
+            | {{ following_match.stadium.name }}, {{ following_match.stadium.city.name }}
           </div>
         </div>
-        <div class="match-info-fm">
-          {{ following_match.season.tournament.name }}, {{ following_match.game_in_season_literal }}
-          | {{ following_match.stadium.name }}, {{ following_match.stadium.city.name }}
-        </div>
+      </a>
+      <div class="fm-date right-column time js-local-time" data-time="{{ following_match.time|isotime }}"
+           data-tz="{{ user_city.timezone }}">
+        {% include 'components/date_box_tiny.html' with datetime=following_match.time city=user_city %}
       </div>
-    </a>
-    <div class="fm-date right-column time js-local-time" data-time="{{ following_match.time|isotime }}"
-         data-tz="{{ user_city.timezone }}">
-      {% include 'components/date_box_tiny.html' with datetime=following_match.time city=user_city %}
     </div>
+  {% endfor %}
   </div>
-{% endfor %}
+</div>
+<div id="time-clarification" class="pull-right collapse">
+  Todos los horarios son en tu zona horaria de
+  <span class="var-city">{{ user_city.name }}, {{ user_city.country.name }}</span>
+</div>

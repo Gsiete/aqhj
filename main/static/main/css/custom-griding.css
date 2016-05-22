@@ -16,19 +16,14 @@
 .fm-date {
     width: 20%;
 }
-.fm-vs {
-    width: 5%;
-}
-.fm-team-a-name, .fm-team-b-name {
-    width: 34.2%;
-}
-.fm-team-a-logo, .fm-team-b-logo {
-    width: 13.3%;
-}
+/*.fm-team-a-name, .fm-team-b-name {*/
+    /*width: 34.2%;*/
+/*}*/
+/*.fm-team-a-logo, .fm-team-b-logo {*/
+    /*width: 13.3%;*/
+/*}*/
 .fm-main, .fm-date, .fm-team-a-logo, .fm-team-b-logo, .fm-team-a-name, .fm-team-b-name, .fm-vs {
     float: left;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 @media (max-width: 767px) {
@@ -41,12 +36,12 @@
     .fm-vs {
         display: none;
     }
-    .fm-team-a-name, .fm-team-b-name {
-        width: 80%;
-    }
-    .fm-team-a-logo, .fm-team-b-logo {
-        width: 20%;
-    }
+    /*.fm-team-a-name, .fm-team-b-name {*/
+        /*width: 80%;*/
+    /*}*/
+    /*.fm-team-a-logo, .fm-team-b-logo {*/
+        /*width: 20%;*/
+    /*}*/
     .fm-team-b-logo {
         text-align: right;
     }
