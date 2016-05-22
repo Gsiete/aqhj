@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $('#fm-toggle').on('click', function(){
         $(this).toggleClass('collapsed');
+        $(this).find('.glyphicon').toggleClass('glyphicon-menu-up');
         setTimeout(function() {
             $('#following-matches').collapse('toggle');
             $('#time-clarification').collapse('toggle');
