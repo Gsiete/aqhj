@@ -1,4 +1,5 @@
 from datetime import timedelta
+from html import escape
 
 from django.db import models
 from django.utils.text import slugify
@@ -6,6 +7,7 @@ from django.utils import timezone
 from redactor.fields import RedactorField
 
 from cities.models import City
+from main.functions import reverse_from_object
 
 
 class Tournament(models.Model):
@@ -83,6 +85,8 @@ class Match(models.Model):
     preview_part2 = RedactorField(blank=True)
     preview_part3 = RedactorField(blank=True)
     summary = RedactorField(blank=True)
+    html_video = models.TextField(null=True, blank=True,
+                                  help_text=escape('<iframe width="360" height="203" src="https://www.youtube.com/embed/CODIGO_DEL_VIDEO" frameborder="0" allowfullscreen=""></iframe>'))
 
     @property
     def team_a_winner(self):
@@ -102,16 +106,39 @@ class Match(models.Model):
 
     @property
     def match_status(self):
-        if self.time < timezone.now():
+        if self.time is None:
+            return None
+        if timezone.now() < self.time:
             return 'before'
-        elif self.time < timezone.now() < self.end_time:
+        if self.end_time and self.time < timezone.now() < self.end_time:
             return 'ongoing'
-        elif timezone.now() < self.time:
+        if self.time < timezone.now():
             return 'after'
 
     @property
     def is_today(self):
-        return self.time - timedelta(1) > timezone.now() > self.end_time + timedelta(1)
+        return self.time - timedelta(1) > timezone.now() > (self.end_time or self.time) + timedelta(1)
+
+    @property
+    def url(self):
+        if self.time is None:
+            return None
+
+        if self.match_status == 'before':
+            if self.is_today:
+                return reverse_from_object('match_today', self)
+            else:
+                return reverse_from_object('match_before', self)
+        if self.match_status == 'ongoing':
+                return reverse_from_object('match_today', self)
+        if self.match_status == 'after':
+                return reverse_from_object('past_match', self)
+
+        return None
+
+    @property
+    def hoy(self):
+        return ' hoy' if self.is_today else ''
 
     def __str__(self):
         return str(self.team_a) + ' - ' + str(self.team_b) + ' (' + str(self.time) + ')'

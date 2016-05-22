@@ -7,7 +7,7 @@ class MainAdmin(admin.ModelAdmin):
 
 
 class MatchAdmin(admin.ModelAdmin):
-    readonly_fields = ('stadium_time',)
+    readonly_fields = ('stadium_time', 'url')
 
 admin.site.register(Match, admin_class=MatchAdmin)
 admin.site.register(Tournament, admin_class=MainAdmin)
