@@ -30,6 +30,7 @@ class Season(models.Model):
     slug = models.SlugField(max_length=50, default='')
     start = models.DateTimeField('start of the tournament')
     end = models.DateTimeField('end of the tournament')
+    is_main = models.BooleanField('indicate that this season is currently the main in the domain')
 
     @property
     def short(self):
@@ -144,9 +145,8 @@ class Match(models.Model):
         return str(self.team_a) + ' - ' + str(self.team_b) + ' (' + str(self.time) + ')'
 
 
-class TeamSeason(models.Model):
+class TeamStats(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
-    season = models.ForeignKey(Season, on_delete=models.CASCADE)
     matches_played = models.IntegerField(null=True, blank=True)
     wins = models.IntegerField(null=True, blank=True)
     draws = models.IntegerField(null=True, blank=True)
@@ -155,3 +155,22 @@ class TeamSeason(models.Model):
     goals_against = models.IntegerField(null=True, blank=True)
     goals_difference = models.IntegerField(null=True, blank=True)
     points = models.IntegerField(null=True, blank=True)
+    position = models.IntegerField(null=True, blank=True)
+
+    def __str__(self):
+        return str(self.team) + ' - ' + str(self.season.short)
+
+    class Meta:
+        abstract = True
+        ordering = ["position"]
+
+
+class TeamSeason(TeamStats):
+    season = models.ForeignKey(Season, on_delete=models.CASCADE)
+
+
+class TeamGroupStats(TeamSeason):
+    group = models.CharField(max_length=1)
+
+    class Meta:
+        ordering = ["group", "position"]
