@@ -92,6 +92,7 @@ class Match(models.Model):
     def team_b_winner(self):
         return self.score_team_a is not None and self.score_team_b is not None and self.score_team_a < self.score_team_b
 
+    @property
     def stadium_time(self):
         return self.time.astimezone(self.stadium.city.timezone)
 
