@@ -1,0 +1,58 @@
+{% extends 'main/layout.html' %}
+{% load tz %}
+{% load aqhj_tags %}
+{% load staticfiles %}
+
+{% block head_styles %}
+  {{ block.super }}
+  <link href="{% static "main/css/table.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block head_extra %}
+  <title>{{ season.short }} - Grupos y posiciones</title>
+{% endblock %}
+
+{% block content_title %}
+  <h1>{{ season.short }} - Grupos y posiciones</h1>
+  <h3>Clasificación de las {{ teamstats|length }} selecciones que disputan los {{ groups_ammount }} grupos.</h3>
+{% endblock %}
+
+{% block content %}
+  {% regroup teamstats by group as group_list %}
+  {% for group in group_list %}
+    <table>
+      <caption><h4>Grupo {{ group.grouper }}</h4></caption>
+      <tr>
+        <th class="pos">POS</th>
+        <th class="team_table"></th>
+        <th class="pj">PJ</th>
+        <th class="pg">PG</th>
+        <th class="pe">PE</th>
+        <th class="pp">PP</th>
+        <th class="gf">GF</th>
+        <th class="gc">GC</th>
+        <th class="dif">+/-</th>
+        <th class="ptos">PTOS</th>
+      </tr>
+      {% for ts in group.list %}
+        <tr>
+          <td class="pos">{{ ts.position }}</td>
+          <td class="team_table"><img class="logo_table" src="{{ ts.team.logo.url }}"/>{{ ts.team }}</td>
+          <td class="pj">{{ ts.matches_played }}</td>
+          <td class="pg">{{ ts.wins }}</td>
+          <td class="pe">{{ ts.draws }}</td>
+          <td class="pp">{{ ts.losses }}</td>
+          <td class="gf">{{ ts.goals_for }}</td>
+          <td class="gc">{{ ts.goals_against }}</td>
+          <td class="dif">{{ ts.goals_difference }}</td>
+          <td class="ptos">{{ ts.points }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endfor %}
+  <div class="clar_box">
+  <span><b>POS:</b>POSICIÓN  <b>PJ:</b>PARTIDOS JUGADOS  <b>PG:</b>PARTIDOS GANADOS
+  <b>PE:</b>PARTIDOS EMPATADOS <b>PP:</b>PARTIDOS PERDIDOS  <b>GF:</b>GOLES A FAVOR
+  <b>GC:</b>GOLES EN CONTRA  <b>+/-:</b>DIFERENCIA DE GOLES  <b>PTOS:</b>PUNTOS</span>
+  </div>
+{% endblock %}

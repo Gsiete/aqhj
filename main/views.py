@@ -1,10 +1,11 @@
 from datetime import timedelta
+from itertools import groupby
 
 from django.db.models import Q
 from django.utils import timezone
 
 from main.functions import aqhj_render
-from main.models import Match
+from main.models import Match, Season, TeamGroupStats
 from django.shortcuts import get_object_or_404
 
 
@@ -40,3 +41,17 @@ def last_matches(request):
     latest_matches = Match.objects.filter(time__lte=timezone.now()).order_by('-time')[:10]
 
     return aqhj_render(request, 'main/last-matches.html', {'last_matches': latest_matches})
+
+
+def group_round_positions(request, **kwargs):
+    # ToDo: try to see if the issue with group by was the name
+    season = get_object_or_404(Season, **kwargs)
+    teamstats = TeamGroupStats.objects.filter(season=season)
+    group_names = []
+    for ts in teamstats:
+        if ts.group not in group_names:
+            group_names.append(ts.group)
+    groups_ammount = len(group_names)
+
+    return aqhj_render(request, 'main/position-table.html',
+                       {'groups_ammount': groups_ammount, 'season': season, 'teamstats': teamstats})
