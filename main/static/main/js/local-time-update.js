@@ -5,6 +5,7 @@ $(document).on('tz-change', function (e, tz, cityName, cityId) {
         $(this).data('tz', tz);
         updateTime($(this), tz);
     });
+    $('#mce-TIMEZONE').val(tz);
 
     $('.var-city').each(function () {
         $(this).text(cityName);
