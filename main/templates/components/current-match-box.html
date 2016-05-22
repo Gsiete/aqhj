@@ -38,7 +38,13 @@
   </div>
   <div class="match-box-footer row">
     <div class="col-xs-12 col-sm-6 pull-right">
-      <div>Faltan <span class="countdown" data-until="{{ match.time|isotime }}"></span></div>
+      <div>
+        {% if match.match_status == 'before' %}
+          Faltan <span class="countdown" data-until="{{ match.time|isotime }}"></span>
+        {% else %}
+          Partido en curso
+        {% endif %}
+      </div>
     </div>
     <div id="fm-toggle" class="left-column-sm col-xs-12 col-sm-6">
       <div class="row">
