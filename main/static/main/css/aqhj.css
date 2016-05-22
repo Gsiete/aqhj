@@ -258,7 +258,7 @@
 }
 
 #following-matches .left-column h4 {
-    margin: 11px 0 0 0;
+    margin: 7px 0 0 0;
     font-weight: 300;
 }
 
@@ -302,6 +302,11 @@
     font-size: 24px;
     line-height: 2.25em;
 }
+@media screen and (max-width: 767px) {
+    #header .container {
+        margin-right: 0;
+    }
+}
 
 #header .container a {
     padding: 16px 16px 10px;
@@ -314,7 +319,6 @@
 
 #footer .container {
     width: 900px;
-    font-size: 16px;
     font-weight: 300;
     letter-spacing: 0.02em;
     padding: 25px;
@@ -337,6 +341,32 @@ body {
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 290px;
+}
+
+@media screen and (max-width: 767px) {
+    #main-nav {
+        width: 90%;
+        max-width: 360px;
+    }
+    #footer {
+        height: 735px;
+    }
+    body {
+        margin-bottom: 735px;
+    }
+    #footer .container {
+        width: 90%;
+        max-width: 360px;
+    }
+    .mc-field-group .btn {
+        width: 100%;
+    }
+    .mc-field-group {
+        margin-top: 10px;
+    }
+    .sign-up {
+        margin-bottom: 40px;
+    }
 }
 
 .btn {
@@ -429,6 +459,7 @@ body {
 }
 
 .sign-up {
+    font-size: 16px;
 }
 
 .match-info, .team-logo {
@@ -517,4 +548,10 @@ body {
 }
 .point {
     margin-top: 5px;
+}
+
+@media screen and (max-width: 767px) {
+    .article-three p {
+        padding-left: 10px;
+    }
 }

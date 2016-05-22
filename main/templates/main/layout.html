@@ -80,9 +80,9 @@
     {% block footer %}
       <div class="container">
         <div class="row">
-          <div class="col-sm-7 col-xs-6">
+          <div class="col-sm-7 col-xs-12">
             <div class="sign-up">
-              <h1>NO TE PIERDAS EL PRÓXIMO PARTIDO DEL BARCELONA</h1>
+              <h1>NO TE PIERDAS EL PRÓXIMO PARTIDO DE ARGENTINA</h1>
               <p>Te avisamos por email a qué hora juega en tu zona horaria.</p>
 
               <div class="row">
@@ -98,23 +98,23 @@
                       <input type="text" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Tu email">
                     </div>
                     <input type="hidden" value="{{ user_city.timezone }}" name="TIMEZONE" class="" id="mce-TIMEZONE">
-                    <div class="col-sm-4">
-                      <input type="submit" class="button btn btn-danger" value="SUSCRÍBEME" name="subscribe"
+                    <div class="col-sm-4 col-xs-12 mc-field-group">
+                      <input type="submit" class="button btn btn-danger" value="SUSCRIBIRME" name="subscribe"
                              id="mc-embedded-subscribe">
                     </div>
                   </div>
                 </form>
               </div>
-              <h5>Tal como a ti, no nos gusta el SPAM.</h5>
+              <h5>Tal como a vos, no nos gusta el SPAM.</h5>
             </div>
           </div>
-          <div class="col-sm-1 col-xs-6"></div>
+          <div class="col-sm-1 col-xs-0"></div>
 
           <div class="col-sm-2 col-xs-6">
           <h4>AQUÍ</h4>
           <nav>
             <ul>
-              <li>Cuando Juega</li>
+              <li><a href="{% url 'index' %}">A Que Hora Juega</a></li>
               <li>Resultados</li>
               <li>Posiciones</li>
               <li>Sobre nosotros</li>
@@ -126,8 +126,10 @@
             <h4>ALLÁ</h4>
             <nav>
               <ul>
-                <li>Twitter</li>
-                <li>Facebook</li>
+                <li><a href="https://twitter.com/AQueHora_Argent">Twitter</a></li>
+                <li>
+                  <a href="https://www.facebook.com/A-qu%C3%A9-hora-juega-Argentina-1003742026377502/">Facebook</a>
+                </li>
                 <li>¡Apuesta ahora!</li>
               </ul>
             </nav>

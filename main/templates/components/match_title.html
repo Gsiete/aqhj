@@ -2,16 +2,16 @@
 {# test yesno instead of if *mightbe shorter #}
 <h1>
   {% if home %}
-    ¿A qué hora juega {{ match.team_a }}{% if match.is_today %} hoy{% endif %}?
+    ¿A qué hora juega {{ match.team_a }}{{ match.hoy }}?
   {% else %}
     {% if match.match_status == 'before' %}
-      ¿A qué hora juega {{ match.team_a }}{% if match.is_today %} hoy{% endif %} vs {{ match.team_b }}?
+      ¿A qué hora juega {{ match.team_a }}{{ match.hoy }} vs {{ match.team_b }}?
     {% elif match.match_status == 'ongoing' %}
       ¿A qué hora juega {{ match.team_a }} hoy vs {{ match.team_b }}?
     {% elif match.match_status == 'after' %}
-      Resultados de {{ match.team_a }}{% if match.is_today %} hoy{% endif %} vs {{ match.team_b }}
+      Resultados de {{ match.team_a }}{{ match.hoy }} vs {{ match.team_b }}
       ({{ match.score_team_a }}-{{ match.score_team_b }})
     {% endif %}
   {% endif %}
 </h1>
-<h3>Entérate a qué hora juega Argentina{% if match.is_today %} hoy{% endif %} en tu país.</h3>
+<h3>Entérate a qué hora juega Argentina{{ match.hoy }} en tu país.</h3>

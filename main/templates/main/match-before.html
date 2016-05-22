@@ -3,7 +3,11 @@
 {% load aqhj_tags %}
 {% load staticfiles %}
 {% block head_extra %}
-  <title>{{ next_match }}</title>
+  <title>{% if home %}
+    ¿A qué hora juega Argentina{{ match.hoy }}? Todos los horarios de los próximos partidos
+  {% else %}
+    ¿A qué hora juega Argentina{{ match.hoy }} vs {{ match.team_b }} en tu zona horaria?
+  {% endif %}</title>
 {% endblock %}
 
 {% block content_title %}

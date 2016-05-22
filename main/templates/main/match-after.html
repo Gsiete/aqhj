@@ -3,7 +3,11 @@
 {% load aqhj_tags %}
 {% load staticfiles %}
 {% block head_extra %}
-  <title>{{ match }}</title>
+  <title>
+    Resultado Argentina vs {{ match.team_b }}{{ match.hoy }}
+    ({{ match.score_team_a }}-{{ match.score_team_b }})
+    | {{ match.tournament.season }}{% if match.game_in_season %} - {{match.game_in_season}}{% endif %}
+  </title>
 {% endblock %}
 
 {% block content_title %}
