@@ -1,11 +1,13 @@
 {% load staticfiles %}
 {% load compress %}
+{% load aqhj_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     {% block head %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="{% static 'main/img/favicon.gif' %}"/>
         {% block head_extra %}{% endblock %}
         {% block head_styles %}
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
@@ -37,10 +39,13 @@
     <header id="header">
     {% block header %}
         <div class="container">
+            <div id="logo">
+                <img src="{% static 'main/img/Logo-AQHJ-header.png' %}">
+            </div>
             <a>
               <i class="fa fa-facebook"></i>
             </a>
-            <a href="https://twitter.com/intent/tweet?url=http://aquehorajuega.com/text={{'Hola Mundo' | urlencode}}">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text={{'Enterate a qué hora juega Argentina en tu zona horaria http://aquehorajuegaargentina.com @AQueHora_Argent' | urlencode}}">
               <i class="fa fa-twitter"></i>
             </a>
             <a href="#" data-toggle="modal" data-target="#settings-modal">
@@ -51,9 +56,9 @@
     </header>
     <nav id="main-nav">
       <ul>
-        <li><a href="/home.htm">Cuando Juega</a></li>
-        <li><a href="/resultados.htm">Resultados y Videos</a></li>
-        <li><a href="/posiciones.htm">Tabla de Posiciones</a></li>
+        <li><a href="{% url 'index' %}">Cuando Juega</a></li>
+        <li><a href="{% url 'last_matches' %}">Resultados y Videos</a></li>
+        <li><a href="{{ 'group_positions'|url_from_object:main_season }}">Tabla de Posiciones</a></li>
         <li><a href="http://www.bet365.com/" target="blank">¡Apuesta ahora!</a></li>
       </ul>
     </nav>
@@ -115,8 +120,8 @@
           <nav>
             <ul>
               <li><a href="{% url 'index' %}">A Que Hora Juega</a></li>
-              <li>Resultados</li>
-              <li>Posiciones</li>
+              <li><a href="{% url 'last_matches' %}">Resultados</a></li>
+              <li><a href="{{ 'group_positions'|url_from_object:main_season }}">Posiciones</a></li>
               <li>Sobre nosotros</li>
               <li>Contacto</li>
             </ul>
@@ -126,9 +131,9 @@
             <h4>ALLÁ</h4>
             <nav>
               <ul>
-                <li><a href="https://twitter.com/AQueHora_Argent">Twitter</a></li>
+                <li><a target="_blank" href="https://twitter.com/AQueHora_Argent">Twitter</a></li>
                 <li>
-                  <a href="https://www.facebook.com/A-qu%C3%A9-hora-juega-Argentina-1003742026377502/">Facebook</a>
+                  <a target="_blank" href="https://www.facebook.com/A-qu%C3%A9-hora-juega-Argentina-1003742026377502/">Facebook</a>
                 </li>
                 <li>¡Apuesta ahora!</li>
               </ul>

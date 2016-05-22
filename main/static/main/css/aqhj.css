@@ -555,3 +555,7 @@ body {
         padding-left: 10px;
     }
 }
+#logo {
+    float:left;
+    margin:10px
+}
