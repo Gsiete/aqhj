@@ -7,7 +7,6 @@ from geoip2.errors import AddressNotFoundError
 from django.conf import settings
 import datetime
 
-
 from cities.models import City, Country
 
 ips = {'ar': '201.231.108.8'}
@@ -54,8 +53,17 @@ def aqhj_render(request, template, context):
     user_city = get_user_city(request) if city_is_new else City.objects.get(pk=city_code)
 
     time_format = request.COOKIES.get('tformat', '24')
-
-    context.update({'time_format': time_format, 'user_city': user_city, 'city_is_new': city_is_new})
+    from main.models import Season
+    try:
+        main_season = Season.objects.get(is_main=True)
+    except Season.DoesNotExist:
+        main_season = Season.objects.all()[0]
+    except Season.MultipleObjectsReturned:
+        main_season = Season.objects.filter(is_main=True)[0]
+    context.update({'time_format': time_format,
+                    'user_city': user_city,
+                    'city_is_new': city_is_new,
+                    'main_season': main_season})
 
     response = render(request, template, context)
 
