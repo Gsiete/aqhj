@@ -36,7 +36,7 @@
       </div>
     {% if linked %}</a>{% endif %}
     <div class="col-xs-12 col-sm-6  video">
-      <iframe width="360" height="203" src="https://www.youtube.com/embed/KZaCBHEUeko" frameborder="0" allowfullscreen></iframe>
+      {{ match.html_video|safe }}
     </div>
   </div>
 </section>
