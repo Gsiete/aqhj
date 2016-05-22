@@ -105,11 +105,10 @@ def reverse_from_object(route, obj):
     resolver = get_resolver(None)
     parameters = resolver.reverse_dict[route][0][0][1]
     kwargs = {}
-    args = []
     for field in parameters:
         field_path = field.split('__')
         kwargs[field] = str(get_value_from_field_path(obj, field_path))
-        args.append(str(get_value_from_field_path(obj, field_path)))
+
     return reverse(route, kwargs=kwargs)
 
 
