@@ -17,9 +17,8 @@
 {% block content %}
   {% include 'components/past-match-box.html' %}
 
-  <section id="following-matches" class="collapse">
-    {% include 'components/following_matches.html' %}
-  </section>
-
+  {% if match.summary %}
+    <article class="summary">{{ match.summary|safe }}</article>
+  {% endif %}
   {% include 'components/three-articles.html' %}
 {% endblock %}

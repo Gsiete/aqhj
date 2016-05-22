@@ -568,3 +568,32 @@ body {
         margin-left: 80px;
     }
 }
+.summary h3 {
+	text-align:left;
+}
+
+
+.summary {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.summary h2 {
+    font-family: Lato, Helvetica, Arial, sans-serif;;
+    font-size: 44px;
+    font-weight: 400;
+    color: #032B2F;
+    text-align:left;
+}
+
+.summary p {
+    text-align: left;
+    font-family: Merriweather, Helvetica, Arial, sans-serif;;
+    font-size: 18px;
+    line-height: 30px;
+    color: #032B2F;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
