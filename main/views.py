@@ -47,11 +47,6 @@ def group_round_positions(request, **kwargs):
     # ToDo: try to see if the issue with group by was the name
     season = get_object_or_404(Season, **kwargs)
     teamstats = TeamGroupStats.objects.filter(season=season)
-    group_names = []
-    for ts in teamstats:
-        if ts.group not in group_names:
-            group_names.append(ts.group)
-    groups_ammount = len(group_names)
 
     return aqhj_render(request, 'main/position-table.html',
                        {'groups_ammount': groups_ammount, 'season': season, 'teamstats': teamstats})
