@@ -1,5 +1,5 @@
 {% load aqhj_tags %}
-<section class="match-box" data-time="{{ match.time|isotime }}">
+<section class="match-box container" data-time="{{ match.time|isotime }}">
   <div class="row upper-half">
     <div class="left-column-sm col-xs-12 col-sm-6">
       <div class="ver-space"></div>
@@ -48,9 +48,7 @@
       </div>
     </div>
   </div>
-  {% if following_matches %}
   <div id="following-matches" class="collapse">
     {% include 'components/following_matches.html' %}
   </div>
-  {% endif %}
 </section>
