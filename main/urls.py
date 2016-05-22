@@ -11,6 +11,6 @@ urlpatterns = [
     url(r'^' + past_match_pattern + r'$', views.past_match, name='past_match'),
     url(r'^' + match_pattern + r'/hoy$', views.match_before, name='match_today', kwargs={'hoy': True}),
     url(r'^' + match_pattern + r'$', views.match_before, name='match_before'),
-    url(r'^last-matches$', views.last_matches, name='last_matches'),
+    url(r'^ultimos-resultados$', views.last_matches, name='last_matches'),
 ]
 # https://docs.djangoproject.com/en/1.9/topics/http/urls/#including-other-urlconfs
