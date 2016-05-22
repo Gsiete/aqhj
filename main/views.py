@@ -48,5 +48,4 @@ def group_round_positions(request, **kwargs):
     season = get_object_or_404(Season, **kwargs)
     teamstats = TeamGroupStats.objects.filter(season=season)
 
-    return aqhj_render(request, 'main/position-table.html',
-                       {'groups_ammount': groups_ammount, 'season': season, 'teamstats': teamstats})
+    return aqhj_render(request, 'main/position-table.html', {'season': season, 'teamstats': teamstats})
