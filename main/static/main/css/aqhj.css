@@ -491,4 +491,11 @@ body {
     border: 1px solid #dfdfdf;
     border-top: 0;
 }
-￼
+#time-clarification {
+    color: #BEBFB6;
+    font-weight: 400;
+    font-style: italic;
+}
+#time-clarification .var-city {
+    color: #56b1bf;
+}
