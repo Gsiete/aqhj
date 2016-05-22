@@ -1,8 +1,10 @@
 $(document).ready(function(){
     $('#fm-toggle').on('click', function(){
         $(this).toggleClass('collapsed');
-        $('#following-matches').collapse('toggle');
-        $('#time-clarification').collapse('toggle');
+        setTimeout(function() {
+            $('#following-matches').collapse('toggle');
+            $('#time-clarification').collapse('toggle');
+        }, 100);
     });
 });
 
