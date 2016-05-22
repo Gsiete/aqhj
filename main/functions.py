@@ -52,18 +52,7 @@ def aqhj_render(request, template, context):
     city_is_new = not city_code
     user_city = get_user_city(request) if city_is_new else City.objects.get(pk=city_code)
 
-    time_format = request.COOKIES.get('tformat', '24')
-    from main.models import Season
-    try:
-        main_season = Season.objects.get(is_main=True)
-    except Season.DoesNotExist:
-        main_season = Season.objects.all()[0]
-    except Season.MultipleObjectsReturned:
-        main_season = Season.objects.filter(is_main=True)[0]
-    context.update({'time_format': time_format,
-                    'user_city': user_city,
-                    'city_is_new': city_is_new,
-                    'main_season': main_season})
+    context.update({'user_city': user_city, 'city_is_new': city_is_new})
 
     response = render(request, template, context)
 
