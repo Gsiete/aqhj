@@ -17,6 +17,7 @@
 {% endblock %}
 
 {% block footer_script %}
+  {{ block.super }}
   <script>
     $(document).ready(function () {
       $('.countdown').each(function () {
@@ -29,7 +30,6 @@
           $(this).text(event.strftime(dateFormat));
         });
       });
-
     });
   </script>
 {% endblock %}
