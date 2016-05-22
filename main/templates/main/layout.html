@@ -38,19 +38,21 @@
 <body class="{% block body_class %}{% endblock %}">
     <header id="header">
     {% block header %}
-        <div class="container">
+        <div class="container-fluid">
             <div id="logo">
                 <img src="{% static 'main/img/Logo-AQHJ-header.png' %}">
             </div>
-            <a>
-              <i class="fa fa-facebook"></i>
-            </a>
-            <a target="_blank" href="https://twitter.com/intent/tweet?text={{'Enterate a qué hora juega Argentina en tu zona horaria http://aquehorajuegaargentina.com @AQueHora_Argent' | urlencode}}">
-              <i class="fa fa-twitter"></i>
-            </a>
-            <a href="#" data-toggle="modal" data-target="#settings-modal">
-                <i class="fa fa-cog"></i>
-            </a>
+            <div class="header-buttons">
+              <a>
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a target="_blank" href="https://twitter.com/intent/tweet?text={{'Enterate a qué hora juega Argentina en tu zona horaria http://aquehorajuegaargentina.com @AQueHora_Argent' | urlencode}}">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="#" data-toggle="modal" data-target="#settings-modal">
+                  <i class="fa fa-cog"></i>
+              </a>
+            </div>
         </div>
     {% endblock %}
     </header>
