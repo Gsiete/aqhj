@@ -55,9 +55,7 @@ def aqhj_render(request, template, context):
 
     time_format = request.COOKIES.get('tformat', '24')
 
-    context['time_format'] = time_format
-    context['user_city'] = user_city
-    context['city_is_new'] = city_is_new
+    context.update({'time_format': time_format, 'user_city': user_city, 'city_is_new': city_is_new})
 
     response = render(request, template, context)
 
