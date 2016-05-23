@@ -31,3 +31,4 @@ urlpatterns = [
     url(r'^main/?$', RedirectView.as_view(url='/'), name='index_old'),
 ]
 # https://docs.djangoproject.com/en/1.9/topics/http/urls/#including-other-urlconfs
+`

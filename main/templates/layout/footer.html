@@ -37,9 +37,9 @@
     <h4>AQUÍ</h4>
     <nav>
       <ul>
-        <li><a href="{% url 'index' %}">A Que Hora Juega</a></li>
-        <li><a href="{% url 'last_matches' %}">Resultados</a></li>
-        <li><a href="{{ 'group_positions'|url_from_object:main_season }}">Posiciones</a></li>
+        <li><a href="{{ domain }}{% url 'index' %}">A Que Hora Juega</a></li>
+        <li><a href="{{ domain }}{% url 'last_matches' %}">Resultados</a></li>
+        <li><a href="{{ domain }}{{ 'group_positions'|url_from_object:main_season }}">Posiciones</a></li>
         <li>Sobre nosotros</li>
         <li>Contacto</li>
       </ul>

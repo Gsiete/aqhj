@@ -43,9 +43,9 @@
     </header>
     <nav id="main-nav">
       <ul>
-        <li><a href="{% url 'index' %}">Cuando Juega</a></li>
-        <li><a href="{% url 'last_matches' %}">Resultados y Videos</a></li>
-        <li><a href="{{ 'group_positions'|url_from_object:main_season }}">Tabla de Posiciones</a></li>
+        <li><a href="{{ domain }}{% url 'index' %}">A Que Hora Juega</a></li>
+        <li><a href="{{ domain }}{% url 'last_matches' %}">Resultados y Videos</a></li>
+        <li><a href="{{ domain }}{{ 'group_positions'|url_from_object:main_season }}">Tabla de Posiciones</a></li>
         <li><a href="http://www.bet365.com/" target="blank">¡Apuesta ahora!</a></li>
       </ul>
     </nav>

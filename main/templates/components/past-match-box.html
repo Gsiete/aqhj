@@ -2,7 +2,7 @@
 {% load tz %}
 <section class="match-box container mb-smaller" data-time="{{ match.time|isotime }}">
   <div class="row upper-half">
-    {% if linked %}<a href="{{ match.url }}">{% endif %}
+    {% if linked %}<a href="{{ domain }}{{ match.url }}">{% endif %}
       <div class="left-column-sm col-xs-12 col-sm-6">
         <div class="ver-space"></div>
         <div class="row{% if match.team_a_winner %} winner{% endif %}">
