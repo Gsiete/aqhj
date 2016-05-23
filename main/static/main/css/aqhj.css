@@ -630,11 +630,24 @@ body {
 .logo-sm {
     display: none;
 }
+
 a {
     color: #56B1BF;
 }
+
 a:hover {
     color: #08708A;
+}
+
+.time-diff {
+    font-size: 12px;
+    font-weight: 400;
+    color: #D73A31;
+    left: 0;
+    bottom: 10px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
 }
 
 @media screen and (max-width: 550px) {
