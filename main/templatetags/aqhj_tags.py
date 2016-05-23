@@ -29,4 +29,4 @@ def url_from_object(route, obj):
 def timediff(match, user_city):
     td = match.stadium_time.utcoffset() - match.time.astimezone(user_city.timezone).utcoffset()
     hours = td.days * 24 + td.seconds // 3600
-    return hours if hours < 0 else '+' + str(hours)
+    return hours if hours <= 0 else '+' + str(hours)
