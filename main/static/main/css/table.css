@@ -67,7 +67,7 @@ th.pe, th.gc, th.pp, th.dif {
 	height:21px;
 	margin:0 7px 4px 10px;
 }
-.clar_box {
+.clarification-box {
 	max-width:660px;
 	margin: 40px auto 40px auto;
 	border:1px solid #DFDFDF;
@@ -75,8 +75,9 @@ th.pe, th.gc, th.pp, th.dif {
 	line-height:24px;
 	letter-spacing:0.3px;
 	padding:4px 65px 4px 65px;
+    color: #032B2F;
 }
-.clar_box span:first-child b {
+.clarification-box span:first-child b {
 		padding:0 5px 0 9px;
 }
 @media (max-width: 767px) {
@@ -89,7 +90,7 @@ th.pe, th.gc, th.pp, th.dif {
 		width:100%;
 		margin:20px auto 20px auto;
 	}
-	.clar_box {
+	.clarification-box {
 		padding:4px 6.5% 4px 6.5%;
 	}
 }
@@ -108,7 +109,7 @@ th.pe, th.gc, th.pp, th.dif {
 	.pj, .ptos {
 		width:15%;
 	}
-	.clar_box {
+	.clarification-box {
 		padding:4px 5px 4px 5px;
 	}
 }

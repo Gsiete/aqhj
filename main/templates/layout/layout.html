@@ -41,14 +41,20 @@
       {% include 'layout/header.html' %}
     {% endblock %}
     </header>
-    <nav id="main-nav">
-      <ul>
-        <li><a href="{{ domain }}{% url 'index' %}">A Que Hora Juega</a></li>
-        <li><a href="{{ domain }}{% url 'last_matches' %}">Resultados y Videos</a></li>
-        <li><a href="{{ domain }}{{ 'group_positions'|url_from_object:main_season }}">Tabla de Posiciones</a></li>
-        <li><a href="http://www.bet365.com/" target="blank">¡Apuesta ahora!</a></li>
-      </ul>
-    </nav>
+    <div id="main-nav" class="container-fluid">
+      <div class="row">
+        <div class="nav-el col-xs-6 col-sm-3">
+          <a href="{{ domain }}{% url 'index' %}">A qué hora juega</a>
+        </div>
+        <div class="nav-el col-xs-6 col-sm-3">
+          <a href="{{ domain }}{% url 'last_matches' %}">Resultados</a>
+        </div>
+        <div class="nav-el col-xs-6 col-sm-3">
+          <a href="{{ domain }}{{ 'group_positions'|url_from_object:main_season }}">Posiciones</a>
+        </div>
+        <div class="nav-el col-xs-6 col-sm-3"><a href="http://www.bet365.com/" target="blank">¡Apostá ahora!</a></div>
+      </div>
+    </div>
 
     <!-- Modal -->
     <div id="settings-modal" class="modal fade" role="dialog" data-show='{{ city_is_new|yesno:'yes,no' }}'>
