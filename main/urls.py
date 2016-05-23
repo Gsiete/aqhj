@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^' + match_pattern + r'$', views.match_before, name='match_before'),
     url(r'^' + match_pattern_no_gis + r'/hoy$', views.match_before, name='match_today_no_gis', kwargs={'hoy': True}),
     url(r'^' + match_pattern_no_gis + r'$', views.match_before, name='match_before_no_gis'),
+    url(r'^' + past_match_pattern + r'$', views.past_match, name='past_match'),
     url(r'^' + past_match_pattern_no_gis + r'$', views.past_match, name='past_match_no_gis'),
     url(r'^ultimos-resultados$', views.last_matches, name='last_matches'),
     url(r'^' + season_pattern + r'/ronda-de-grupos/posiciones$', views.group_round_positions, name='group_positions'),
