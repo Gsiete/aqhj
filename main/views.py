@@ -23,7 +23,6 @@ def match_before(request, **kwargs):
 
     # orig_tz = settings.TIME_ZONE
     # Awfully Hacky, but necessary. there doesn't seems to be a way to disable TZ support in the querying
-    settings.TIME_ZONE = 'UTC'
     match = get_object_or_404(Match, **kwargs)
 
     if timezone.now() > match.time or today and not match.is_today:
@@ -36,7 +35,6 @@ def match_before(request, **kwargs):
 
 def past_match(request, **kwargs):
     # Awfully Hacky, but necessary. there doesn't seems to be a way to disable TZ support in the querying
-    settings.TIME_ZONE = 'UTC'
     last_match = get_object_or_404(Match, **kwargs)
 
     return aqhj_render(request, 'main/match-after.html', {'match': last_match})
