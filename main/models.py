@@ -150,7 +150,7 @@ class Match(models.Model):
         return str(self.team_a) + ' - ' + str(self.team_b) + ' (' + str(self.time) + ')'
 
 
-class TeamStats(models.Model):
+class TeamSeasonAbstract(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     matches_played = models.IntegerField(null=True, blank=True)
     wins = models.IntegerField(null=True, blank=True)
@@ -161,6 +161,7 @@ class TeamStats(models.Model):
     goals_difference = models.IntegerField(null=True, blank=True)
     points = models.IntegerField(null=True, blank=True)
     position = models.IntegerField(null=True, blank=True)
+    season = models.ForeignKey(Season, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.team) + ' - ' + str(self.season.short)
@@ -170,11 +171,11 @@ class TeamStats(models.Model):
         ordering = ["position"]
 
 
-class TeamSeason(TeamStats):
-    season = models.ForeignKey(Season, on_delete=models.CASCADE)
+class TeamSeason(TeamSeasonAbstract):
+    pass
 
 
-class TeamGroupStats(TeamSeason):
+class TeamSeasonGroup(TeamSeasonAbstract):
     group = models.CharField(max_length=1)
 
     class Meta:

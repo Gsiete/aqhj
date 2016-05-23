@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.utils import timezone
 
 from main.functions import aqhj_render
-from main.models import Match, Season, TeamGroupStats
+from main.models import Match, Season, TeamSeasonGroup
 from django.shortcuts import get_object_or_404, redirect
 
 
@@ -49,6 +49,6 @@ def last_matches(request):
 def group_round_positions(request, **kwargs):
     # ToDo: try to see if the issue with group by was the name
     season = get_object_or_404(Season, **kwargs)
-    teamstats = TeamGroupStats.objects.filter(season=season)
+    teamstats = TeamSeasonGroup.objects.filter(season=season)
 
     return aqhj_render(request, 'main/position-table.html', {'season': season, 'teamstats': teamstats})
