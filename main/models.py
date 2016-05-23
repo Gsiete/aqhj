@@ -7,7 +7,6 @@ from django.utils import timezone
 from redactor.fields import RedactorField
 
 from cities.models import City
-from main.functions import reverse_from_object
 
 
 class Tournament(models.Model):
@@ -123,6 +122,7 @@ class Match(models.Model):
 
     @property
     def url(self):
+        from main.functions import reverse_from_object
         if self.time is None:
             return None
 
