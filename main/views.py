@@ -1,17 +1,18 @@
 from datetime import timedelta
 from itertools import groupby
 
+from django.conf import settings
 from django.db.models import Q
 from django.utils import timezone
 
 from main.functions import aqhj_render
 from main.models import Match, Season, TeamGroupStats
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 
 
 def index(request):
     next_match = Match.objects.filter(time__gte=timezone.now()).order_by('time')[0]
-    following_matches = Match.objects.filter(time__gte=timezone.now()).order_by('time')[1:7]
+    following_matches = Match.objects.filter(~Q(id=next_match.id) & Q(time__gte=timezone.now())).order_by('time')[:6]
 
     return aqhj_render(request, 'main/match-before.html',
                        {'following_matches': following_matches, 'match': next_match, 'home': True})
@@ -19,19 +20,23 @@ def index(request):
 
 def match_before(request, **kwargs):
     today = kwargs.pop('hoy', False)
-    time_criteria = {'time__gte': timezone.now()}
-    if today:
-        time_criteria['time__lte'] = timezone.now() + timedelta(1)
-    kwargs.update(time_criteria)
-    match = get_object_or_404(Match, **kwargs)
-    # following_matches = Match.objects.filter(time__gte=match.time).order_by('time')[1:7]
-    following_matches = Match.objects.filter(~Q(id=match.id, time__lt=timezone.now())).order_by('time')[1:7]
 
-    return aqhj_render(request, 'main/match-before.html',
-                       {'following_matches': following_matches, 'match': match})
+    # orig_tz = settings.TIME_ZONE
+    # Awfully Hacky, but necessary. there doesn't seems to be a way to disable TZ support in the querying
+    settings.TIME_ZONE = 'UTC'
+    match = get_object_or_404(Match, **kwargs)
+
+    if timezone.now() > match.time or today and not match.is_today:
+        return redirect(match.url, permanent=True)
+    # following_matches = Match.objects.filter(time__gte=match.time).order_by('time')[1:7]
+    following_matches = Match.objects.filter(~Q(id=match.id) & Q(time__gte=timezone.now())).order_by('time')[:6]
+
+    return aqhj_render(request, 'main/match-before.html', {'following_matches': following_matches, 'match': match})
 
 
 def past_match(request, **kwargs):
+    # Awfully Hacky, but necessary. there doesn't seems to be a way to disable TZ support in the querying
+    settings.TIME_ZONE = 'UTC'
     last_match = get_object_or_404(Match, **kwargs)
 
     return aqhj_render(request, 'main/match-after.html', {'match': last_match})

@@ -126,17 +126,21 @@ class Match(models.Model):
         if self.time is None:
             return None
 
+        route = None
         if self.match_status == 'before':
             if self.is_today:
-                return reverse_from_object('match_today', self)
+                route = 'match_today'
             else:
-                return reverse_from_object('match_before', self)
-        if self.match_status == 'ongoing':
-                return reverse_from_object('match_today', self)
-        if self.match_status == 'after':
-                return reverse_from_object('past_match', self)
+                route = 'match_before'
+        elif self.match_status == 'ongoing':
+                route = 'match_today'
+        elif self.match_status == 'after':
+                route = 'past_match'
 
-        return None
+        if self.game_in_season is None and route:
+            route += '_no_gis'
+
+        return reverse_from_object(route, self) if route else None
 
     @property
     def hoy(self):
