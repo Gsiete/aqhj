@@ -1,0 +1,19 @@
+{% load staticfiles %}
+{% load aqhj_tags %}
+<div class="container-fluid">
+  <div id="logo">
+    <img src="{% static 'main/img/Logo-AQHJ-header.png' %}">
+  </div>
+  <div class="header-buttons">
+    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ domain }}{{ current_path }}">
+      <i class="fa fa-facebook"></i>
+    </a>
+    <a target="_blank"
+       href="https://twitter.com/intent/tweet?text={{ 'Enterate a qué hora juega Argentina en tu zona horaria http://aquehorajuegaargentina.com @AQueHora_Argent' | urlencode }}">
+      <i class="fa fa-twitter"></i>
+    </a>
+    <a href="#" data-toggle="modal" data-target="#settings-modal">
+      <i class="fa fa-cog"></i>
+    </a>
+  </div>
+</div>

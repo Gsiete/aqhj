@@ -38,22 +38,7 @@
 <body class="{% block body_class %}{% endblock %}">
     <header id="header">
     {% block header %}
-        <div class="container-fluid">
-            <div id="logo">
-                <img src="{% static 'main/img/Logo-AQHJ-header.png' %}">
-            </div>
-            <div class="header-buttons">
-              <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ domain }}{{ current_path }}">
-                <i class="fa fa-facebook"></i>
-              </a>
-              <a target="_blank" href="https://twitter.com/intent/tweet?text={{'Enterate a qué hora juega Argentina en tu zona horaria http://aquehorajuegaargentina.com @AQueHora_Argent' | urlencode}}">
-                <i class="fa fa-twitter"></i>
-              </a>
-              <a href="#" data-toggle="modal" data-target="#settings-modal">
-                  <i class="fa fa-cog"></i>
-              </a>
-            </div>
-        </div>
+      {% include 'layout/header.html' %}
     {% endblock %}
     </header>
     <nav id="main-nav">
@@ -85,64 +70,7 @@
 
     <footer id="footer">
     {% block footer %}
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-7 col-xs-12">
-            <div class="sign-up">
-              <h1>NO TE PIERDAS EL PRÓXIMO PARTIDO DE ARGENTINA</h1>
-              <p>Te avisamos por email a qué hora juega en tu zona horaria.</p>
-
-              <div class="row">
-                <form
-                    action="//aquehorajuegaargentina.us13.list-manage.com/subscribe/post?u=c7545e8815c08168bf4895eec&amp;id=465f551030"
-                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-                    target="_blank" novalidate>
-                  <div class="form-group" id="mc_embed_signup_scroll">
-                    <div class="col-sm-3 mc-field-group">
-                      <input type="text" value="" name="FNAME" class="form-control" id="mce-FNAME" placeholder="Tu nombre">
-                    </div>
-                    <div class="col-sm-5 mc-field-group">
-                      <input type="text" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Tu email">
-                    </div>
-                    <input type="hidden" value="{{ user_city.timezone }}" name="TIMEZONE" class="" id="mce-TIMEZONE">
-                    <div class="col-sm-4 col-xs-12 mc-field-group">
-                      <input type="submit" class="button btn btn-danger" value="SUSCRIBIRME" name="subscribe"
-                             id="mc-embedded-subscribe">
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <h5>Tal como a vos, no nos gusta el SPAM.</h5>
-            </div>
-          </div>
-          <div class="col-sm-1 hidden-xs hidden-xs-down"></div>
-
-          <div class="col-sm-2 col-xs-6">
-          <h4>AQUÍ</h4>
-          <nav>
-            <ul>
-              <li><a href="{% url 'index' %}">A Que Hora Juega</a></li>
-              <li><a href="{% url 'last_matches' %}">Resultados</a></li>
-              <li><a href="{{ 'group_positions'|url_from_object:main_season }}">Posiciones</a></li>
-              <li>Sobre nosotros</li>
-              <li>Contacto</li>
-            </ul>
-          </nav>
-          </div>
-          <div class="col-sm-2 col-xs-6">
-            <h4>ALLÁ</h4>
-            <nav>
-              <ul>
-                <li><a target="_blank" href="https://twitter.com/AQueHora_Argent">Twitter</a></li>
-                <li>
-                  <a target="_blank" href="https://www.facebook.com/A-qu%C3%A9-hora-juega-Argentina-1003742026377502/">Facebook</a>
-                </li>
-                <li>¡Apuesta ahora!</li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
+      {% include 'layout/footer.html' %}
     {% endblock %}
     </footer>
 
