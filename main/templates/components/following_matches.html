@@ -3,7 +3,7 @@
   <div class="col-xs-12">
   {% for following_match in following_matches %}
     <div class="row following-match">
-      <a href="{{ 'match_before'|url_from_object:following_match }}">
+      <a href="{{ following_match.url }}">
         <div class="fm-main left-column">
           <div class="row">
             <div class="col-xs-12 col-sm-5 fm-team-a">
