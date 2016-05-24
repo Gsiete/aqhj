@@ -55,7 +55,8 @@ $(document).ready(function(){
 
             $select2.on("change", function (e) {
                 var $selectedCity = $cityElement.find('.city-elem'), cityName = $(this).text(), cityId = $(this).val();
-
+                $changeCityButton.removeClass('activated');
+                $confirmCityButton.addClass('activated');
                 $(document).trigger('tz-change', [$selectedCity.data('tz'), cityName, cityId]);
                 $cityElement.html(cityName.boldUntil(','));
             });
