@@ -9,7 +9,7 @@
     {% elif match.match_status == 'ongoing' %}
       ¿A qué hora juega {{ match.team_a }} hoy vs {{ match.team_b }}?
     {% elif match.match_status == 'after' %}
-      Resultados de {{ match.team_a }}{{ match.hoy }} vs {{ match.team_b }}
+      Resultado de {{ match.team_a }}{{ match.hoy }} vs {{ match.team_b }}
       ({{ match.score_team_a }}-{{ match.score_team_b }})
     {% endif %}
   {% endif %}
