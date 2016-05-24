@@ -32,7 +32,7 @@ class Season(models.Model):
     end = models.DateTimeField('end of the tournament')
     is_main = models.BooleanField('indicate that this season is currently the main in the domain')
     groups_og_image = models.ImageField(upload_to='season/groups_og/', null=True, blank=True)
-    results_image = models.ImageField(upload_to='season/results/', null=True, blank=True)
+    results_image = models.ImageField('Results OG image', upload_to='season/results/', null=True, blank=True)
 
     @property
     def short(self):
