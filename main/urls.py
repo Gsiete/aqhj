@@ -29,6 +29,8 @@ urlpatterns = [
     url(r'^resultados/como-salio-argentina$', views.last_matches, name='last_matches'),
     url(r'^' + season_pattern + r'/fase-de-grupos/posiciones$', views.group_round_positions, name='group_positions'),
     url(r'^completar-subscripcion$',  TemplateView.as_view(template_name='main/thanks.html'), name='nl_success_confirm'),
+    url(r'^sitemap\.xml$',  TemplateView.as_view(template_name='main/sitemap.xml'), name='sitemap'),
+    url(r'^robots\.txt$',  TemplateView.as_view(template_name='main/robots.txt'), name='sitemap'),
     url(r'^main/?$', RedirectView.as_view(url='/'), name='index_old'),
 ]
 # https://docs.djangoproject.com/en/1.9/topics/http/urls/#including-other-urlconfs

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /completar-subscripcion
+
+Sitemap: http://www.aquehorajuegaargentina.com/sitemap.xml
