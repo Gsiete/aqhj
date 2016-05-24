@@ -6,7 +6,7 @@ $(document).on('tz-change', function (e, tz, cityName, cityId) {
     if(diff > 0) {
         diff = '+' + diff;
     }
-    $('.time-diff').text(diff);
+    $('.var-time-diff').text(diff);
     document.cookie = "city_code=" + cityId + "; path=/";
 
     $('.js-local-time').each(function () {

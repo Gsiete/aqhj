@@ -33,6 +33,6 @@
         (<span class="var-time" data-tformat="z">{{ datetime|date:'e' }}</span>)
     </div>
     {% if city != user_city %}
-      <div class="time-diff">{{ match|timediff:user_city }}</div>
+      <div class="time-diff"><span class="var-time-diff">{{ match|timediff:user_city }}</span>h</div>
     {% endif %}
 {% endtimezone %}
