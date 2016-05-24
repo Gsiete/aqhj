@@ -14,4 +14,17 @@
     {% endif %}
   {% endif %}
 </h1>
-<h3>Entérate a qué hora juega Argentina{{ match.hoy }} en tu país.</h3>
+<h3>
+  {% if home %}
+    Enterate cuándo juega Argentina en tu zona horaria.
+  {% else %}
+    {% if match.match_status == 'before' %}
+      Enterate cuándo juega Argentina{{ match.hoy }} por la {{ match.seasen.tournament }}.
+    {% elif match.match_status == 'ongoing' %}
+      Enterate cuándo juega Argentina{{ match.hoy }} por la {{ match.seasen.tournament }}.
+    {% elif match.match_status == 'after' %}
+      Partido por la {{ match.season.tournament }} - {{ match.game_in_season }}
+    {% endif %}
+  {% endif %}
+
+</h3>
