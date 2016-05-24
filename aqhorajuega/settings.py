@@ -77,6 +77,7 @@ TEMPLATES = [
                 'main.context_processor.get_current_path',
                 'main.context_processor.main_season_cp',
                 'main.context_processor.time_format_cp',
+                'main.context_processor.route_cp',
             ],
         },
     },
