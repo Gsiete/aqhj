@@ -31,6 +31,8 @@ class Season(models.Model):
     start = models.DateTimeField('start of the tournament')
     end = models.DateTimeField('end of the tournament')
     is_main = models.BooleanField('indicate that this season is currently the main in the domain')
+    groups_og_image = models.ImageField(upload_to='season/groups_og/', null=True, blank=True)
+    results_image = models.ImageField(upload_to='season/results/', null=True, blank=True)
 
     @property
     def short(self):
@@ -86,6 +88,7 @@ class Match(models.Model):
     preview_part2 = RedactorField(blank=True)
     preview_part3 = RedactorField(blank=True)
     summary = RedactorField(blank=True)
+    og_image = models.ImageField(upload_to='season/og/', null=True, blank=True)
     html_video = models.TextField(null=True, blank=True,
                                   help_text=escape('<iframe width="360" height="203" src="https://www.youtube.com/embed/CODIGO_DEL_VIDEO" frameborder="0" allowfullscreen=""></iframe>'))
 
