@@ -1,0 +1,79 @@
+.logo-blue {
+    margin-bottom: 20px;
+}
+
+#singup h1 {
+    font-size: 30px;
+    letter-spacing: 0.05em;
+    font-weight: 900;
+    padding-left: 10px;
+    padding-top: 40px;
+    text-align: left;
+    color: #032B2F;
+}
+
+#singup h3 {
+    font-size: 26px;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    padding-left: 10px;
+    padding-top: 30px;
+    text-align: left;
+    color: #BEBFB6;
+}
+
+#singup p {
+    font-size: 24px;
+    letter-spacing: -0.24px;
+    font-weight: 300;
+    color: #032B2F;
+    margin-top: 29px;
+}
+
+#singup {
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    width: 900px;
+    color: #BEBFB6;
+    margin-bottom: 50px;
+    text-align: left;
+    padding: 40px;
+}
+
+.upper-logo {
+    border-bottom: 1px solid #032B2F;
+    padding-top: 3px;
+    padding-bottom: 0;
+    text-align: left;
+    margin: 0 auto 15px auto;
+}
+
+.img-thumbnail {
+    margin: 20px 0 0 0;
+    width: 100%;
+}
+
+.espera {
+    padding-top: 40px;
+
+}
+
+.article-three {
+    margin-top: 60px;
+    text-align: left;
+}
+
+#footer .container p {
+    padding-left: 10px;
+}
+
+#footer .container h4 {
+    margin-top: 20px;
+    color: #F0F2E7;
+}
+
+#footer .container h5 {
+    font-size: 14px;
+    font-weight: 300;
+    padding-left: 10px;
+}
