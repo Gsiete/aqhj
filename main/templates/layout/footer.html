@@ -31,11 +31,11 @@
               </form>
             </div>
             <h5>Tal como a vos, no nos gusta el SPAM.</h5>
-            </div>
           {% else %}
             <h1>¡GRACIAS POR SUSCRIBIRTE!</h1>
             <p>Entrá a tu casilla de email para confirmar tu suscripción.</p>
           {% endif %}
+        </div>
       </div>
       <div class="col-sm-1 hidden-xs hidden-xs-down"></div>
 
@@ -46,8 +46,8 @@
             <li><a href="{{ domain }}{% url 'index' %}">A qué hora juega</a></li>
             <li><a href="{{ domain }}{% url 'last_matches' %}">Resultados</a></li>
             <li><a href="{{ domain }}{{ 'group_positions'|url_from_object:main_season }}">Posiciones</a></li>
-{#            <li>Sobre nosotros</li>#}
-{#            <li>Contacto</li>#}
+            {#            <li>Sobre nosotros</li>#}
+            {#            <li>Contacto</li>#}
           </ul>
         </nav>
       </div>
