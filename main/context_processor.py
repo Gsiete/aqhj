@@ -3,6 +3,7 @@ def get_current_path(request):
         'current_path': request.get_full_path(),
         'domain': 'http://54.93.126.245:8001'
         # 'domain': 'http://aquehorajuegaargentina.com',
+        # 'domain': request.META['HTTP_HOST'],
     }
 
 
@@ -22,3 +23,8 @@ def main_season_cp(request):
 
 def time_format_cp(request):
     return {'time_format': request.COOKIES.get('tformat', '24')}
+
+
+def route_cp(request):
+    from django.core.urlresolvers import resolve
+    return {'route': resolve(request.path_info).url_name}
