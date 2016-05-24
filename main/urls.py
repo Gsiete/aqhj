@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from django.views.generic.base import RedirectView
+from django.views.generic.base import RedirectView, TemplateView
 
 from . import views
 
@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^' + past_match_pattern_no_gis + r'$', views.past_match, name='past_match_no_gis'),
     url(r'^resultados/como-salio-argentina$', views.last_matches, name='last_matches'),
     url(r'^' + season_pattern + r'/fase-de-grupos/posiciones$', views.group_round_positions, name='group_positions'),
+    url(r'^completar-subscripcion$',  TemplateView.as_view(template_name='main/thanks.html'), name='nl_success_confirm'),
     url(r'^main/?$', RedirectView.as_view(url='/'), name='index_old'),
 ]
 # https://docs.djangoproject.com/en/1.9/topics/http/urls/#including-other-urlconfs

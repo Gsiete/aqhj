@@ -240,7 +240,7 @@
 		        $('#mce-'+resp.result+'-response').show();
 		        $('#mce-'+resp.result+'-response').html(resp.msg);
 		        $('#mc-embedded-subscribe-form').each(function(){
-		            this.reset();
+		            window.location.href = $(this).data('confirm-url');
 		    	});
 
 		    // If the form has errors, display them, inline if possible, or appended to #mce-error-response

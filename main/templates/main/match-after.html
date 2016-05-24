@@ -15,7 +15,11 @@
   {% include 'components/past-match-box.html' %}
 
   {% if match.summary %}
-    <article class="summary">{{ match.summary|safe }}</article>
+    <article class="summary">
+       <h2>{{ match.summary_title }}</h2>
+       <h3>{{ match.summary_sub_title }}</h3>
+      {{ match.summary|safe }}
+    </article>
   {% endif %}
   {% include 'components/three-articles.html' %}
 {% endblock %}
