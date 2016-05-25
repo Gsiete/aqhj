@@ -96,7 +96,6 @@ DATABASES = {
         'USER': 'aqhj_user',
         'PASSWORD': 'aqhj12348765',
         'HOST': 'sng.ces9zlqxeeow.eu-central-1.rds.amazonaws.com',
-#        'HOST': 'sng.ces9zlqxeeow.eu-central-1.rds.amazonaws.com',
         'OPTIONS': {
                     'charset': 'utf8',
                     'use_unicode': True, },
