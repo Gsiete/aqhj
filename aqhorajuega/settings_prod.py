@@ -54,3 +54,4 @@ SECRET_KEY = 'vsk-u:h4+0$i50pw51n4+l84mh(l)&spijpa3!$w%rfqv=06'
 DEBUG = False
 ALLOWED_HOSTS = ['aquehorajuegaargentina.com']
 COMPRESS_ENABLED = True
+AQHJ_DOMAIN = 'http://aquehorajuegaargentina.com'

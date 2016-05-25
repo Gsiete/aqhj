@@ -1,9 +1,10 @@
+from django.conf import settings
+
+
 def get_current_path(request):
     return {
         'current_path': request.get_full_path(),
-        'domain': 'http://54.93.126.245:8001'
-        # 'domain': 'http://aquehorajuegaargentina.com',
-        # 'domain': request.META['HTTP_HOST'],
+        'domain': settings.AQHJ_DOMAIN
     }
 
 
