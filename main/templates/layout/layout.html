@@ -2,14 +2,14 @@
 {% load compress %}
 {% load aqhj_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     {% block head %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/png" href="{% static 'main/img/favicon.gif' %}"/>
-        {% include 'components/meta-og.html' %}
         {% block head_extra %}{% endblock %}
+        {% include 'components/meta-og.html' %}
         {% block head_styles %}
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
             <link href='https://fonts.googleapis.com/css?family=Lato:300,400,900,100,700,900' rel='stylesheet' type='text/css'>
@@ -36,7 +36,7 @@
         {% endblock %}
     {% endblock %}
 </head>
-<body class="{% block body_class %}{% endblock %}">
+<body>
     <header id="header">
     {% block header %}
       {% include 'layout/header.html' %}
