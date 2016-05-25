@@ -2,8 +2,8 @@
 {% load aqhj_tags %}
 <div class="container-fluid">
   <div id="logo">
-    <img class="logo-lg" src="{% static 'main/img/Logo-AQHJ-header.png' %}">
-    <img class="logo-sm" src="{% static 'main/img/logo-aqhj-header-responsive.png' %}">
+    <a href="{{ domain }}"><img class="logo-lg" src="{% static 'main/img/Logo-AQHJ-header.png' %}"></a>
+    <a href="{{ domain }}"><img class="logo-sm" src="{% static 'main/img/logo-aqhj-header-responsive.png' %}"></a>
   </div>
   <div class="header-buttons">
     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ domain }}{{ current_path }}">
