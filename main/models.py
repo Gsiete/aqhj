@@ -73,6 +73,7 @@ class Match(models.Model):
                       ['Fecha %d' % x for x in range(1, 40)]
     GAMES_IN_SEASON_CHOICES = [(slugify(gis), gis) for gis in GAMES_IN_SEASON]
 
+    is_published = models.BooleanField('indicates weather the Match is published or not', default=False)
     team_a = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_a')
     team_b = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_b')
     score_team_a = models.IntegerField(null=True, blank=True)
