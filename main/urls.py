@@ -31,5 +31,6 @@ urlpatterns = [
     url(r'^completar-subscripcion$',  TemplateView.as_view(template_name='main/thanks.html'), name='nl_success_confirm'),
     url(r'^sitemap\.xml$',  TemplateView.as_view(template_name='main/sitemap.xml', content_type='text/xml'), name='sitemap'),
     url(r'^robots\.txt$',  TemplateView.as_view(template_name='main/robots.txt', content_type='text/plain'), name='robots'),
+    url(r'^BingSiteAuth\.xml$',  TemplateView.as_view(template_name='BingSiteAuth.xml', content_type='text/xml'), name='BingSiteAuth'),
 ]
 # https://docs.djangoproject.com/en/1.9/topics/http/urls/#including-other-urlconfs
