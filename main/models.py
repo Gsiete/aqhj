@@ -84,7 +84,7 @@ class Match(models.Model):
     season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)
     game_in_season = models.CharField(choices=GAMES_IN_SEASON_CHOICES, max_length=30, blank=True, null=True)
     time = models.DateTimeField('local time of the match')
-    end_time = models.DateTimeField('time the match ends', null=True, blank=True)
+    end_time = models.DateTimeField('time the match ends')
     preview_part1 = RedactorField(blank=True)
     preview_part2 = RedactorField(blank=True)
     preview_part3 = RedactorField(blank=True)

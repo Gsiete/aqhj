@@ -1,8 +1,5 @@
-from datetime import timedelta
-from itertools import groupby
-
-from django.conf import settings
 from django.db.models import Q
+from django.http import HttpResponse, Http404
 from django.utils import timezone
 
 from main.functions import aqhj_render
@@ -11,37 +8,46 @@ from django.shortcuts import get_object_or_404, redirect
 
 
 def index(request):
-    next_match = Match.objects.filter(time__gte=timezone.now()).order_by('time')[0]
-    following_matches = Match.objects.filter(~Q(id=next_match.id) & Q(time__gte=timezone.now())).order_by('time')[:6]
+    match_filter = add_check_credentials(Q(end_time__gte=timezone.now()), request)
+    next_match = Match.objects.filter(match_filter).order_by('time')[0]
+
+    fm_filter = match_filter & ~Q(id=next_match.id)
+    following_matches = Match.objects.filter(fm_filter).order_by('time')[:6]
 
     return aqhj_render(request, 'main/match-before.html',
                        {'following_matches': following_matches, 'match': next_match, 'home': True})
 
 
-def match_before(request, **kwargs):
-    today = kwargs.pop('hoy', False)
+def match_before(request, today=False, **kwargs):
+    match_filter = add_check_credentials(Q(**kwargs), request)
+    try:
+        match = Match.objects.get(match_filter)
+    except Match.DoesNotExist:
+        raise Http404('No %s matches the given query.' % Match._meta.object_name)
 
-    # orig_tz = settings.TIME_ZONE
-    # Awfully Hacky, but necessary. there doesn't seems to be a way to disable TZ support in the querying
-    match = get_object_or_404(Match, **kwargs)
-
-    if timezone.now() > match.time or today and not match.is_today:
+    if timezone.now() > match.end_time or today and not match.is_today:
         return redirect(match.url, permanent=True)
-    # following_matches = Match.objects.filter(time__gte=match.time).order_by('time')[1:7]
-    following_matches = Match.objects.filter(~Q(id=match.id) & Q(time__gte=timezone.now())).order_by('time')[:6]
+
+    fm_filter = ~Q(id=match.id) & Q(end_time__gte=timezone.now())
+    fm_filter = add_check_credentials(fm_filter, request)
+    following_matches = Match.objects.filter(fm_filter).order_by('time')[:6]
 
     return aqhj_render(request, 'main/match-before.html', {'following_matches': following_matches, 'match': match})
 
 
 def past_match(request, **kwargs):
-    # Awfully Hacky, but necessary. there doesn't seems to be a way to disable TZ support in the querying
-    last_match = get_object_or_404(Match, **kwargs)
+    match_filter = add_check_credentials(Q(**kwargs), request)
+    try:
+        match = Match.objects.get(match_filter)
+    except Match.DoesNotExist:
+        raise Http404('No %s matches the given query.' % Match._meta.object_name)
 
-    return aqhj_render(request, 'main/match-after.html', {'match': last_match})
+    return aqhj_render(request, 'main/match-after.html', {'match': match})
 
 
 def last_matches(request):
-    latest_matches = Match.objects.filter(time__lte=timezone.now()).order_by('-time')[:10]
+    match_filter = add_check_credentials(Q(end_time__lte=timezone.now()), request)
+    latest_matches = Match.objects.filter(match_filter).order_by('-time')[:10]
 
     return aqhj_render(request, 'main/last-matches.html', {'last_matches': latest_matches})
 
@@ -52,3 +58,9 @@ def group_round_positions(request, **kwargs):
     teamstats = TeamSeasonGroup.objects.filter(season=season)
 
     return aqhj_render(request, 'main/position-table.html', {'season': season, 'teamstats': teamstats})
+
+
+def add_check_credentials(q_filter, request):
+    if not request.user.is_authenticated():
+        q_filter &= Q(is_published=True)
+    return q_filter
