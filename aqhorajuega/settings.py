@@ -163,7 +163,7 @@ REDACTOR_OPTIONS = {'lang': 'en'}
 REDACTOR_FILE_STORAGE = 'aqhorajuega.s3utils.MediaRouteS3BotoStorage'
 
 COMPRESS_STORAGE = STATICFILES_STORAGE
-COMPRESS_ENABLED = False
+COMPRESS_ENABLED = True
 COMPRESS_ROOT = 'compress'
 COMPRESS_OFFLINE = True
 STATICFILES_FINDERS = (
@@ -173,4 +173,3 @@ STATICFILES_FINDERS = (
 )
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
 AQHJ_DOMAIN = 'http://54.93.126.245:8001'
-COMPRESS_REBUILD_TIMEOUT = 3600*24
