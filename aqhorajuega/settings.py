@@ -173,3 +173,4 @@ STATICFILES_FINDERS = (
 )
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
 AQHJ_DOMAIN = 'http://54.93.126.245:8001'
+COMPRESS_REBUILD_TIMEOUT = 3600*24
