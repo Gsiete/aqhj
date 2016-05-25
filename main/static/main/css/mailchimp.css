@@ -33,7 +33,7 @@
 #singup {
     font-family: Lato, Helvetica, Arial, sans-serif;
     font-weight: 300;
-    width: 900px;
+    max-width: 900px;
     color: #BEBFB6;
     margin-bottom: 50px;
     text-align: left;
