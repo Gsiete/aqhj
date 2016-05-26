@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'aqhorajuega.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'aqhj',  # TEAM_TYPE_DOMAIN VARIABLE
+        'NAME': 'aqhj_dev',  # TEAM_TYPE_DOMAIN VARIABLE
         'USER': 'aqhj_user',
         'PASSWORD': 'aqhj12348765',
         'HOST': 'sng.ces9zlqxeeow.eu-central-1.rds.amazonaws.com',
