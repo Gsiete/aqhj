@@ -78,6 +78,7 @@ TEMPLATES = [
                 'main.context_processor.main_season_cp',
                 'main.context_processor.time_format_cp',
                 'main.context_processor.route_cp',
+                'django.core.context_processors.static'
             ],
         },
     },
@@ -142,7 +143,7 @@ GOOGLE_TZ_API_ENDPOINT = 'https://maps.googleapis.com/maps/api/timezone/json'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-AWS_STORAGE_BUCKET_NAME = 'sng-files2'  # TEAM_TYPE_DOMAIN VARIABLE
+AWS_STORAGE_BUCKET_NAME = 'aqhj-files-dev'  # TEAM_TYPE_DOMAIN VARIABLE
 AWS_ACCESS_KEY_ID = os.environ('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ('AWS_SECRET_ACCESS_KEY')
 
