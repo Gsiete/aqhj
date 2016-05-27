@@ -1,5 +1,6 @@
 import random
-
+import logging
+import pytz
 from django.contrib.gis.geoip2 import GeoIP2
 from django.core.urlresolvers import get_resolver, reverse
 from django.shortcuts import render
@@ -9,7 +10,7 @@ import datetime
 
 from cities.models import City, Country
 
-ips = {'ar': '201.231.108.8'}
+ips = {'ar': '201.231.108.8', 'it': '91.220.4.40', 'jp': '61.24.217.50'}
 
 
 def get_user_city(request):
@@ -34,6 +35,11 @@ def get_user_city(request):
     if city is None and city_internal['country_code']:
         country = Country.objects.get(code2=city_internal['country_code'])
         city = country.capital
+        logging.debug('Falling back to country capital for IP:%s in country %s' % (ip, country.name))
+
+    if city is None:
+        city = get_fallback_city()
+        logging.debug('Falling back to fallback city for IP:%s' % ip)
 
     return city
 
@@ -45,6 +51,10 @@ def get_client_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
+
+
+def get_fallback_city():
+    return City(timezone=pytz.UTC, name='Ciudad No Identificada', country=Country(name='Pais No Identificado'))
 
 
 def aqhj_render(request, template, context):
