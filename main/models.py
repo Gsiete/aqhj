@@ -122,7 +122,7 @@ class Match(models.Model):
 
     @property
     def is_today(self):
-        return self.time - timedelta(1) > timezone.now() > (self.end_time or self.time) + timedelta(1)
+        return self.time - timedelta(1) < timezone.now() < self.end_time + timedelta(1)
 
     @property
     def url(self):
