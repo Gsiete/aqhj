@@ -25,7 +25,7 @@ SECRET_KEY = 'v-k-u-h4+0$i50pw51n4+l84mh(l)&zvw0uuh3!$w%rfqv=063'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['aquehorajuegaargentina.com', '54.93.126.245:8001']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'main',
     'cities_light',
     'cities',
+    'sites',
     'storages',
     'redactor',
     'compressor',
