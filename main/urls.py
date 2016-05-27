@@ -29,8 +29,8 @@ urlpatterns = [
     url(r'^resultados/como-salio-argentina$', views.last_matches, name='last_matches'),
     url(r'^' + season_pattern + r'/fase-de-grupos/posiciones$', views.group_round_positions, name='group_positions'),
     url(r'^completar-subscripcion$',  TemplateView.as_view(template_name='main/thanks.html'), name='nl_success_confirm'),
-    url(r'^sitemap\.xml$',  TemplateView.as_view(template_name='main/sitemap.xml', content_type='text/xml'), name='sitemap'),
-    url(r'^robots\.txt$',  TemplateView.as_view(template_name='main/robots.txt', content_type='text/plain'), name='robots'),
-    url(r'^BingSiteAuth\.xml$',  TemplateView.as_view(template_name='BingSiteAuth.xml', content_type='text/xml'), name='BingSiteAuth'),
+    url(r'^sitemap\.xml$', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml'), name='_sitemap'),
+    url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain'), name='_robots'),
+    url(r'^BingSiteAuth\.xml$',  TemplateView.as_view(template_name='BingSiteAuth.xml', content_type='text/xml'), name='_BingSiteAuth'),
 ]
 # https://docs.djangoproject.com/en/1.9/topics/http/urls/#including-other-urlconfs
