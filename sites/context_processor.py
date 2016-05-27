@@ -5,7 +5,7 @@ from sites.models import RouteConfig
 
 
 # ToDo: remove route_cp when this is ready
-def inject_route_config(request):
+def route_config_cp(request):
     filter_q = add_check_credentials(request, route=resolve(request.path_info).url_name)
     route_configs = RouteConfig.objects.filter(filter_q)
     return {
