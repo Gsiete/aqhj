@@ -13,7 +13,7 @@
   <meta property="og:description" content="Encontrá los últimos resultados y videos de la Selección Argentina, por Copa América, eliminatorias y partidos amistosos."/>
   <meta property="og:image" content="{{ main_season.results_image }}"/>
   <meta property="og:type" content="website"/>
-{% elif route == 'match_before' or route == 'match_before_no_gis' %}
+{% elif route == 'match_before' or route == 'match_before_no_gis' or route == 'match_today' or route == 'match_today_no_gis' %}
   <meta property="og:title" content="{{ match.season.tournament }} ¿A qué hora juega Argentina vs {{ match.team_b }}{{ match.hoy }}?"/>
   <meta property="og:description" content="Enterate a qué hora juega{{ match.hoy }} la Selección Argentina en la zona horaria de tu país, su próximo partido vs {{ match.team_b }} por {{ match.season }}."/>
   <meta property="og:image" content="{{ match.og_image }}"/>
