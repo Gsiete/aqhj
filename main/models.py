@@ -146,6 +146,18 @@ class Match(models.Model):
 
         return reverse_from_object(route, self) if route else None
 
+    def team_local(self):
+        return self.team_b if self.team_b.stadium == self.stadium else self.team_a
+
+    def team_visitor(self):
+        return self.team_a if self.team_b.stadium == self.stadium else self.team_b
+
+    def team_domain(self):
+        return self.team_b if self.team_b.is_domain_team else self.team_a
+
+    def team_not_domain(self):
+        return self.team_a if self.team_b.is_domain_team else self.team_b
+
     @property
     def hoy(self):
         return ' hoy' if self.is_today else ''
