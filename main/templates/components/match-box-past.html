@@ -12,7 +12,7 @@
             <h5>{{ match.detail_goals_team_a }}</h5>
           </div>
           <div class="col-xm-2 score">
-            <h4>{{ match.score_team_a }}</h4>
+            <h4>{{ match.score_team_a|default_if_none:'' }}</h4>
           </div>
         </div>
         <div class="row{% if match.team_b_winner %} winner{% endif %}">
@@ -22,7 +22,7 @@
             <h5>{{ match.detail_goals_team_b }}</h5>
           </div>
           <div class="col-xm-2 score">
-            <h4>{{ match.score_team_b }}</h4>
+            <h4>{{ match.score_team_b|default_if_none:'' }}</h4>
           </div>
         </div>
         <div class="row">
