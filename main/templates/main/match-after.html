@@ -3,8 +3,8 @@
 {% load aqhj_tags %}
 {% load staticfiles %}
 {% block head_extra %}
-  <title>Resultado Argentina vs {{ match.team_b }}{{ match.hoy }} ({{ match.score_team_a }}-{{ match.score_team_b }}) | {{ match.season }}{% if match.game_in_season %} - {{match.game_in_season}}{% endif %}</title>
-  <meta name="description" content="¿Querés saber cómo salió Argentina{{ match.hoy }} contra {{ match.score_team_b }} por {{ match.season }}? Encontrá el resultado del partido, videos y el resumen en nuestro sitio."/>
+  <title>Resultado {{ match.team_domain }} vs {{ match.team_non_domain }}{{ match.hoy }} ({{ match.score_domain }}-{{ match.score_non_domain }}) | {{ match.season }}{% if match.game_in_season %} - {{match.game_in_season}}{% endif %}</title>
+  <meta name="description" content="¿Querés saber cómo salió {{ match.team_domain }}{{ match.hoy }} contra {{ match.team_non_domain }} por {{ match.season }}? Encontrá el resultado del partido, videos y el resumen en nuestro sitio."/>
 {% endblock %}
 
 {% block content_title %}
@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-  {% include 'components/past-match-box.html' %}
+  {% include 'components/match-box-past.html' %}
 
   {% if match.summary %}
     <article class="summary">

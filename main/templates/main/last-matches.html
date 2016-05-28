@@ -15,6 +15,6 @@
 
 {% block content %}
   {% for match in last_matches %}
-  {% include 'components/past-match-box.html' with linked=match.summary %}
+  {% include 'components/match-box-past.html' with linked=match.summary %}
   {% endfor %}
 {% endblock %}

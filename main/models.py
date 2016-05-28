@@ -158,6 +158,18 @@ class Match(models.Model):
     def team_not_domain(self):
         return self.team_a if self.team_b.is_domain_team else self.team_b
 
+    def score_local(self):
+        return self.score_team_b if self.team_b.stadium == self.stadium else self.score_team_a
+
+    def score_visitor(self):
+        return self.score_team_a if self.team_b.stadium == self.stadium else self.score_team_b
+
+    def score_domain(self):
+        return self.score_team_b if self.team_b.is_domain_team else self.score_team_a
+
+    def score_not_domain(self):
+        return self.score_team_a if self.team_b.is_domain_team else self.score_team_b
+
     @property
     def hoy(self):
         return ' hoy' if self.is_today else ''

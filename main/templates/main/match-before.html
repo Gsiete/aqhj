@@ -4,11 +4,11 @@
 {% load staticfiles %}
 {% block head_extra %}
   {% if home %}
-    <title>¿A qué hora juega Argentina{{ match.hoy }}? Todos los horarios de los próximos partidos</title>
-    <meta name="description" content="¿Querés saber a qué hora juega Argentina{{ match.hoy }} por la {{ match.season }} en tu zona horaria? Encontrá el horario de los próximos partidos de la Selección Argentina."/>
+    <title>¿A qué hora juega {{ match.team_domain }}{{ match.hoy }}? Todos los horarios de los próximos partidos</title>
+    <meta name="description" content="¿Querés saber a qué hora juega {{ match.team_domain }}{{ match.hoy }} por la {{ match.season }} en tu zona horaria? Encontrá el horario de los próximos partidos de la Selección {{ match.team_domain }}."/>
   {% else %}
-    <title>¿A qué hora juega Argentina{{ match.hoy }} vs {{ match.team_b }} en tu zona horaria?</title>
-    <meta name="description" content="¿Querés saber cuándo juega Argentina{{ match.hoy }} en la zona horaria de tu país? Enterate a qué hora juega la Selección Argentina su próximo partido vs {{ match.team_b }} por la {{ match.season }}."/>
+    <title>¿A qué hora juega {{ match.team_domain }}{{ match.hoy }} vs {{ match.team_non_domain }} en tu zona horaria?</title>
+    <meta name="description" content="¿Querés saber cuándo juega {{ match.team_domain }}{{ match.hoy }} en la zona horaria de tu país? Enterate a qué hora juega la Selección {{ match.team_domain }} su próximo partido vs {{ match.team_non_domain }} por la {{ match.season }}."/>
   {% endif %}
 {% endblock %}
 
@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block content %}
-  {% include 'components/current-match-box.html' %}
+  {% include 'components/match-box-current.html' %}
 
   {% include 'components/three-articles.html' %}
 {% endblock %}

@@ -2,15 +2,15 @@
 {# test yesno instead of if *mightbe shorter #}
 <h1>
   {% if home %}
-    ¿A qué hora juega {{ match.team_a }}{{ match.hoy }}?
+    ¿A qué hora juega {{ match.team_domain }}{{ match.hoy }}?
   {% else %}
     {% if match.match_status == 'before' %}
-      ¿A qué hora juega {{ match.team_a }}{{ match.hoy }} vs {{ match.team_b }}?
+      ¿A qué hora juega {{ match.team_domain }}{{ match.hoy }} vs {{ match.team_non_domain }}?
     {% elif match.match_status == 'ongoing' %}
-      ¿A qué hora juega {{ match.team_a }} hoy vs {{ match.team_b }}?
+      ¿A qué hora juega {{ match.team_domain }} hoy vs {{ match.team_non_domain }}?
     {% elif match.match_status == 'after' %}
-      Resultado de {{ match.team_a }}{{ match.hoy }} vs {{ match.team_b }}
-      ({{ match.score_team_a }}-{{ match.score_team_b }})
+      Resultado de {{ match.team_domain }}{{ match.hoy }} vs {{ match.team_non_domain }}
+      ({{ match.score_domain }}-{{ match.score_non_domain }})
     {% endif %}
   {% endif %}
 </h1>
@@ -19,9 +19,9 @@
     Enterate cuándo juega Argentina en tu zona horaria.
   {% else %}
     {% if match.match_status == 'before' %}
-      Enterate cuándo juega Argentina{{ match.hoy }} por la {{ match.season.tournament }}.
+      Enterate cuándo juega {{ match.team_domain }}{{ match.hoy }} por la {{ match.season.tournament }}.
     {% elif match.match_status == 'ongoing' %}
-      Enterate cuándo juega Argentina{{ match.hoy }} por la {{ match.season.tournament }}.
+      Enterate cuándo juega {{ match.team_domain }}{{ match.hoy }} por la {{ match.season.tournament }}.
     {% elif match.match_status == 'after' %}
       Partido por la {{ match.season.tournament }} - {{ match.game_in_season }}
     {% endif %}
