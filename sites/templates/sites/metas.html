@@ -6,7 +6,7 @@
 {% block meta_og %}
   {% block meta_og_route %}
     <meta property="og:title" content="{% parse_string_with_context route_conf.og_title %}"/>
-    <meta property="og:description" content="{{% parse_string_with_context route_conf.og_description %}"/>
+    <meta property="og:description" content="{% parse_string_with_context route_conf.og_description %}"/>
     <meta property="og:type" content="{% parse_string_with_context route_conf.og_type %}"/>
   {% endblock %}
   {% block meta_og_domain %}
