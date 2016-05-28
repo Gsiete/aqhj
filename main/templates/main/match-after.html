@@ -7,10 +7,6 @@
   <meta name="description" content="¿Querés saber cómo salió {{ match.team_domain }}{{ match.hoy }} contra {{ match.team_non_domain }} por {{ match.season }}? Encontrá el resultado del partido, videos y el resumen en nuestro sitio."/>
 {% endblock %}
 
-{% block content_title %}
-{% include 'components/match_title.html' %}
-{% endblock %}
-
 {% block content %}
   {% include 'components/match-box-past.html' %}
 
