@@ -1,0 +1,22 @@
+{% load sites_tags %}
+{% block main_meta %}
+  <title>{% parse_string_with_context route_conf.title %}</title>
+  <meta name="description" content="{% parse_string_with_context route_conf.meta_description %}"/>
+{% endblock %}
+{% block meta_og %}
+  {% block meta_og_route %}
+    <meta property="og:title" content="{% parse_string_with_context route_conf.og_title %}"/>
+    <meta property="og:description" content="{{% parse_string_with_context route_conf.og_description %}"/>
+    <meta property="og:type" content="{% parse_string_with_context route_conf.og_type %}"/>
+  {% endblock %}
+  {% block meta_og_domain %}
+    <meta property="og:locale" content="{{ domain_conf.og_locale }}"/>
+    <meta property="og:site_name" content="{{ domain_conf.og_site_name }}"/>
+    <meta property="og:url" content="{{ domain }}{{ current_path }}"/>
+  {% endblock %}
+{% endblock %}
+{% block validation %}
+  {% if domain_conf.bing_validation_meta %}
+    <meta name="msvalidate.01" content="{{ domain_conf.bing_validation_meta }}"/>
+  {% endif %}
+{% endblock %}
