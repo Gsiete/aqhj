@@ -1,7 +1,7 @@
 {% include 'sites/metas.html' %}
-{% if route == 'group_positions' %}
+{% if route_conf.route == 'group_positions' %}
   <meta property="og:image" content="{{ season.groups_og_image }}"/>
-{% elif route == 'last_matches' %}
+{% elif route_conf.route == 'last_matches' %}
   <meta property="og:image" content="{{ main_season.results_image }}"/>
 {% elif match %}
   <meta property="og:image" content="{{ match.og_image }}"/>

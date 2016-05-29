@@ -78,7 +78,6 @@ TEMPLATES = [
                 'main.context_processor.get_current_path',
                 'main.context_processor.main_season_cp',
                 'main.context_processor.time_format_cp',
-                'main.context_processor.route_cp',
                 'sites.context_processor.sites_config_cp',
                 'django.core.context_processors.static'
             ],

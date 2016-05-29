@@ -24,8 +24,3 @@ def main_season_cp(request):
 
 def time_format_cp(request):
     return {'time_format': request.COOKIES.get('tformat', '24')}
-
-
-def route_cp(request):
-    from django.core.urlresolvers import resolve
-    return {'route': resolve(request.path_info).url_name}
