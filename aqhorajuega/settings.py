@@ -179,3 +179,4 @@ STATICFILES_FINDERS = (
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
 AQHJ_DOMAIN = 'http://54.93.126.245:8001'
 LOCALE_PATHS = (BASE_DIR + "/locale/",)
+BET_AFFILIATE_LINK = 'http://www.bet365.com/dl/~offer?affiliate=365_482502'

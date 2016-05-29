@@ -56,13 +56,13 @@
         <h4>{% trans 'ALLÁ' %}</h4>
         <nav>
           <ul>
-            <li><a target="_blank" href="https://twitter.com/AQueHora_Argent">Twitter</a></li>
-            <li>
-              <a target="_blank" href="https://www.facebook.com/A-qu%C3%A9-hora-juega-Argentina-1003742026377502/">Facebook</a>
-            </li>
-            <li>
-              <a rel="nofollow" href="http://www.bet365.com/dl/~offer?affiliate=365_482502" target="blank">¡Apostá ahora!</a>
-            </li>
+            {% if domain_conf.twitter_url %}
+              <li><a target="_blank" href="{{ domain_conf.twitter_url }}">Twitter</a></li>
+            {% endif %}
+            {% if domain_conf.facebook_url %}
+              <li><a target="_blank" href="{{ domain_conf.facebook_url }}">Facebook</a></li>
+            {% endif %}
+            <li><a rel="nofollow" href="{{ BET_AFFILIATE_LINK }}" target="blank">¡Apostá ahora!</a></li>
           </ul>
         </nav>
       </div>

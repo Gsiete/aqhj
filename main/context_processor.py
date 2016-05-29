@@ -7,6 +7,8 @@ def get_current_path(request):
         'domain': settings.AQHJ_DOMAIN
     }
 
+def settings_cp(request):
+    return {'BET_AFFILIATE_LINK': settings.BET_AFFILIATE_LINK}
 
 def main_season_cp(request):
     from main.models import Season
