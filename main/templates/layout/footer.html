@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load staticfiles %}
 {% load aqhj_tags %}
 <footer id="footer">
@@ -6,8 +7,8 @@
       <div class="col-sm-7 col-xs-12">
         <div class="sign-up">
           {% if not is_confirmation %}
-            <h1>NO TE PIERDAS EL PRÓXIMO PARTIDO DE ARGENTINA</h1>
-            <p>Te avisamos por email a qué hora juega en tu zona horaria.</p>
+            <h1>{% trans 'NO TE PIERDAS EL PRÓXIMO PARTIDO DE' %} {{domain_team|upper}}</h1>
+            <p>{% trans 'Te avisamos por email a qué hora juega en tu zona horaria.' %}</p>
 
             <div class="row">
               <form data-confirm-url="{% url 'nl_success_confirm' %}"
@@ -30,17 +31,17 @@
                 </div>
               </form>
             </div>
-            <h5>Tal como a vos, no nos gusta el SPAM.</h5>
+            <h5>{% trans 'Tal como a vos, no nos gusta el SPAM.' %}</h5>
           {% else %}
-            <h1>¡GRACIAS POR SUSCRIBIRTE!</h1>
-            <p>Entrá a tu casilla de email para confirmar tu suscripción.</p>
+            <h1>{% trans '¡GRACIAS POR SUSCRIBIRTE!' %}</h1>
+            <p>{% trans 'Entrá a tu casilla de email para confirmar tu suscripción.' %}</p>
           {% endif %}
         </div>
       </div>
       <div class="col-sm-1 hidden-xs hidden-xs-down"></div>
 
       <div class="col-sm-2 col-xs-6">
-        <h4>AQUÍ</h4>
+        <h4>{% trans 'AQUÍ' %}</h4>
         <nav>
           <ul>
             <li><a href="{{ domain }}{% url 'index' %}">A qué hora juega</a></li>
@@ -52,7 +53,7 @@
         </nav>
       </div>
       <div class="col-sm-2 col-xs-6">
-        <h4>ALLÁ</h4>
+        <h4>{% trans 'ALLÁ' %}</h4>
         <nav>
           <ul>
             <li><a target="_blank" href="https://twitter.com/AQueHora_Argent">Twitter</a></li>

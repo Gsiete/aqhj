@@ -60,6 +60,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'aqhorajuega.urls'
@@ -80,7 +81,8 @@ TEMPLATES = [
                 'main.context_processor.time_format_cp',
                 'main.context_processor.domain_team_cp',
                 'sites.context_processor.sites_config_cp',
-                'django.core.context_processors.static'
+                'django.core.context_processors.static',
+                "django.core.context_processors.i18n",
             ],
         },
     },

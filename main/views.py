@@ -8,6 +8,9 @@ from django.shortcuts import get_object_or_404, redirect
 
 
 def index(request):
+    from django.utils import translation
+    user_language = 'es_AR'
+    translation.activate(user_language)
     match_filter = add_check_credentials(Q(end_time__gte=timezone.now()), request)
     next_match = Match.objects.filter(match_filter).order_by('time')[0]
 

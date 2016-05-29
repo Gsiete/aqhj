@@ -1,0 +1,2 @@
+# makemessages
+sudo apt-get install gettext
