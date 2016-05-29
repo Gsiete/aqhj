@@ -25,13 +25,13 @@
     </div>
     <div class="col-xs-12 col-sm-6 clocks right-column">
       <div class="row">
-        <div class="left-column col-xs-6 time local-time js-local-time" data-time="{{ match.time|isotime }}"
-             data-tz="{{ user_city.timezone }}">
-          {% include 'components/date_box.html' with datetime=match.time city=user_city local=True %}
-        </div>
-        <div class="col-xs-6 time stadium-time" data-time="{{ match.time|isotime }}"
+        <div class="left-column col-xs-6 time stadium-time date-box-left" data-time="{{ match.time|isotime }}"
              data-tz="{{ match.stadium.city.timezone }}">
           {% include 'components/date_box.html' with datetime=match.time city=match.stadium.city %}
+        </div>
+        <div class="col-xs-6 time local-time js-local-time date-box-right" data-time="{{ match.time|isotime }}"
+             data-tz="{{ user_city.timezone }}">
+          {% include 'components/date_box.html' with datetime=match.time city=user_city local=True %}
         </div>
       </div>
     </div>

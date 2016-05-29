@@ -40,7 +40,7 @@
     }
 }
 
-.upper-half .left-column, .upper-half .left-column-sm, .upper-half .stadium-time {
+.upper-half .left-column, .upper-half .left-column-sm, .upper-half .date-box-right {
     height: 240px;
 }
 
@@ -143,19 +143,19 @@
     font-size: 35%;
 }
 
-.local-time h2 b {
+.date-box-left h2 b {
     color: #032B2F;
 }
 
-.stadium-time h2 {
+.date-box-right h2 {
     color: #56B1BF;
 }
 
-.stadium-time h2 b {
+.date-box-right h2 b {
     color: #08708A;
 }
 
-.match-box .local-time .date {
+.match-box .date-box-left .date {
     font-size: 14px;
     color: #08708A;
 }
@@ -181,19 +181,19 @@
     width: 86%;
 }
 
-.match-box .local-time hr {
+.match-box .date-box-left hr {
     border-color: #08708A;
 }
 
-.stadium-time hr {
+.date-box-right hr {
     border-color: #56B1BF;
 }
 
-.stadium-time .date {
+.date-box-right .date {
     color: #56B1BF;
 }
 
-.stadium-time .city {
+.date-box-right .city {
     color: #56B1BF;
 }
 
