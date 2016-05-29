@@ -22,5 +22,19 @@ def main_season_cp(request):
     }
 
 
+def domain_team_cp(request):
+    from main.models import Team
+    try:
+        domain_team = Team.objects.get(is_domain_team=True)
+    except Team.DoesNotExist:
+        domain_team = Team.objects.all()[0]
+    except Team.MultipleObjectsReturned:
+        domain_team = Team.objects.filter(is_domain_team=True)[0]
+
+    return {
+        'domain_team': domain_team
+    }
+
+
 def time_format_cp(request):
     return {'time_format': request.COOKIES.get('tformat', '24')}

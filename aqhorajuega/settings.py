@@ -78,6 +78,7 @@ TEMPLATES = [
                 'main.context_processor.get_current_path',
                 'main.context_processor.main_season_cp',
                 'main.context_processor.time_format_cp',
+                'main.context_processor.domain_team_cp',
                 'sites.context_processor.sites_config_cp',
                 'django.core.context_processors.static'
             ],
@@ -175,3 +176,4 @@ STATICFILES_FINDERS = (
 )
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
 AQHJ_DOMAIN = 'http://54.93.126.245:8001'
+LOCALE_PATHS = (BASE_DIR + "/locale/",)
