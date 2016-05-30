@@ -7,8 +7,10 @@ def get_current_path(request):
         'domain': settings.AQHJ_DOMAIN
     }
 
+
 def settings_cp(request):
     return {'BET_AFFILIATE_LINK': settings.BET_AFFILIATE_LINK}
+
 
 def main_season_cp(request):
     from main.models import Season
@@ -19,9 +21,7 @@ def main_season_cp(request):
     except Season.MultipleObjectsReturned:
         main_season = Season.objects.filter(is_main=True)[0]
 
-    return {
-        'main_season': main_season
-    }
+    return {'main_season': main_season}
 
 
 def domain_team_cp(request):
@@ -33,9 +33,7 @@ def domain_team_cp(request):
     except Team.MultipleObjectsReturned:
         domain_team = Team.objects.filter(is_domain_team=True)[0]
 
-    return {
-        'domain_team': domain_team
-    }
+    return {'domain_team': domain_team}
 
 
 def time_format_cp(request):
