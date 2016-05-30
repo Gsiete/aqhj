@@ -67,7 +67,7 @@ class Team(models.Model):
     stadium = models.ForeignKey(Stadium)
     logo = models.ImageField(upload_to='team/logo/', null=True)
     is_domain_team = models.BooleanField('is the main team of the domain')
-    team_domain = DomainField(blank=True, null=True, unique=True)
+    domain = DomainField(blank=True, null=True, unique=True)
 
     def __str__(self):
         return self.name
