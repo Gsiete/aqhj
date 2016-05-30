@@ -1,12 +1,20 @@
 from datetime import timedelta
 from html import escape
 
+from django.conf import settings
 from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
 from redactor.fields import RedactorField
 
 from cities.models import City
+
+
+class DomainField(models.CharField):
+    def __init__(self, max_length=60, *args, **kwargs):
+        kwargs['max_length'] = max_length
+        kwargs['choices'] = zip(*[settings.ALLOWED_HOSTS]*2)
+        super().__init__(*args, **kwargs)
 
 
 class Tournament(models.Model):
@@ -59,6 +67,7 @@ class Team(models.Model):
     stadium = models.ForeignKey(Stadium)
     logo = models.ImageField(upload_to='team/logo/', null=True)
     is_domain_team = models.BooleanField('is the main team of the domain')
+    team_domain = DomainField(blank=True, null=True, unique=True)
 
     def __str__(self):
         return self.name
