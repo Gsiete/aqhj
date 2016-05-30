@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-30 01:37+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: main/templates/layout/footer.html:10
+#, fuzzy
+msgid "NO TE PIERDAS EL PRÓXIMO PARTIDO DE"
+msgstr "NO TE PIERDAS EL PRÓXIMO PARTIDO DE"
+
+#: main/templates/layout/footer.html:11
+msgid "Te avisamos por email a qué hora juega en tu zona horaria."
+msgstr "Te avisamos por email a qué hora juega en tu zona horaria."
+
+#: main/templates/layout/footer.html:34
+msgid "Tal como a vos, no nos gusta el SPAM."
+msgstr "Tal como a ti, no nos gusta el SPAM."
+
+#: main/templates/layout/footer.html:36
+msgid "¡GRACIAS POR SUSCRIBIRTE!"
+msgstr "¡GRACIAS POR SUSCRIBIRTE!"
+
+#: main/templates/layout/footer.html:37
+msgid "Entrá a tu casilla de email para confirmar tu suscripción."
+msgstr "Entrá a tu casilla de email para confirmar tu suscripción."
+
+#: main/templates/layout/footer.html:44
+msgid "AQUÍ"
+msgstr "AQUÍ"
+
+#: main/templates/layout/footer.html:56
+msgid "ALLÁ"
+msgstr "ALLI"
+
+#: main/templates/layout/footer.html:65
+msgid "¡Apostá ahora!"
+msgstr "¡Apuesta ahora!"
