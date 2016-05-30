@@ -26,6 +26,14 @@ def match_before(request, today=False, **kwargs):
     try:
         match = Match.objects.get(match_filter)
     except Match.DoesNotExist:
+        if kwargs['game_in_season'] and kwargs['game_in_season'][:5] == 'fecha':
+            try:
+                kwargs['game_in_season'] = kwargs['game_in_season'].replace('fecha', 'fase-de-grupo-partido')
+                match = Match.objects.get(add_check_credentials(Q(**kwargs), request))
+                return redirect(match.url, permanent=True)
+            except Match.DoesNotExist:
+                raise Http404('No %s matches the given query.' % Match._meta.object_name)
+
         raise Http404('No %s matches the given query.' % Match._meta.object_name)
 
     if timezone.now() > match.end_time or today and not match.is_today:
