@@ -11,6 +11,7 @@ def find_routes():
 class SiteConfig(models.Model):
     is_published = models.BooleanField('indicates weather the Config is published or not', default=False)
     domain = models.CharField(choices=zip(*[settings.ALLOWED_HOSTS]*2), max_length=60)
+    site = models.ForeignKey(Site, on_delete=models.SET_NULL, null=True)
 
     def og_fields(self):
         return dict((f.replace('og_', 'og:'), getattr(self, f)) for f in self._meta.get_fields() if f[:3] == 'og_')
