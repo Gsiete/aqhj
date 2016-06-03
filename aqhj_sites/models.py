@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.db import models
 
 
@@ -41,7 +42,8 @@ class DomainConfig(SiteConfig):
     og_site_name = models.CharField('Content for the og:site_name tag', blank=True, null=True, max_length=50)
     facebook_url = models.CharField('facebook url (page, group or whatever)', blank=True, null=True, max_length=150)
     twitter_url = models.CharField('url for the twitter Channel', blank=True, null=True, max_length=100)
-    bing_validation_meta = models.CharField('validation code to put into te bing validation meta', blank=True, null=True, max_length=100)
+    bing_validation_meta = models.CharField('validation code to put into te bing validation meta', blank=True,
+                                            null=True, max_length=100)
     google_analytics_script = models.TextField(blank=True, null=True)
 
     def __str__(self):
