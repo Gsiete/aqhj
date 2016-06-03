@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'timezone_field',
     'main',
     'cities_light',
@@ -182,3 +183,4 @@ COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'co
 AQHJ_DOMAIN = 'http://54.93.126.245:8001'
 LOCALE_PATHS = (BASE_DIR + "/locale/",)
 BET_AFFILIATE_LINK = 'http://www.bet365.com/dl/~offer?affiliate=365_482502'
+SITE_ID = 1

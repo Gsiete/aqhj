@@ -15,3 +15,4 @@ DEBUG = False
 ALLOWED_HOSTS = ['aquehorajuegaargentina.com']
 COMPRESS_ENABLED = True
 AQHJ_DOMAIN = 'http://aquehorajuegaargentina.com'
+SITE_ID = 1
