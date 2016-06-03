@@ -2,6 +2,7 @@ from datetime import timedelta
 from html import escape
 
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
@@ -68,6 +69,7 @@ class Team(models.Model):
     logo = models.ImageField(upload_to='team/logo/', null=True)
     is_domain_team = models.BooleanField('is the main team of the domain')
     domain = DomainField(blank=True, null=True, unique=True)
+    site = models.ForeignKey(Site, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return self.name
