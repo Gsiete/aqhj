@@ -1,3 +1,4 @@
+from django.contrib.sites.shortcuts import get_current_site
 from django.db.models import Q
 from django.http import HttpResponse, Http404
 from django.utils import timezone
@@ -74,5 +75,5 @@ def group_round_positions(request, **kwargs):
 def add_check_credentials(q_filter, request):
     if not request.user.is_authenticated():
         q_filter &= Q(is_published=True)
-    q_filter &= Q(team_a__domain=request.get_host()) | Q(team_b__domain=request.get_host())
+    q_filter &= Q(team_a__site=get_current_site(request)) | Q(team_b__site=get_current_site(request))
     return q_filter

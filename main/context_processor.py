@@ -1,10 +1,11 @@
 from django.conf import settings
+from django.contrib.sites.shortcuts import get_current_site
 
 
 def get_current_path(request):
     return {
         'current_path': request.get_full_path(),
-        'domain': settings.AQHJ_DOMAIN
+        'domain': get_current_site(request).domain
     }
 
 
@@ -27,11 +28,11 @@ def main_season_cp(request):
 def domain_team_cp(request):
     from main.models import Team
     try:
-        domain_team = Team.objects.get(is_domain_team=True)
+        domain_team = Team.objects.get(site=get_current_site(request))
     except Team.DoesNotExist:
         domain_team = Team.objects.all()[0]
     except Team.MultipleObjectsReturned:
-        domain_team = Team.objects.filter(is_domain_team=True)[0]
+        domain_team = Team.objects.filter(site=get_current_site(request))[0]
 
     return {'domain_team': domain_team}
 
