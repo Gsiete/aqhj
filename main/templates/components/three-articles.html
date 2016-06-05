@@ -3,9 +3,9 @@
 {% if match.preview_part1 %}
 <section class="article-three">
   <h2>{% trans 'Tres cosas que deberías saber antes del partido' %}</h2>
-  <h3>{% blocktrans trimmed with team_domain=match.team_domain team_not_domain=match.team_not_domain  %}
+  <h3>{% with team_domain=match.team_domain team_not_domain=match.team_not_domain %}
     Próximo partido de {{ team_domain }} vs {{ team_not_domain }}
-  {% endblocktrans %}</h3>
+  {% endwith %}</h3>
 
   <div class="row">
     {% if match.preview_part1 %}
