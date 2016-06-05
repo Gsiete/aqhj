@@ -16,3 +16,4 @@ ALLOWED_HOSTS = ['aquehorajuegaargentina.com']
 COMPRESS_ENABLED = True
 AQHJ_DOMAIN = 'http://aquehorajuegaargentina.com'
 SITE_ID = 1
+LANGUAGE_CODE = 'es-ar'

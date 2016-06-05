@@ -7,3 +7,4 @@ ALLOWED_HOSTS = ['cuandojuegamexico.com']
 COMPRESS_ENABLED = True
 AQHJ_DOMAIN = 'http://cuandojuegamexico.com'
 SITE_ID = 3
+LANGUAGE_CODE = 'es-es'

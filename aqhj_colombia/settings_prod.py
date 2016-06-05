@@ -7,3 +7,4 @@ ALLOWED_HOSTS = ['cuandojuegacolombia.com']
 COMPRESS_ENABLED = True
 AQHJ_DOMAIN = 'http://cuandojuegacolombia.com'
 SITE_ID = 2
+LANGUAGE_CODE = 'es-es'
