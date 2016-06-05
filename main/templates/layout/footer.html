@@ -7,7 +7,9 @@
       <div class="col-sm-7 col-xs-12">
         <div class="sign-up">
           {% if not is_confirmation %}
-            <h1>{% trans 'NO TE PIERDAS EL PRÓXIMO PARTIDO DE' %} {{domain_team|upper}}</h1>
+            <h1>{% blocktrans trimmed with domain_team_upper=domain_team|upper %}
+              NO TE PIERDAS EL PRÓXIMO PARTIDO DE {{domain_team_upper}}
+            {% endblocktrans %}</h1>
             <p>{% trans 'Te avisamos por email a qué hora juega en tu zona horaria.' %}</p>
 
             <div class="row">

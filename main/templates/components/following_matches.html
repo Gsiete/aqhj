@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load aqhj_tags %}
 <div id="following-matches" class="row collapse">
   <div class="col-xs-12">
@@ -33,6 +34,6 @@
   </div>
 </div>
 <div id="time-clarification" class="pull-right collapse">
-  Todos los horarios son en tu zona horaria de
+  {% trans 'Todos los horarios son en tu zona horaria de' %}
   <span class="var-city">{{ user_city.name }}, {{ user_city.country.name }}</span>
 </div>

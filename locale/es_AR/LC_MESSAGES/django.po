@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-30 01:37+0200\n"
+"POT-Creation-Date: 2016-06-05 18:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,35 +18,87 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: main/templates/components/following_matches.html:37
+msgid "Todos los horarios son en tu zona horaria de"
+msgstr ""
+
+#: main/templates/components/match-box-current.html:53
+msgid "Próximos partidos"
+msgstr ""
+
+#: main/templates/components/settings-modal.html:3
+msgid "¡Bienvenido!"
+msgstr ""
+
+#: main/templates/components/settings-modal.html:4
+msgid "Detectamos que tu zona horaria* es la de"
+msgstr ""
+
+#: main/templates/components/settings-modal.html:13
+msgid "Elige tu formato horario"
+msgstr ""
+
+#: main/templates/components/settings-modal.html:18
+msgid "Al sitio"
+msgstr ""
+
+#: main/templates/components/settings-modal.html:19
+msgid "Podrás modificar tu configuración dentro del sitio."
+msgstr ""
+
+#: main/templates/components/three-articles.html:5
+msgid "Tres cosas que deberías saber antes del partido"
+msgstr ""
+
+#: main/templates/components/three-articles.html:6
+#, python-format
+msgid "Próximo partido de %(team_domain)s vs %(team_not_domain)s"
+msgstr ""
+
 #: main/templates/layout/footer.html:10
-#, fuzzy
-msgid "NO TE PIERDAS EL PRÓXIMO PARTIDO DE"
-msgstr "NOOssssssssOOO TE PIERDAS EL PRÓXIMO PARTIDO DE "
+#, python-format
+msgid "NO TE PIERDAS EL PRÓXIMO PARTIDO DE %(domain_team_upper)s"
+msgstr ""
 
-#: main/templates/layout/footer.html:11
+#: main/templates/layout/footer.html:13
 msgid "Te avisamos por email a qué hora juega en tu zona horaria."
-msgstr "Te avisamos por email a qué hora juega en tu zona horaria."
-
-#: main/templates/layout/footer.html:34
-msgid "Tal como a vos, no nos gusta el SPAM."
-msgstr "Tal como a vos, no nos gusta el SPAM."
+msgstr ""
 
 #: main/templates/layout/footer.html:36
+msgid "Tal como a vos, no nos gusta el SPAM."
+msgstr ""
+
+#: main/templates/layout/footer.html:38
 msgid "¡GRACIAS POR SUSCRIBIRTE!"
-msgstr "¡GRACIAS POR SUSCRIBIRTE!"
+msgstr ""
 
-#: main/templates/layout/footer.html:37
+#: main/templates/layout/footer.html:39
 msgid "Entrá a tu casilla de email para confirmar tu suscripción."
-msgstr "Entrá a tu casilla de email para confirmar tu suscripción."
+msgstr ""
 
-#: main/templates/layout/footer.html:44
+#: main/templates/layout/footer.html:46
 msgid "AQUÍ"
-msgstr "AQUÍ"
+msgstr ""
 
-#: main/templates/layout/footer.html:56
+#: main/templates/layout/footer.html:58
 msgid "ALLÁ"
-msgstr "ALLÁ"
+msgstr ""
 
-#: main/templates/layout/footer.html:65
+#: main/templates/layout/footer.html:67
 msgid "¡Apostá ahora!"
-msgstr "¡Apostá ahora!"
+msgstr ""
+
+#: main/templates/main/thanks.html:50
+msgid "<h3>¡Excelente pero... </h3> <h1>...ESPERÁ UN MINUTO!</h1>"
+msgstr ""
+
+#: main/templates/main/thanks.html:59
+msgid ""
+"<p> <b>Antes que podamos avisarte</b> de los próximos partidos de Argentina, "
+"necesitamos que completes tu suscripción. </p> <p>¡Es muy fácil!</p> "
+"<p>Entrá a tu casilla de email y buscá el siguiente email:</p>"
+msgstr ""
+
+#: main/templates/main/thanks.html:66
+msgid "Si no encontrás este email en tu casilla, verificá su carpeta de SPAM."
+msgstr ""
