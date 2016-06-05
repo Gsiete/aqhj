@@ -5,7 +5,7 @@ from django.contrib.sites.shortcuts import get_current_site
 def get_current_path(request):
     return {
         'current_path': request.get_full_path(),
-        'domain': get_current_site(request).domain
+        'domain': 'http://' + get_current_site(request).domain
     }
 
 
