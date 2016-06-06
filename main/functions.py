@@ -27,15 +27,18 @@ def get_user_city(request):
             ip = get_random_ip(g)
 
     city = None
-    city_internal = g.city(ip)
-    if city_internal['city']:
-        city_array = City.objects.filter(name=city_internal['city'], country__code2=city_internal['country_code'])[:1]
-        city = city_array[0] if city_array else None
+    try:
+        city_internal = g.city(ip)
+        if city_internal['city']:
+            city_array = City.objects.filter(name=city_internal['city'], country__code2=city_internal['country_code'])[:1]
+            city = city_array[0] if city_array else None
 
-    if city is None and city_internal['country_code']:
-        country = Country.objects.get(code2=city_internal['country_code'])
-        city = country.capital
-        logging.warning('Falling back to country capital for IP:%s in country %s' % (ip, country.name))
+        if city is None and city_internal['country_code']:
+            country = Country.objects.get(code2=city_internal['country_code'])
+            city = country.capital
+            logging.warning('Falling back to country capital for IP:%s in country %s' % (ip, country.name))
+    except AddressNotFoundError:
+        logging.warning('GeoIP fails for IP:%s' % ip)
 
     if city is None:
         city = get_fallback_city()
@@ -94,6 +97,7 @@ def get_random_ip(g):
         except AddressNotFoundError:
             pass
     return ip
+
 
 # def get_timezone_from_coords(latitude, longitude):
 #     api_response = requests.get(settings.GOOGLE_TZ_API_ENDPOINT,
