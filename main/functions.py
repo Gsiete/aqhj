@@ -62,6 +62,8 @@ def get_fallback_city():
 
 def aqhj_render(request, template, context):
     city_code = request.COOKIES.get('city_code', None)
+    if city_code == 'None':
+        city_code = None
     city_is_new = not city_code
     user_city = get_user_city(request) if city_is_new else City.objects.get(pk=city_code)
 
@@ -69,7 +71,7 @@ def aqhj_render(request, template, context):
 
     response = render(request, template, context)
 
-    if city_is_new:
+    if city_is_new and user_city.id:
         set_cookie(response, 'city_code', user_city.id)
 
     return response
