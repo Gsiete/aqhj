@@ -47,6 +47,7 @@ class DomainConfig(SiteConfig):
     bing_validation_meta = models.CharField('validation code to put into te bing validation meta', blank=True,
                                             null=True, max_length=100)
     google_analytics_script = models.TextField(blank=True, null=True)
+    logo = models.ImageField(upload_to='site/logo/', null=True, blank=True)
 
     def __str__(self):
         return '%s Published: %s' % (self.domain, self.is_published)
