@@ -13,6 +13,8 @@
          <h3>{{ prev_match.summary_sub_title }}</h3>
         {{ prev_match.summary|safe }}
       </article>
+  {% elif prev_match.preview_part1 %}
+    {% include 'components/three-articles.html' with match=prev_match %}
   {% endif %}
 {% endblock %}
 
