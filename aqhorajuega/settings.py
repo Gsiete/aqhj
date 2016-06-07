@@ -80,6 +80,7 @@ TEMPLATES = [
                 'main.context_processor.main_season_cp',
                 'main.context_processor.time_format_cp',
                 'main.context_processor.domain_team_cp',
+                'main.context_processor.settings_cp',
                 'aqhj_sites.context_processor.sites_config_cp',
                 'django.core.context_processors.static'
                 "django.core.context_processors.i18n",
