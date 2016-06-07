@@ -66,6 +66,11 @@ def last_matches(request):
     return aqhj_render(request, 'main/last-matches.html', {'last_matches': latest_matches})
 
 
+def redirect_aqhj(request, url):
+    return redirect(url, permanent=True)
+
+
+
 def group_round_positions(request, **kwargs):
     # ToDo: try to see if the issue with group by was the name
     season = get_object_or_404(Season, **kwargs)
