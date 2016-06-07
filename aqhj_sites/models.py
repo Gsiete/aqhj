@@ -10,7 +10,6 @@ def find_routes():
 
 class SiteConfig(models.Model):
     is_published = models.BooleanField('indicates weather the Config is published or not', default=False)
-    domain = models.CharField(choices=zip(*[settings.ALLOWED_HOSTS]*2), max_length=60)
     site = models.ForeignKey(Site, on_delete=models.SET_NULL, null=True)
 
     def og_fields(self):
@@ -32,7 +31,7 @@ class RouteConfig(SiteConfig):
     h3 = models.CharField('Content for the secondary page title (h3)', blank=True, null=True, max_length=200)
 
     def __str__(self):
-        return '%s - %s Published: %s' % (self.domain, self.route, self.is_published)
+        return '%s - %s Published: %s' % (self.site, self.route, self.is_published)
 
     class Meta:
         ordering = ["is_published"]
@@ -50,7 +49,7 @@ class DomainConfig(SiteConfig):
     logo = models.ImageField(upload_to='site/logo/', null=True, blank=True)
 
     def __str__(self):
-        return '%s Published: %s' % (self.domain, self.is_published)
+        return '%s Published: %s' % (self.site, self.is_published)
 
     class Meta:
         ordering = ["is_published"]
