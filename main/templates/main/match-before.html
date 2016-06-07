@@ -5,8 +5,15 @@
 
 {% block content %}
   {% include 'components/match-box-current.html' %}
-
-  {% include 'components/three-articles.html' %}
+  {% if match.preview_part1 %}
+    {% include 'components/three-articles.html' %}
+  {% elif prev_match.summary %}
+      <article class="summary">
+         <h2>{{ prev_match.summary_title }}</h2>
+         <h3>{{ prev_match.summary_sub_title }}</h3>
+        {{ prev_match.summary|safe }}
+      </article>
+  {% endif %}
 {% endblock %}
 
 {% block footer_script %}

@@ -1,6 +1,5 @@
 {% load i18n %}
 {% load staticfiles %}
-{% if match.preview_part1 %}
 <section class="article-three">
   <h2>{% trans 'Tres cosas que deberías saber antes del partido' %}</h2>
   <h3>{% with team_domain=match.team_domain team_not_domain=match.team_not_domain %}
@@ -47,4 +46,3 @@
     {% endif %}
   </div>
 </section>
-{% endif %}
