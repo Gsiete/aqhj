@@ -14,7 +14,7 @@ def index(request):
     translation.activate(user_language)
     match_filter = add_check_credentials(Q(end_time__gte=timezone.now()), request)
     next_match = Match.objects.filter(match_filter).order_by('time')[0]
-    prev_match_filter = add_check_credentials(Q(end_time__tte=timezone.now()), request)
+    prev_match_filter = add_check_credentials(Q(end_time__lte=timezone.now()), request)
     prev_match = Match.objects.filter(prev_match_filter).order_by('-time')[0]
 
     fm_filter = match_filter & ~Q(id=next_match.id)
