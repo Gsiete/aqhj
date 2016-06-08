@@ -7,7 +7,9 @@
   {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="{{ domain_conf.favicon.url }}"/>
+    {% if domain_conf.favicon %}
+      <link rel="shortcut icon" type="image/png" href="{{ domain_conf.favicon.url }}"/>
+    {% endif %}
     {% include 'components/head_metas.html' %}
     {% block head_styles %}
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
