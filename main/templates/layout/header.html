@@ -2,8 +2,12 @@
 {% load aqhj_tags %}
 <div class="container-fluid">
   <div id="logo">
-    <a class="logo-lg" href="{{ domain }}"><img src="{{ domain_conf.logo.url }}"></a>
-    <a class="logo-sm" href="{{ domain }}"><img src="{{ domain_conf.logo_mobile.url }}"></a>
+    <a class="logo-lg" href="{{ domain }}">
+      {% if domain_conf.logo %}<img src="{{ domain_conf.logo.url }}">{% endif %}
+    </a>
+    <a class="logo-sm" href="{{ domain }}">
+      {% if domain_conf.logo_mobile %}<img src="{{ domain_conf.logo_mobile.url }}">{% endif %}
+    </a>
   </div>
   <div class="header-buttons">
     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ domain }}{{ current_path }}">
