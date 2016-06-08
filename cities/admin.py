@@ -1,3 +1,4 @@
+from cities_light.admin import CityAdmin
 from django.contrib import admin
 
-# Register your models here.
+CityAdmin.readonly_fields = ('url',)

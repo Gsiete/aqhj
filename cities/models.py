@@ -19,6 +19,15 @@ connect_default_signals(Region)
 class City(AbstractCity):
     timezone = TimeZoneField()
 
+    @property
+    def url(self):
+        from main.functions import reverse_from_object
+        try:
+            return reverse_from_object('set-city', self)
+        except:
+            logger.error("Couldn't set city URL for %s with id: %s" % (self.slug, self.id))
+            return ''
+
     def get_display_name(self):
         return '%s, %s' % (self.name, self.country.name)
 connect_default_signals(City)
