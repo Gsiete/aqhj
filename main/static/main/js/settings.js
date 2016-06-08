@@ -37,14 +37,14 @@ $(document).ready(function(){
             var $select2 = $cityElement.find('select');
             $select2.select2({
                 ajax: {
-                    url: '/cities/ajax/city-autocomplete/',
+                    url: $changeCityButton.data('url'),
                     dataType: 'json',
                     delay: 250,
                     data: function (params) {
                         return {
                             q: params.term, // search term
                             page: params.page,
-                            csrfmiddlewaretoken: $('#change-city').data('token')
+                            csrfmiddlewaretoken: $changeCityButton.data('token')
                         };
                     }
                 },

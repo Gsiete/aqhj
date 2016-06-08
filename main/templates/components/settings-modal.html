@@ -5,7 +5,10 @@
 
 <section>
     <div id="city"><b>{{ user_city.name }},</b> {{ user_city.country.name }}</div>
-    <button id="change-city" data-token="{{ csrf_token }}" class="btn btn-left">Cambiar</button>
+    <button id="change-city" data-url="{% url 'city-autocomplete' %}" data-token="{{ csrf_token }}"
+            class="btn btn-left">
+      Cambiar
+    </button>
     <button id="confirm-city" class="btn btn-right activated">Es correcto</button>
 </section>
 
