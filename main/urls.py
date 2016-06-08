@@ -32,6 +32,6 @@ urlpatterns = [
     url(r'^sitemap\.xml$', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml'), name='_sitemap'),
     url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain'), name='_robots'),
     url(r'^BingSiteAuth\.xml$',  TemplateView.as_view(template_name='BingSiteAuth.xml', content_type='text/xml'), name='_BingSiteAuth'),
-    url(r'^aquehorajuegaargentina.com(?P<url>.+)$', views.redirect_aqhj, name='redirect_aqhj'),
+    url(r'^aquehorajuegaargentina.com(?P<url>.+)$', views.redirect_aqhj, name='_redirect_aqhj'),
 ]
 # https://docs.djangoproject.com/en/1.9/topics/http/urls/#including-other-urlconfs
