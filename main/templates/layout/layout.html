@@ -4,93 +4,97 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    {% block head %}
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/png" href="{{ domain_conf.favicon.url }}"/>
-        {% include 'components/head_metas.html' %}
-        {% block head_styles %}
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-            <link href='https://fonts.googleapis.com/css?family=Lato:300,400,900,100,700,900' rel='stylesheet' type='text/css'>
-            <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,700,900' rel='stylesheet' type='text/css'>
-            {% compress css %}
-            {% spaceless %}
-            <link href="{{ STATIC_URL }}main/css/bootstrap.css" rel="stylesheet">
-            <link href="{{ STATIC_URL }}main/css/aqhj.css" rel="stylesheet" type='text/css'>
-            <link href="{{ STATIC_URL }}main/css/custom-griding.css" rel="stylesheet" type='text/css'>
-            {% endspaceless %}
-            {% endcompress %}
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
-        {% endblock %}
-        {% block head_scripts %}
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
-            {% compress js %}
-            <script src="{{ STATIC_URL }}main/js/jquery.countdown.min.js"></script>
-            <script src="{{ STATIC_URL }}main/js/aqhj.js"></script>
-            <script src="{{ STATIC_URL }}main/js/settings.js"></script>
-            <script src="{{ STATIC_URL }}main/js/mwl.js"></script>
-            <script src="{{ STATIC_URL }}main/js/moment-timezone-with-data-2010-2020.min.js"></script>
-            <script src="{{ STATIC_URL }}main/js/local-time-update.js"></script>
-            <script src="{{ STATIC_URL }}main/js/mc.js"></script>
-            {% endcompress %}
-        {% endblock %}
+  {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{{ domain_conf.favicon.url }}"/>
+    {% include 'components/head_metas.html' %}
+    {% block head_styles %}
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+      <link href='https://fonts.googleapis.com/css?family=Lato:300,400,900,100,700,900' rel='stylesheet'
+            type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,700,900' rel='stylesheet'
+            type='text/css'>
+      {% compress css %}
+        {% spaceless %}
+          <link href="{{ STATIC_URL }}main/css/bootstrap.css" rel="stylesheet">
+          <link href="{{ STATIC_URL }}main/css/aqhj.css" rel="stylesheet" type='text/css'>
+          <link href="{{ STATIC_URL }}main/css/custom-griding.css" rel="stylesheet" type='text/css'>
+        {% endspaceless %}
+      {% endcompress %}
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet"/>
     {% endblock %}
+    {% block head_scripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+              integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+              crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+      {% compress js %}
+        <script src="{{ STATIC_URL }}main/js/jquery.countdown.min.js"></script>
+        <script src="{{ STATIC_URL }}main/js/aqhj.js"></script>
+        <script src="{{ STATIC_URL }}main/js/settings.js"></script>
+        <script src="{{ STATIC_URL }}main/js/mwl.js"></script>
+        <script src="{{ STATIC_URL }}main/js/moment-timezone-with-data-2010-2020.min.js"></script>
+        <script src="{{ STATIC_URL }}main/js/local-time-update.js"></script>
+        <script src="{{ STATIC_URL }}main/js/mc.js"></script>
+      {% endcompress %}
+    {% endblock %}
+  {% endblock %}
 </head>
 <body>
-    <header id="header">
-    {% block header %}
-      {% include 'layout/header.html' %}
-    {% endblock %}
-    </header>
-    <div id="main-nav" class="container-fluid">
-      <div class="row">
-        <div class="nav-el col-xs-6 col-sm-3">
-          <a href="{{ domain }}{% url 'index' %}">A qué hora juega</a>
-        </div>
-        <div class="nav-el col-xs-6 col-sm-3">
-          <a href="{{ domain }}{% url 'last_matches' %}">Resultados</a>
-        </div>
-        <div class="nav-el col-xs-6 col-sm-3">
-          <a href="{{ domain }}{{ 'group_positions'|url_from_object:main_season }}">Posiciones</a>
-        </div>
-        <div class="nav-el col-xs-6 col-sm-3">
-          <a rel="nofollow" href="{{ BET_AFFILIATE_LINK }}" target="blank">¡Apostá ahora!</a>
-        </div>
+<header id="header">
+  {% block header %}
+    {% include 'layout/header.html' %}
+  {% endblock %}
+</header>
+<div id="main-nav" class="container-fluid">
+  <div class="row">
+    <div class="nav-el col-xs-6 col-sm-3">
+      <a href="{{ domain }}{% url 'index' %}">A qué hora juega</a>
+    </div>
+    <div class="nav-el col-xs-6 col-sm-3">
+      <a href="{{ domain }}{% url 'last_matches' %}">Resultados</a>
+    </div>
+    <div class="nav-el col-xs-6 col-sm-3">
+      <a href="{{ domain }}{{ 'group_positions'|url_from_object:main_season }}">Posiciones</a>
+    </div>
+    <div class="nav-el col-xs-6 col-sm-3">
+      <a rel="nofollow" href="{{ BET_AFFILIATE_LINK }}" target="blank">¡Apostá ahora!</a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="settings-modal" class="modal fade" role="dialog" data-show='{{ city_is_new|yesno:'yes,no' }}'>
+  <div class="modal-dialog modal-sm">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        {% include 'components/settings-modal.html' %}
       </div>
     </div>
-
-    <!-- Modal -->
-    <div id="settings-modal" class="modal fade" role="dialog" data-show='{{ city_is_new|yesno:'yes,no' }}'>
-      <div class="modal-dialog modal-sm">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-body">
-            {% include 'components/settings-modal.html' %}
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="content" class="container">
-        {% block content_title %}
-          {% if route_conf %}
-            <h1>{% parse_string_with_context route_conf.h1 %}</h1>
-            <h3>{% parse_string_with_context route_conf.h3 %}</h3>
-          {% endif %}
-        {% endblock %}
-        {% block content %}
-        {% endblock %}
-    </div>
+  </div>
+</div>
+<div id="content" class="container">
+  {% block content_title %}
+    {% if route_conf %}
+      <h1>{% parse_string_with_context route_conf.h1 %}</h1>
+      <h3>{% parse_string_with_context route_conf.h3 %}</h3>
+    {% endif %}
+  {% endblock %}
+  {% block content %}
+  {% endblock %}
+</div>
 
 
-    {% block footer %}
-      {% include 'layout/footer.html' %}
-    {% endblock %}
+{% block footer %}
+  {% include 'layout/footer.html' %}
+{% endblock %}
 
-    {% block footer_script %}{% endblock %}
-    <script>
-      {{ domain_conf.google_analytics_script|safe }}
-    </script>
+{% block footer_script %}{% endblock %}
+<script>
+  {{ domain_conf.google_analytics_script|safe }}
+</script>
 </body>
 </html>
