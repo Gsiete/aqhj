@@ -99,6 +99,8 @@ class Match(models.Model):
     preview_part1 = RedactorField(blank=True)
     preview_part2 = RedactorField(blank=True)
     preview_part3 = RedactorField(blank=True)
+    summary_title = models.CharField(blank=True, null=True, max_length=250)
+    summary_sub_title = models.CharField(blank=True, null=True, max_length=350)
     summary = RedactorField(blank=True)
     og_image = models.ImageField(upload_to='season/og/', null=True, blank=True)
     html_video = models.TextField(null=True, blank=True,
