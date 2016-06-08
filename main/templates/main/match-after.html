@@ -8,8 +8,8 @@
 
   {% if match.summary %}
     <article class="summary">
-       <h2>{{ match.summary_title }}</h2>
-       <h3>{{ match.summary_sub_title }}</h3>
+       {% if match.summary_title %}<h2>{{ match.summary_title }}</h2>{% endif %}
+       {% if match.summary_sub_title %}<h3>{{ match.summary_sub_title }}</h3>{% endif %}
       {{ match.summary|safe }}
     </article>
   {% endif %}
