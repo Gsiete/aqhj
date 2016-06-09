@@ -96,7 +96,9 @@
 
 {% block footer_script %}{% endblock %}
 <script>
-  {{ domain_conf.google_analytics_script|safe }}
+  {% if not AQHJ_DEBUG %}
+    {{ domain_conf.google_analytics_script|safe }}
+  {% endif %}
 </script>
 </body>
 </html>

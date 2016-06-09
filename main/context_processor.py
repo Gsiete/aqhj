@@ -10,7 +10,7 @@ def get_current_path(request):
 
 
 def settings_cp(request):
-    return {'BET_AFFILIATE_LINK': settings.BET_AFFILIATE_LINK}
+    return {'BET_AFFILIATE_LINK': settings.BET_AFFILIATE_LINK, 'AQHJ_DEBUG': settings.DEBUG}
 
 
 def main_season_cp(request):
