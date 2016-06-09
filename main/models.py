@@ -3,6 +3,7 @@ from html import escape
 
 from django.conf import settings
 from django.contrib.sites.models import Site
+from django.contrib.sites.shortcuts import get_current_site
 from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
@@ -97,15 +98,17 @@ class Match(models.Model):
     game_in_season = models.CharField(choices=GAMES_IN_SEASON_CHOICES, max_length=30, blank=True, null=True)
     time = models.DateTimeField('local time of the match')
     end_time = models.DateTimeField('time the match ends')
-    preview_part1 = RedactorField(blank=True)
-    preview_part2 = RedactorField(blank=True)
-    preview_part3 = RedactorField(blank=True)
-    summary_title = models.CharField(blank=True, null=True, max_length=250)
-    summary_sub_title = models.CharField(blank=True, null=True, max_length=350)
-    summary = RedactorField(blank=True)
     og_image = models.ImageField(upload_to='season/og/', null=True, blank=True)
     html_video = models.TextField(null=True, blank=True,
                                   help_text=escape('<iframe width="360" height="203" src="https://www.youtube.com/embed/CODIGO_DEL_VIDEO" frameborder="0" allowfullscreen=""></iframe>'))
+
+    @property
+    def three_articles(self):
+        return ThreeArticles.objects.filter(match=self, site=Site.objects.get_current()).first()
+
+    @property
+    def summary(self):
+        return Summary.objects.filter(match=self, site=Site.objects.get_current()).first()
 
     @property
     def team_a_winner(self):
