@@ -6,12 +6,14 @@
 {% block content %}
   {% include 'components/match-box-past.html' %}
 
-  {% if match.summary %}
+  {% if summary %}
     <article class="summary">
-       {% if match.summary_title %}<h2>{{ match.summary_title }}</h2>{% endif %}
-       {% if match.summary_sub_title %}<h3>{{ match.summary_sub_title }}</h3>{% endif %}
-      {{ match.summary|safe }}
+      {% if summary.title %}<h2>{{ summary.title }}</h2>{% endif %}
+      {% if summary.sub_title %}<h3>{{ summary.sub_title }}</h3>{% endif %}
+      {{ summary.content|safe }}
     </article>
   {% endif %}
-  {% include 'components/three-articles.html' %}
+  {% if three_articles %}
+    {% include 'components/three-articles.html' %}
+  {% endif %}
 {% endblock %}

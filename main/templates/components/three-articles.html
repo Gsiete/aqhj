@@ -2,12 +2,12 @@
 {% load staticfiles %}
 <section class="article-three">
   <h2>{% trans 'Tres cosas que deberías saber antes del partido' %}</h2>
-  <h3>{% with team_domain=match.team_domain team_not_domain=match.team_not_domain %}
+  <h3>{% with team_domain=three_articles.match.team_domain team_not_domain=three_articles.match.team_not_domain %}
     Próximo partido de {{ team_domain }} vs {{ team_not_domain }}
   {% endwith %}</h3>
 
   <div class="row">
-    {% if match.preview_part1 %}
+    {% if three_articles.preview_part1 %}
     <div class="col-xs-1">
       <span class="fa-stack fa-md point point-1">
         <i class="fa fa-circle fa-stack-2x"></i>
@@ -15,12 +15,12 @@
       </span>
     </div>
     <div class="col-xs-11">
-      <p>{{ match.preview_part1|safe }}</p>
+      <p>{{ three_articles.preview_part1|safe }}</p>
     </div>
     {% endif %}
   </div>
   <div class="row">
-    {% if match.preview_part2 %}
+    {% if three_articles.preview_part2 %}
     <div class="col-xs-1">
       <span class="fa-stack fa-md point point-2">
         <i class="fa fa-circle fa-stack-2x"></i>
@@ -28,12 +28,12 @@
       </span>
     </div>
     <div class="col-xs-11">
-      <p>{{ match.preview_part2|safe }}</p>
+      <p>{{ three_articles.preview_part2|safe }}</p>
     </div>
     {% endif %}
   </div>
   <div class="row">
-    {% if match.preview_part3 %}
+    {% if three_articles.preview_part3 %}
     <div class="col-xs-1">
       <span class="fa-stack fa-md point point-3">
         <i class="fa fa-circle fa-stack-2x"></i>
@@ -41,7 +41,7 @@
       </span>
     </div>
     <div class="col-xs-11">
-      <p>{{ match.preview_part3|safe }}</p>
+      <p>{{ three_articles.preview_part3|safe }}</p>
     </div>
     {% endif %}
   </div>
