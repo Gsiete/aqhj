@@ -78,6 +78,7 @@ class Team(models.Model):
 class Match(models.Model):
     class Meta:
         verbose_name_plural = "matches"
+        ordering = ["-time"]
 
     GAMES_IN_SEASON = ['Fase de grupo - Partido %d' % x for x in range(1, 4)] + \
                       ['Ronda de 16', 'Cuartos de final', 'Semi-final', 'Final'] + \
@@ -189,6 +190,29 @@ class Match(models.Model):
 
     def __str__(self):
         return str(self.team_a) + ' - ' + str(self.team_b) + ' (' + str(self.time) + ')'
+
+
+class Article(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    match = models.ForeignKey(Match, on_delete=models.CASCADE)
+    site = models.ForeignKey(Site, on_delete=models.SET_NULL, blank=True, null=True)
+    is_published = models.BooleanField('indicates weather the Article is published or not', default=False)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+
+class ThreeArticles(Article):
+    preview_part1 = RedactorField(blank=True)
+    preview_part2 = RedactorField(blank=True)
+    preview_part3 = RedactorField(blank=True)
+
+
+class Summary(Article):
+    title = models.CharField(blank=True, null=True, max_length=250)
+    sub_title = models.CharField(blank=True, null=True, max_length=350)
+    content = RedactorField(blank=True)
 
 
 class TeamSeasonAbstract(models.Model):
