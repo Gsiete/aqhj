@@ -97,14 +97,8 @@
 
 {% block footer_script %}{% endblock %}
 <script>
-  var isBlocked = true;
-  if (typeof blockAdBlock !== 'undefined') {
-    blockAdBlock.on(true, function () {
-      isBlocked = true;
-    });
-    blockAdBlock.on(false, function () {
-      isBlocked = false;
-    });
+  if (typeof window.isBlocked === 'undefined') {
+    var isBlocked = true;
   }
   $(document).ready(function() {
     {% if not AQHJ_DEBUG %}
