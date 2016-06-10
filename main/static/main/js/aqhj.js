@@ -24,23 +24,20 @@ $(document).ready(function() {
     $('a.dbl-link').on('click', function (e) {
         e.preventDefault();
         var href = $(this).attr('href');
+        window.open(window.location.href);
         if($(this).data('track') == '1') {
             ga('send', 'event', {
                 eventCategory: 'Outbound Link', eventAction: 'click', eventLabel: href,
                 hitCallback: createFunctionWithTimeout(function () {
-                    clickoutTo(href);
+                    window.location = href;
                 })
             });
         } else {
-            clickoutTo(href);
+            window.location = href;
         }
         return false;
     });
 });
-var clickoutTo = function (href) {
-    window.open(window.location.href);
-    window.location = href;
-};
 
 function createFunctionWithTimeout(callback, opt_timeout) {
   var called = false;
