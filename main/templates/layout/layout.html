@@ -32,6 +32,7 @@
               integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
               crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+      <script src="{{ STATIC_URL }}main/js/ads.js"></script>
       {% compress js %}
         <script src="{{ STATIC_URL }}main/js/jquery.countdown.min.js"></script>
         <script src="{{ STATIC_URL }}main/js/aqhj.js"></script>
@@ -96,6 +97,11 @@
 
 {% block footer_script %}{% endblock %}
 <script>
+  var isBlocked = true;
+  if (typeof blockAdBlock !== 'undefined') {
+    blockAdBlock.on(true, function(){ isBlocked = true; });
+    blockAdBlock.on(false, function(){ isBlocked = false; });
+  }
   {% if not AQHJ_DEBUG %}
     {{ domain_conf.google_analytics_script|safe }}
   {% endif %}
