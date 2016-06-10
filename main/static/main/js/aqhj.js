@@ -21,11 +21,35 @@ String.prototype.boldBefore = function(delimiter) {
     return '<b>' + this.replace(delimiter, '</b>' + delimiter);
 };
 $(document).ready(function() {
-    $('a.double-link').on('click', function (e) {
+    $('a.dbl-link').on('click', function (e) {
         e.preventDefault();
-        window.open(window.location.href);
-        window.location = $(this).attr('href');
-
+        var href = $(this).attr('href');
+        if($(this).data('track') == '1') {
+            ga('send', 'event', {
+                eventCategory: 'Outbound Link', eventAction: 'click', eventLabel: href,
+                hitCallback: createFunctionWithTimeout(function () {
+                    clickoutTo(href);
+                })
+            });
+        } else {
+            clickoutTo(href);
+        }
         return false;
     });
 });
+var clickoutTo = function (href) {
+    window.open(window.location.href);
+    window.location = href;
+};
+
+function createFunctionWithTimeout(callback, opt_timeout) {
+  var called = false;
+  function fn() {
+    if (!called) {
+      called = true;
+      callback();
+    }
+  }
+  setTimeout(fn, opt_timeout || 1000);
+  return fn;
+}

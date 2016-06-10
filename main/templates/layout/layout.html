@@ -24,7 +24,9 @@
       <a href="{{ domain }}{{ 'group_positions'|url_from_object:main_season }}">Posiciones</a>
     </div>
     <div class="nav-el col-xs-6 col-sm-3">
-      <a class="double-link" rel="nofollow" href="{{ BET_AFFILIATE_LINK }}">¡Apostá ahora!</a>
+      <a {% if GA %}data-track="1" {% endif %}class="dbl-link" rel="nofollow" href="{{ BET_AFFILIATE_LINK }}">
+        ¡Apostá ahora!
+      </a>
     </div>
   </div>
 </div>

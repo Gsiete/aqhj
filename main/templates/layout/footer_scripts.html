@@ -3,7 +3,7 @@
   if (typeof window.isBlocked === 'undefined') {
     var isBlocked = true;
   }
-  {% if domain_conf.google_analytics_id and not AQHJ_DEBUG %}
+  {% if GA %}
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', '{{ domain_conf.google_analytics_id }}', 'auto');
     ga('require', 'eventTracker');

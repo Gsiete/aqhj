@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.urlresolvers import resolve
 from django.db.models import Q
@@ -12,7 +13,8 @@ def sites_config_cp(request):
     route_configs = RouteConfig.objects.filter(route_q)
     return {
         'route_conf': route_configs[0] if route_configs else None,
-        'domain_conf': domain_configs[0] if domain_configs else None
+        'domain_conf': domain_configs[0] if domain_configs else None,
+        'GA': domain_configs and domain_configs[0].google_analytics_id and settings.DEBUG
     }
 
 
