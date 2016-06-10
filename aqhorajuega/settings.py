@@ -85,7 +85,6 @@ TEMPLATES = [
                 'django.core.context_processors.static'
                 "django.core.context_processors.i18n",
                 'aqhj_sites.context_processor.sites_config_cp',
-                'django.core.context_processors.static'
             ],
         },
     },
