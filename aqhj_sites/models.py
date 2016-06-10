@@ -45,7 +45,8 @@ class DomainConfig(SiteConfig):
     tweet = models.CharField('message to tweet', blank=True, null=True, max_length=140)
     bing_validation_meta = models.CharField('validation code to put into te bing validation meta', blank=True,
                                             null=True, max_length=100)
-    google_analytics_script = models.TextField(blank=True, null=True)
+    google_analytics_id = models.CharField(blank=True, null=True, max_length=20)
+    extra_footer_script = models.TextField(blank=True, null=True)
     logo = models.ImageField(upload_to='site/logo/', null=True, blank=True)
     logo_mobile = models.ImageField(upload_to='site/logo_mobile/', null=True, blank=True)
     favicon = models.ImageField(upload_to='site/favicon/', null=True, blank=True)
