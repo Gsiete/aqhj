@@ -14,7 +14,7 @@ def sites_config_cp(request):
     return {
         'route_conf': route_configs[0] if route_configs else None,
         'domain_conf': domain_configs[0] if domain_configs else None,
-        'GA': domain_configs and domain_configs[0].google_analytics_id and settings.DEBUG
+        'GA': domain_configs and domain_configs[0].google_analytics_id and not settings.DEBUG
     }
 
 
