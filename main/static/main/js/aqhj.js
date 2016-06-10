@@ -21,7 +21,6 @@ String.prototype.boldBefore = function(delimiter) {
     return '<b>' + this.replace(delimiter, '</b>' + delimiter);
 };
 $(document).ready(function() {
-    console.log('binding');
     $('a.double-link').on('click', function (e) {
         e.preventDefault();
         window.open(window.location.href);
