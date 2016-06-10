@@ -97,14 +97,20 @@
 
 {% block footer_script %}{% endblock %}
 <script>
-  var isBlocked = true;
-  if (typeof blockAdBlock !== 'undefined') {
-    blockAdBlock.on(true, function(){ isBlocked = true; });
-    blockAdBlock.on(false, function(){ isBlocked = false; });
-  }
-  {% if not AQHJ_DEBUG %}
-    {{ domain_conf.google_analytics_script|safe }}
-  {% endif %}
+  $(document).ready(function() {
+    var isBlocked = true;
+    if (typeof blockAdBlock !== 'undefined') {
+      blockAdBlock.on(true, function () {
+        isBlocked = true;
+      });
+      blockAdBlock.on(false, function () {
+        isBlocked = false;
+      });
+    }
+    {% if not AQHJ_DEBUG %}
+      {{ domain_conf.google_analytics_script|safe }}
+    {% endif %}
+  });
 </script>
 </body>
 </html>
