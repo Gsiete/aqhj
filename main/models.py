@@ -202,6 +202,9 @@ class Article(models.Model):
     site = models.ForeignKey(Site, on_delete=models.SET_NULL, blank=True, null=True)
     is_published = models.BooleanField('indicates weather the Article is published or not', default=False)
 
+    def __str__(self):
+        return str(self.site) + ' - ' + str(self.match)
+
     class Meta:
         ordering = ["-created_at"]
 
