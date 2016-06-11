@@ -220,19 +220,28 @@ class Summary(Article):
 
 class TeamSeasonAbstract(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
-    matches_played = models.IntegerField(null=True, blank=True)
     wins = models.IntegerField(null=True, blank=True)
     draws = models.IntegerField(null=True, blank=True)
     losses = models.IntegerField(null=True, blank=True)
     goals_for = models.IntegerField(null=True, blank=True)
     goals_against = models.IntegerField(null=True, blank=True)
-    goals_difference = models.IntegerField(null=True, blank=True)
-    points = models.IntegerField(null=True, blank=True)
     position = models.IntegerField(null=True, blank=True)
     season = models.ForeignKey(Season, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.team) + ' - ' + str(self.season.short)
+
+
+    @property
+    def matches_played(self):
+        return self.wins + self.draws + self.losses
+
+    @property
+    def goals_difference(self):
+        return self.goals_for - self.goals_against
+    @property
+    def points(self):
+        return self.wins*3 + self.draws
 
     class Meta:
         abstract = True
