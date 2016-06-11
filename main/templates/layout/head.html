@@ -1,41 +1,39 @@
 {% load compress %}
-{% block head %}
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% if domain_conf.favicon %}
-    <link rel="shortcut icon" type="image/png" href="{{ domain_conf.favicon.url }}"/>
-  {% endif %}
-  {% include 'components/head_metas.html' %}
-  {% block head_styles %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,900,100,700,900' rel='stylesheet'
-          type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,700,900' rel='stylesheet'
-          type='text/css'>
-    {% compress css %}
-      {% spaceless %}
-        <link href="{{ STATIC_URL }}main/css/bootstrap.css" rel="stylesheet">
-        <link href="{{ STATIC_URL }}main/css/aqhj.css" rel="stylesheet" type='text/css'>
-        <link href="{{ STATIC_URL }}main/css/custom-griding.css" rel="stylesheet" type='text/css'>
-      {% endspaceless %}
-    {% endcompress %}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet"/>
-  {% endblock %}
-  {% block head_scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
-    <script src="{{ STATIC_URL }}main/js/ads.js"></script>
-    {% compress js %}
-      <script src="{{ STATIC_URL }}main/js/jquery.countdown.min.js"></script>
-      <script src="{{ STATIC_URL }}main/js/aqhj.js"></script>
-      <script src="{{ STATIC_URL }}main/js/settings.js"></script>
-      <script src="{{ STATIC_URL }}main/js/mwl.js"></script>
-      <script src="{{ STATIC_URL }}main/js/moment-timezone-with-data-2010-2020.min.js"></script>
-      <script src="{{ STATIC_URL }}main/js/local-time-update.js"></script>
-      <script src="{{ STATIC_URL }}main/js/mc.js"></script>
-    {% endcompress %}
-  {% endblock %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% if domain_conf.favicon %}
+  <link rel="shortcut icon" type="image/png" href="{{ domain_conf.favicon.url }}"/>
+{% endif %}
+{% include 'components/head_metas.html' %}
+{% block head_styles %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,900,100,700,900' rel='stylesheet'
+        type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,700,900' rel='stylesheet'
+        type='text/css'>
+  {% compress css %}
+    {% spaceless %}
+      <link href="{{ STATIC_URL }}main/css/bootstrap.css" rel="stylesheet">
+      <link href="{{ STATIC_URL }}main/css/aqhj.css" rel="stylesheet" type='text/css'>
+      <link href="{{ STATIC_URL }}main/css/custom-griding.css" rel="stylesheet" type='text/css'>
+    {% endspaceless %}
+  {% endcompress %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet"/>
+{% endblock %}
+{% block head_scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+          integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+  <script src="{{ STATIC_URL }}main/js/ads.js"></script>
+  {% compress js %}
+    <script src="{{ STATIC_URL }}main/js/jquery.countdown.min.js"></script>
+    <script src="{{ STATIC_URL }}main/js/aqhj.js"></script>
+    <script src="{{ STATIC_URL }}main/js/settings.js"></script>
+    <script src="{{ STATIC_URL }}main/js/mwl.js"></script>
+    <script src="{{ STATIC_URL }}main/js/moment-timezone-with-data-2010-2020.min.js"></script>
+    <script src="{{ STATIC_URL }}main/js/local-time-update.js"></script>
+    <script src="{{ STATIC_URL }}main/js/mc.js"></script>
+  {% endcompress %}
 {% endblock %}

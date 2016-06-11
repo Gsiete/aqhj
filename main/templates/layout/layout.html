@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  {% include 'layout/head.html' %}
+  {% block head %}
+    {% include 'layout/head.html' %}
+  {% endblock %}
 </head>
 <body>
 <header id="header">
