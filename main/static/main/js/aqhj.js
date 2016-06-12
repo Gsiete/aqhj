@@ -23,17 +23,21 @@ String.prototype.boldBefore = function(delimiter) {
 $(document).ready(function() {
     $('a.dbl-link').on('click', function (e) {
         e.preventDefault();
-        var href = $(this).attr('href');
-        window.open(window.location.href);
+        var hitCallbackFn, href = $(this).attr('href');
+        if (window.isBlocked) {
+            hitCallbackFn = function () {window.location = href;};
+            window.open(window.location.href);
+        } else {
+            hitCallbackFn = function () {window.open(href);};
+        }
+
         if($(this).data('track') == '1') {
             ga('send', 'event', {
                 eventCategory: 'Outbound Link', eventAction: 'click', eventLabel: href,
-                hitCallback: createFunctionWithTimeout(function () {
-                    window.location = href;
-                })
+                hitCallback: createFunctionWithTimeout(hitCallbackFn)
             });
         } else {
-            window.location = href;
+            hitCallbackFn();
         }
         return false;
     });
