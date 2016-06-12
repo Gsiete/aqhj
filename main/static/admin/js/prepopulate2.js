@@ -33,10 +33,8 @@
             prepopulatedField.change(function() {
                 prepopulatedField.data('_changed', true);
             });
-            console.log(dependencies.join(','));
 
             if (!prepopulatedField.val()) {
-                console.log(dependencies.join(','));
                 $(dependencies.join(',')).keyup(populate).change(populate).focus(populate);
             }
         });
