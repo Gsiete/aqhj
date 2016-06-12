@@ -125,7 +125,7 @@
 }(jQuery));
 
 // MC
-(function($) {
+$(document).ready(function() {
 
 	// TODO: Do we actually allow custom error styles or is this legacy code?
 	var err_style = '';
@@ -350,7 +350,8 @@
         if (keycode == 27 && typeof mc.showPopup != 'undefined') mc.closePopup();
     });
 
-}(jQuery));
+});
+
 /*! CUSTOM CODE */
 (function () {
   window.fnames = [];
