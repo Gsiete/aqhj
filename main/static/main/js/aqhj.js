@@ -21,26 +21,23 @@ String.prototype.boldBefore = function(delimiter) {
     return '<b>' + this.replace(delimiter, '</b>' + delimiter);
 };
 $(document).ready(function() {
-    $('a.dbl-link').on('click', function (e) {
-        e.preventDefault();
-        var hitCallbackFn, href = $(this).attr('href');
-        if (window.isBlocked) {
-            hitCallbackFn = function () {window.location = href;};
+    if (isBlocked) {
+        $('a.dbl-link').on('click', function (e) {
+            e.preventDefault();
+            var href = $(this).attr('href');
             window.open(window.location.href);
-        } else {
-            hitCallbackFn = function () {window.open(href);};
-        }
 
-        if($(this).data('track') == '1') {
-            ga('send', 'event', {
-                eventCategory: 'Outbound Link', eventAction: 'click', eventLabel: href,
-                hitCallback: createFunctionWithTimeout(hitCallbackFn)
-            });
-        } else {
-            hitCallbackFn();
-        }
-        return false;
-    });
+            if($(this).data('track') == '1') {
+                ga('send', 'event', {
+                    eventCategory: 'Outbound Link', eventAction: 'click', eventLabel: href,
+                    hitCallback: createFunctionWithTimeout(function () {window.location = href;})
+                });
+            } else {
+                window.location = href;
+            }
+            return false;
+        });
+    }
 });
 
 function createFunctionWithTimeout(callback, opt_timeout) {
