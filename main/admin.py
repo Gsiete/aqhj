@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+from main.forms import StadiumForm
 from .models import Match, Tournament, Team, Stadium, Season, TeamSeason, TeamSeasonGroup, Summary, ThreeArticles
 
 
@@ -18,10 +20,14 @@ class MatchAdmin(admin.ModelAdmin):
     readonly_fields = ('stadium_time', 'url')
     list_filter = ('season',)
 
+
+class StadiumAdmin(admin.ModelAdmin):
+    form = StadiumForm
+
 admin.site.register(Match, admin_class=MatchAdmin)
 admin.site.register(Tournament, admin_class=SlugAdmin)
 admin.site.register(Team, admin_class=SlugSiteRelAdmin)
-admin.site.register(Stadium)
+admin.site.register(Stadium, admin_class=StadiumAdmin)
 admin.site.register(Season, admin_class=SlugAdmin)
 admin.site.register(TeamSeason)
 admin.site.register(TeamSeasonGroup)
