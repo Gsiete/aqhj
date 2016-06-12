@@ -1,13 +1,10 @@
 <script>
-  if (typeof window.isBlocked === 'undefined') {
-    var isBlocked = true;
-  }
   {% if GA %}
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', '{{ domain_conf.google_analytics_id }}', 'auto');
     ga('require', 'eventTracker');
     ga('require', 'outboundLinkTracker');
-    ga('send', 'pageview', {'dimension1':isBlocked?'blocked':'not-blocked'});
+    ga('send', 'pageview', {'dimension1':window.isBlocked?'blocked':'not-blocked'});
   {% endif %}
   {{ domain_conf.extra_footer_script|safe }}
 </script>
