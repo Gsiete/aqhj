@@ -48,13 +48,13 @@ def match_before(request, **kwargs):
 
         raise Http404('No %s matches the given query.' % Match._meta.object_name)
 
-    if timezone.now() > match.end_time:
-        return redirect(match.url, permanent=True)
-
     three_articles = ThreeArticles.objects.filter(add_check_credentials(Q(match=match), request, False)).first()
-    fm_filter = ~Q(id=match.id) & Q(end_time__gte=timezone.now())
-    fm_filter = add_check_credentials(fm_filter, request)
-    following_matches = Match.objects.filter(fm_filter).order_by('time')[:6]
+
+    following_matches = None
+    if timezone.now() < match.end_time:
+        fm_filter = ~Q(id=match.id) & Q(end_time__gte=timezone.now())
+        fm_filter = add_check_credentials(fm_filter, request)
+        following_matches = Match.objects.filter(fm_filter).order_by('time')[:6]
 
     return aqhj_render(request, 'main/match-before.html',
                        {'following_matches': following_matches, 'match': match, 'three_articles': three_articles})
@@ -67,10 +67,9 @@ def past_match(request, **kwargs):
     except Match.DoesNotExist:
         raise Http404('No %s matches the given query.' % Match._meta.object_name)
     summary = Summary.objects.filter(add_check_credentials(Q(match=match), request, False)).first()
-    three_articles = ThreeArticles.objects.filter(add_check_credentials(Q(match=match), request, False)).first()
 
     return aqhj_render(request, 'main/match-after.html',
-                       {'match': match, 'summary': summary, 'three_articles': three_articles})
+                       {'match': match, 'summary': summary})
 
 
 def last_matches(request):

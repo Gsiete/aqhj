@@ -42,19 +42,29 @@
       <div>
         {% if match.match_status == 'before' %}
           Faltan <span class="countdown" data-until="{{ match.time|isotime }}"></span>
-        {% else %}
+        {% elif match.match_status == 'ongoing' %}
           Partido en curso
+        {% elif match.match_status == 'after' %}
+          Partido finalizado
         {% endif %}
       </div>
     </div>
-    <div id="fm-toggle" class="left-column-sm col-xs-12 col-sm-6"
-         {% if home and following_matches %}data-is-toggled="1"{% endif %}>
-      <div class="row">
-        <div class="col-xs-2"><span class="glyphicon glyphicon-menu-down"></span></div>
-        <div class="col-xs-8">{% trans 'Próximos partidos' %}</div>
-        <div class="col-xs-2"><span class="glyphicon glyphicon-menu-down"></span></div>
-      </div>
-    </div>
+      {% if match.match_status != 'after' %}
+        <div id="fm-toggle" class="left-column-sm col-xs-12 col-sm-6"
+             {% if home and following_matches %}data-is-toggled="1"{% endif %}>
+          <div class="row">
+            <div class="col-xs-2"><span class="glyphicon glyphicon-menu-down"></span></div>
+            <div class="col-xs-8">{% trans 'Próximos partidos' %}</div>
+            <div class="col-xs-2"><span class="glyphicon glyphicon-menu-down"></span></div>
+          </div>
+        </div>
+      {% else %}
+        <div class="left-column-sm col-xs-12 col-sm-6">
+          <a href="{{ domain }}{{ match.url }}">{% trans 'Resumen del partido' %}</a>
+        </div>
+      {% endif %}
   </div>
-  {% include 'components/following_matches.html' %}
+  {% if match.match_status != 'after' and following_matches %}
+    {% include 'components/following_matches.html' %}
+  {% endif %}
 </section>
