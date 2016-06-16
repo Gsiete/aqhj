@@ -61,6 +61,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "aqhj_sites.redirect.RedirectMiddleware",
 ]
 
 ROOT_URLCONF = 'aqhorajuega.urls'

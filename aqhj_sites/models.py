@@ -56,3 +56,9 @@ class DomainConfig(SiteConfig):
 
     class Meta:
         ordering = ["is_published"]
+
+
+class RedirectOn404(models.Model):
+    source = models.CharField(max_length=150)
+    target = models.CharField(max_length=150)
+    site = models.ForeignKey(Site, on_delete=models.SET_NULL, null=True)
