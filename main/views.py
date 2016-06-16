@@ -1,5 +1,5 @@
 from django.contrib.sites.shortcuts import get_current_site
-from django.db.models import Q
+from django.db.models import Q, Max, Count
 from django.http import HttpResponse, Http404
 from django.utils import timezone
 
@@ -75,7 +75,8 @@ def past_match(request, **kwargs):
 
 def last_matches(request):
     match_filter = add_check_credentials(Q(end_time__lte=timezone.now()), request)
-    latest_matches = Match.objects.filter(match_filter).order_by('-time')[:10]
+    show_link_criteria = Count('article__summary') if request.user.is_authenticated() else Max('article__summary__is_published')
+    latest_matches = Match.objects.annotate(show_link=show_link_criteria).filter(match_filter).order_by('-time')[:10]
 
     return aqhj_render(request, 'main/last-matches.html', {'last_matches': latest_matches})
 

@@ -5,6 +5,6 @@
 
 {% block content %}
   {% for match in last_matches %}
-  {% include 'components/match-box-past.html' with linked=match.summary %}
+  {% include 'components/match-box-past.html' with linked=match.show_link %}
   {% endfor %}
 {% endblock %}

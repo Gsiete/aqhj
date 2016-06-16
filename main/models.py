@@ -103,14 +103,6 @@ class Match(models.Model):
                                   help_text=escape('<iframe width="360" height="203" src="https://www.youtube.com/embed/CODIGO_DEL_VIDEO" frameborder="0" allowfullscreen=""></iframe>'))
 
     @property
-    def three_articles(self):
-        return ThreeArticles.objects.filter(match=self, site=Site.objects.get_current()).first()
-
-    @property
-    def summary(self):
-        return Summary.objects.filter(match=self, site=Site.objects.get_current()).first()
-
-    @property
     def team_a_winner(self):
         return self.score_team_a is not None and self.score_team_b is not None and self.score_team_a > self.score_team_b
 
