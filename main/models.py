@@ -149,12 +149,9 @@ class Match(models.Model):
 
         route = None
         if self.match_status == 'before':
-            if self.is_today:
-                route = 'match_today'
-            else:
                 route = 'match_before'
         elif self.match_status == 'ongoing':
-                route = 'match_today'
+                route = 'match_before'
         elif self.match_status == 'after':
                 route = 'past_match'
 

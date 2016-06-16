@@ -20,9 +20,7 @@ season_pattern = season_part.replace('season__', '')
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^' + match_pattern + r'/hoy$', views.match_before, name='match_today', kwargs={'today': True}),
     url(r'^' + match_pattern + r'$', views.match_before, name='match_before'),
-    url(r'^' + match_pattern_no_gis + r'/hoy$', views.match_before, name='match_today_no_gis', kwargs={'today': True}),
     url(r'^' + match_pattern_no_gis + r'$', views.match_before, name='match_before_no_gis'),
     url(r'^' + past_match_pattern + r'$', views.past_match, name='past_match'),
     url(r'^' + past_match_pattern_no_gis + r'$', views.past_match, name='past_match_no_gis'),
@@ -33,5 +31,6 @@ urlpatterns = [
     url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain'), name='_robots'),
     url(r'^BingSiteAuth\.xml$',  TemplateView.as_view(template_name='BingSiteAuth.xml', content_type='text/xml'), name='_BingSiteAuth'),
     url(r'^aquehorajuegaargentina.com(?P<url>.+)$', views.redirect_aqhj, name='_redirect_aqhj'),
+    url(r'^(?P<url>.+)/hoy$', views.redirect_aqhj, name='_redirect_hoy'),
 ]
 # https://docs.djangoproject.com/en/1.9/topics/http/urls/#including-other-urlconfs

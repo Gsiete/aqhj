@@ -33,7 +33,7 @@ def index(request):
                         'three_articles': three_articles, 'summary': summary})
 
 
-def match_before(request, today=False, **kwargs):
+def match_before(request, **kwargs):
     match_filter = add_check_credentials(Q(**kwargs), request)
     try:
         match = Match.objects.get(match_filter)
@@ -48,7 +48,7 @@ def match_before(request, today=False, **kwargs):
 
         raise Http404('No %s matches the given query.' % Match._meta.object_name)
 
-    if timezone.now() > match.end_time or today and not match.is_today:
+    if timezone.now() > match.end_time:
         return redirect(match.url, permanent=True)
 
     three_articles = ThreeArticles.objects.filter(add_check_credentials(Q(match=match), request, False)).first()
