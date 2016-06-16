@@ -81,7 +81,7 @@ def last_matches(request):
 
 
 def redirect_aqhj(request, url):
-    return redirect(url, permanent=True)
+    return redirect('http://%s/%s' % (get_current_site(request).domain, url), permanent=True)
 
 
 def group_round_positions(request, **kwargs):
