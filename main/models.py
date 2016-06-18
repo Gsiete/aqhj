@@ -57,6 +57,10 @@ class Stadium(models.Model):
     short_name = models.CharField(max_length=150, blank=True, null=True)
     city = models.ForeignKey(City)
 
+    @property
+    def short(self):
+        return self.short_name or self.name
+
     def __str__(self):
         return self.name
 
