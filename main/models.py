@@ -159,7 +159,7 @@ class Match(models.Model):
         return reverse_from_object(route, self) if route else None
 
     def ready_for_review(self):
-        return self.score_team_a is None or self.score_team_b is None
+        return self.score_team_a is not None and self.score_team_b is not None
 
     def team_local(self):
         return self.team_b if self.team_b.stadium == self.stadium else self.team_a
