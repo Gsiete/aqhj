@@ -26,6 +26,8 @@
                     <input type="text" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Tu email">
                   </div>
                   <input type="hidden" value="{{ user_city.timezone }}" name="TIMEZONE" class="" id="mce-TIMEZONE">
+                  <input type="hidden" value="{{ user_city.name }}" name="CITY" class="" id="mce-CITY">
+                  <input type="hidden" value="{{ user_city.country.name }}" name="COUNTRY" class="" id="mce-COUNTRY">
                   <div class="col-sm-4 col-xs-12 mc-field-group">
                     <input type="submit" class="button btn btn-danger" value="SUSCRIBIRME" name="subscribe"
                            id="mc-embedded-subscribe">
