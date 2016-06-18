@@ -60,7 +60,11 @@
         </div>
       {% else %}
         <div class="left-column-sm col-xs-12 col-sm-6">
-          <a href="{{ domain }}{{ match.url }}">{% trans 'Resumen del partido' %}</a>
+          {% if match.ready_for_review %}
+            <a href="{{ domain }}{{ match.url }}">{% trans 'Resumen del partido' %}</a>
+          {% else %}
+            {% trans 'Resultados disponpibles en breve' %}
+          {% endif %}
         </div>
       {% endif %}
   </div>

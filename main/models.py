@@ -144,6 +144,8 @@ class Match(models.Model):
                 route = 'match_before'
         elif self.match_status == 'ongoing':
                 route = 'match_before'
+        elif not self.ready_for_review:
+                route = 'match_before'
         elif self.match_status == 'after':
                 route = 'past_match'
 
@@ -151,6 +153,9 @@ class Match(models.Model):
             route += '_no_gis'
 
         return reverse_from_object(route, self) if route else None
+
+    def ready_for_review(self):
+        return self.score_team_a is None or self.score_team_b is None
 
     def team_local(self):
         return self.team_b if self.team_b.stadium == self.stadium else self.team_a
