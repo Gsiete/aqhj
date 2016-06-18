@@ -49,7 +49,7 @@ class Season(models.Model):
         return '%s %s' % (self.tournament.short, self.short_name or self.name)
 
     def __str__(self):
-        return '%s - %s' % (self.tournament.name, self.name)
+        return '%s %s' % (self.tournament.name, self.name)
 
 
 class Stadium(models.Model):
