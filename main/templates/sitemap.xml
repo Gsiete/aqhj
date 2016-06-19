@@ -4,7 +4,6 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
 <url>
   <loc>http://aquehorajuegaargentina.com/</loc>
 </url>
@@ -15,18 +14,51 @@
   <loc>http://aquehorajuegaargentina.com/copa-america/2016/fase-de-grupos/posiciones</loc>
 </url>
 <url>
-  <loc>http://aquehorajuegaargentina.com/copa-america/2016/fecha-1/argentina-vs-chile</loc>
+  <loc>http://aquehorajuegaargentina.com/juegos-olimpicos/rio-2016/fase-de-grupo-partido-1/argentina-vs-portugal</loc>
 </url>
 <url>
-  <loc>http://aquehorajuegaargentina.com/copa-america/2016/fecha-2/argentina-vs-panama</loc>
+  <loc>http://aquehorajuegaargentina.com/juegos-olimpicos/rio-2016/fase-de-grupo-partido-2/argentina-vs-argelia</loc>
 </url>
 <url>
-  <loc>http://aquehorajuegaargentina.com/copa-america/2016/fecha-3/argentina-vs-bolivia</loc>
+  <loc>http://aquehorajuegaargentina.com/juegos-olimpicos/rio-2016/fase-de-grupo-partido-3/argentina-vs-honduras</loc>
+</url>
+<url>
+  <loc>http://aquehorajuegaargentina.com/copa-america/2016/semi-final/argentina-vs-estados-unidos</loc>
+</url>
+<url>
+  <loc>http://aquehorajuegaargentina.com/copa-america/2016/cuartos-de-final/argentina-vs-venezuela-4-1/resultado-goles-y-noticias</loc>
+</url>
+<url>
+  <loc>http://aquehorajuegaargentina.com/copa-america/2016/fase-de-grupo-partido-3/argentina-vs-bolivia-3-0/resultado-goles-y-noticias</loc>
+</url>
+<url>
+  <loc>http://aquehorajuegaargentina.com/copa-america/2016/fase-de-grupo-partido-2/argentina-vs-panama-5-0/resultado-goles-y-noticias</loc>
+</url>
+<url>
+  <loc>http://aquehorajuegaargentina.com/copa-america/2016/fase-de-grupo-partido-1/argentina-vs-chile-2-1/resultado-goles-y-noticias</loc>
+</url>
+<url>
+  <loc>http://aquehorajuegaargentina.com/amistosos/2016/5-27/argentina-vs-honduras-1-0/resultado-goles-y-noticias</loc>
 </url>
 <url>
   <loc>http://aquehorajuegaargentina.com/eliminatorias-mundial/rusia-2018/fecha-6/argentina-vs-bolivia-2-0/resultado-goles-y-noticias</loc>
 </url>
 <url>
-  <loc>http://aquehorajuegaargentina.com/amistosos/2016/5-27/argentina-vs-honduras</loc>
+  <loc>http://aquehorajuegaargentina.com/eliminatorias-mundial/rusia-2018/fecha-5/chile-vs-argentina-1-2/resultado-goles-y-noticias</loc>
+</url>
+<url>
+  <loc>http://aquehorajuegaargentina.com/eliminatorias-mundial/rusia-2018/fecha-4/colombia-vs-argentina-0-1/resultado-goles-y-noticias</loc>
+</url>
+<url>
+  <loc>http://aquehorajuegaargentina.com/eliminatorias-mundial/rusia-2018/fecha-3/argentina-vs-brasil-1-1/resultado-goles-y-noticias</loc>
+</url>
+<url>
+  <loc>http://aquehorajuegaargentina.com/eliminatorias-mundial/rusia-2018/fecha-2/paraguay-vs-argentina-0-0/resultado-goles-y-noticias</loc>
+</url>
+<url>
+  <loc>http://aquehorajuegaargentina.com/copa-america/2016/cuartos-de-final/argentina-vs-venezuela</loc>
+</url>
+<url>
+  <loc>http://aquehorajuegaargentina.com/copa-america/2016/fase-de-grupo-partido-2/argentina-vs-panama</loc>
 </url>
 </urlset>
