@@ -15,7 +15,7 @@ class SiteRelAdmin(admin.ModelAdmin):
 class MatchAdmin(admin.ModelAdmin):
     readonly_fields = ('stadium_time', 'url')
     list_filter = ('season',)
-    list_display = ('team_a', 'team_b', 'time', 'season', 'game_in_season')
+    list_display = ('team_a', 'team_b', 'time', 'season', 'game_in_season', 'is_published')
 
 
 class TeamAdmin(SlugAdmin, SiteRelAdmin):
