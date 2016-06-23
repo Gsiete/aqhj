@@ -90,7 +90,7 @@ class Match(models.Model):
                       ['Fecha %d' % x for x in range(1, 40)]
     GAMES_IN_SEASON_CHOICES = [(slugify(gis), gis) for gis in GAMES_IN_SEASON]
 
-    is_published = models.BooleanField('indicates weather the Match is published or not', default=False)
+    is_published = models.BooleanField(default=False)
     team_a = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_a')
     team_b = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_b')
     score_team_a = models.IntegerField(null=True, blank=True)
@@ -198,10 +198,16 @@ class Article(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     match = models.ForeignKey(Match, on_delete=models.CASCADE)
     site = models.ForeignKey(Site, on_delete=models.SET_NULL, blank=True, null=True)
-    is_published = models.BooleanField('indicates weather the Article is published or not', default=False)
+    is_published = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.site) + ' - ' + str(self.match)
+
+    def match_game_in_season(self):
+        return self.match.game_in_season_literal if self.match else ''
+
+    def match_season_short(self):
+        return self.match.season.short if self.match else ''
 
     class Meta:
         ordering = ["-created_at"]
@@ -218,6 +224,15 @@ class Summary(Article):
     sub_title = models.CharField(blank=True, null=True, max_length=350)
     content = RedactorField(blank=True)
 
+    def title_shortened(self):
+        if len(self.title) > 50:
+            return self.title[:49] + '…'
+        else:
+            return self.title[:50]
+
+    def title_home(self):
+        return self.title_short or self.title
+
 
 class TeamSeasonAbstract(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
@@ -232,7 +247,6 @@ class TeamSeasonAbstract(models.Model):
     def __str__(self):
         return str(self.team) + ' - ' + str(self.season.short)
 
-
     @property
     def matches_played(self):
         return self.wins + self.draws + self.losses
@@ -240,6 +254,7 @@ class TeamSeasonAbstract(models.Model):
     @property
     def goals_difference(self):
         return self.goals_for - self.goals_against
+
     @property
     def points(self):
         return self.wins*3 + self.draws
