@@ -12,6 +12,7 @@ from redactor.fields import RedactorField
 from cities.models import City
 
 
+# ToDo: check if this can be removed
 class DomainField(models.CharField):
     def __init__(self, max_length=60, *args, **kwargs):
         kwargs['max_length'] = max_length
@@ -73,6 +74,7 @@ class Team(models.Model):
     stadium = models.ForeignKey(Stadium)
     logo = models.ImageField(upload_to='team/logo/', null=True)
     is_domain_team = models.BooleanField('is the main team of the domain')
+    # ToDo: check if this can be removed
     domain = DomainField(blank=True, null=True, unique=True)
     site = models.ForeignKey(Site, on_delete=models.SET_NULL, blank=True, null=True)
 
@@ -199,9 +201,19 @@ class Article(models.Model):
     match = models.ForeignKey(Match, on_delete=models.CASCADE)
     site = models.ForeignKey(Site, on_delete=models.SET_NULL, blank=True, null=True)
     is_published = models.BooleanField(default=False)
+    priority_in_home = models.IntegerField(blank=True, null=True)
+    image_home = models.ImageField(upload_to='article/image/', null=True, blank=True)
+    title_short = models.CharField('Short Title (to be shown in home)', blank=True, null=True, max_length=250)
+    content_short = RedactorField('Short Content (to be shown in home)', blank=True, null=True)
 
     def __str__(self):
         return str(self.site) + ' - ' + str(self.match)
+
+    def title_home(self):
+        return self.title_short
+
+    def content_home(self):
+        return self.content_short
 
     def match_game_in_season(self):
         return self.match.game_in_season_literal if self.match else ''
@@ -211,6 +223,10 @@ class Article(models.Model):
 
     class Meta:
         ordering = ["-created_at"]
+
+
+class LinkArticle(Article):
+    link = models.CharField(blank=True, null=True, max_length=250)
 
 
 class ThreeArticles(Article):
