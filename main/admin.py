@@ -1,7 +1,8 @@
 from django.contrib import admin
 
 from main.forms import StadiumForm
-from .models import Match, Tournament, Team, Stadium, Season, TeamSeason, TeamSeasonGroup, Summary, ThreeArticles
+from .models import Match, Tournament, Team, Stadium, Season, TeamSeason, TeamSeasonGroup, Summary, ThreeArticles, \
+    LinkArticle
 
 
 class SlugAdmin(admin.ModelAdmin):
@@ -47,6 +48,10 @@ class SummaryAdmin(SiteRelAdmin):
     list_display = ('match', 'match_season_short', 'match_game_in_season', 'site', 'is_published', 'title_shortened')
 
 
+class LinkArticleAdmin(SiteRelAdmin):
+    list_display = ('title_short', 'link', 'site', 'is_published')
+
+
 admin.site.register(Match, admin_class=MatchAdmin)
 admin.site.register(Tournament, admin_class=SlugAdmin)
 admin.site.register(Team, admin_class=TeamAdmin)
@@ -56,3 +61,4 @@ admin.site.register(TeamSeason, admin_class=TeamSeasonAdmin)
 admin.site.register(TeamSeasonGroup, admin_class=TeamSeasonGroupAdmin)
 admin.site.register(ThreeArticles, admin_class=ThreeArticlesAdmin)
 admin.site.register(Summary, admin_class=SummaryAdmin)
+admin.site.register(LinkArticle, admin_class=LinkArticleAdmin)
