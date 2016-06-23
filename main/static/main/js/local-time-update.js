@@ -15,6 +15,9 @@ $(document).on('tz-change', function (e, tz, cityName, cityId) {
     });
 
     $('#mce-TIMEZONE').val(tz);
+    var startOfCountryName = cityName.lastIndexOf(',');
+    $('#mce-CITY').val(cityName.substr(0, startOfCountryName).trim());
+    $('#mce-COUNTRY').val(cityName.substr(startOfCountryName+1).trim());
 
     $('.var-city').text(cityName);
 });
