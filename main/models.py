@@ -128,26 +128,29 @@ class Match(models.Model):
     def is_today(self):
         return self.time - timedelta(1) < timezone.now() < self.end_time + timedelta(1)
 
-    @property
-    def url(self):
+    def url(self, base_route=None):
         from main.functions import reverse_from_object
         if self.time is None:
             return None
 
-        route = None
-        if self.match_status == 'before':
+        route = base_route
+        if route is None:
+            if self.match_status == 'before':
                 route = 'match_before'
-        elif self.match_status == 'ongoing':
+            elif self.match_status == 'ongoing':
                 route = 'match_before'
-        elif not self.ready_for_review:
+            elif not self.ready_for_review:
                 route = 'match_before'
-        elif self.match_status == 'after':
+            elif self.match_status == 'after':
                 route = 'past_match'
 
         if self.game_in_season is None and route:
             route += '_no_gis'
 
         return reverse_from_object(route, self) if route else None
+
+    def full_url(self, base_route=None):
+        return 'http://' + Site.objects.get_current().domain + self.url(base_route=base_route)
 
     def ready_for_review(self):
         return self.score_team_a is not None and self.score_team_b is not None
@@ -191,13 +194,16 @@ class Article(models.Model):
     site = models.ForeignKey(Site, on_delete=models.SET_NULL, blank=True, null=True)
     is_published = models.BooleanField(default=False)
     priority_in_home = models.IntegerField(blank=True, null=True)
-    image_home = models.ImageField(upload_to='article/image/', null=True, blank=True)
+    image_home = models.ImageField(upload_to='article/image/', null=True, blank=True, help_text='Load as 586x313')
     title_short = models.CharField('Short Title (to be shown in home)', blank=True, null=True, max_length=250)
-    content_short = RedactorField('Short Content (to be shown in home)', blank=True, null=True)
+    content_short = models.TextField('Short Content (to be shown in home)', blank=True, null=True)
     objects = InheritanceManager()
 
     def __str__(self):
         return str(self.site) + ' - ' + str(self.match)
+
+    def full_url(self):
+        return ''
 
     def title_home(self):
         return self.title_short
@@ -218,11 +224,19 @@ class Article(models.Model):
 class LinkArticle(Article):
     link = models.CharField(blank=True, null=True, max_length=250)
 
+    def full_url(self):
+        return self.link
+
 
 class ThreeArticles(Article):
     preview_part1 = RedactorField(blank=True)
     preview_part2 = RedactorField(blank=True)
     preview_part3 = RedactorField(blank=True)
+
+    def full_url(self):
+        if Match is None:
+            return ''
+        return self.match.full_url('match_before')
 
 
 class Summary(Article):
@@ -230,11 +244,15 @@ class Summary(Article):
     sub_title = models.CharField(blank=True, null=True, max_length=350)
     content = RedactorField(blank=True)
 
+    def full_url(self):
+        if Match is None:
+            return ''
+        return self.match.full_url()
+
     def title_shortened(self):
         if len(self.title) > 50:
             return self.title[:49] + '…'
-        else:
-            return self.title[:50]
+        return self.title[:50]
 
     def title_home(self):
         return self.title_short or self.title

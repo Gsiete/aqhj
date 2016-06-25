@@ -1,0 +1,27 @@
+{% extends 'layout/layout.html' %}
+{% load tz %}
+{% load aqhj_tags %}
+{% load staticfiles %}
+
+{% block content %}
+  {% include 'components/match-box-current.html' %}
+  {% include 'components/news.html' %}
+{% endblock %}
+
+{% block footer_script %}
+  {{ block.super }}
+  <script>
+    $(document).ready(function () {
+      $('.countdown').each(function () {
+        var until_date = new Date($(this).data('until'));
+        $(this).countdown(until_date, function (event) {
+          var dateFormat = '%-H h %-M m %-S s';
+          if (event.offset.totalDays > 0) {
+            dateFormat = '%-D día%!D ' + dateFormat;
+          }
+          $(this).text(event.strftime(dateFormat));
+        });
+      });
+    });
+  </script>
+{% endblock %}

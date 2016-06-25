@@ -2,7 +2,7 @@
 #content {
     font-family: Lato, Helvetica, Arial, sans-serif;
     font-weight: 300;
-    width: 720px;
+    width: 900px;
     margin-bottom: 50px;
     text-align: center;
     padding: 0;
@@ -11,7 +11,7 @@
 #content .match-box {
     border-top: 1px solid #DFDFDF;
     text-align: left;
-    width: 100%;
+    width: 720px;
     margin-bottom: 60px;
 }
 
@@ -37,6 +37,9 @@
     #content {
         width: 90%;
         max-width: 360px;
+    }
+    #content .match-box {
+        width: 100%;
     }
 }
 
@@ -658,4 +661,46 @@ a:hover {
     .logo-sm {
         display: inline;
     }
+}
+
+#news a {
+    text-decoration: none;
+}
+.article-preview {
+    color: #032B2F;
+    text-align: left;
+    border: 1px solid #DFDFDF;
+    margin-bottom: 40px;
+}
+.article-preview .news-details{
+    padding: 8px 5px 14px 16px;
+    border-top: 1px solid #DFDFDF;
+}
+
+.article-preview:hover{
+    background-color: #F0F2E7;
+}
+.article-preview h2 {
+    font-size: 26px;
+    font-weight: 900;
+    margin-top: 6px;
+    margin-bottom: 5px;
+}
+.article-preview.small h2 {
+    font-size: 20px;
+    line-height: 1.2;
+}
+.article-preview.big p {
+    font-size: 16px;
+}
+.article-preview.small p {
+    font-size: 14px;
+}
+.article-preview .categorization {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #DFDFDF;
+}
+.article-preview.small .categorization {
+    font-size: 10px;
 }

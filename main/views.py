@@ -14,23 +14,16 @@ def index(request):
     translation.activate(user_language)
     match_filter = add_check_credentials(Q(end_time__gte=timezone.now()), request)
     next_match = Match.objects.filter(match_filter).order_by('time')[0]
-    article = Article.objects.filter(add_check_credentials(Q(), request, False)).order_by('-created_at').first()
-    summary, three_articles = None, None
-    if article:
-        try:
-            three_articles = article.threearticles
-        except ThreeArticles.DoesNotExist:
-            try:
-                summary = article.summary
-            except Summary.DoesNotExist:
-                pass
+    # articles_filter = add_check_credentials(Q(priority_in_home__isnull=False), request, False)
+    articles_filter = add_check_credentials(Q(priority_in_home__isnull=True), request, False)
+    articles = Article.objects.filter(articles_filter).order_by('priority_in_home', '-created_at').select_subclasses()[:7]
 
     fm_filter = match_filter & ~Q(id=next_match.id)
     following_matches = Match.objects.filter(fm_filter).order_by('time')[:6]
 
-    return aqhj_render(request, 'main/match-before.html',
+    return aqhj_render(request, 'main/home.html',
                        {'following_matches': following_matches, 'match': next_match, 'home': True,
-                        'three_articles': three_articles, 'summary': summary})
+                        'articles': articles})
 
 
 def match_before(request, **kwargs):

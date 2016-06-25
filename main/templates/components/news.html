@@ -1,0 +1,33 @@
+{% load aqhj_tags %}
+{% load thumbnail %}
+<section id="news" class="big-gutter">
+  <div class="row">
+    {% for article in articles %}
+      {% with big_post=forloop.first|orfilter:forloop.last %}
+        <div class="col-xs-12 col-sm-{{ big_post|yesno:"8,4" }}">
+          <a href="{{ article.full_url }}">
+            <div class="article-preview  {{ big_post|yesno:"big,small" }}">
+              {% if article.image_home %}
+                {% with thumbsize_dt=big_post|yesno:'news_dt_lg,news_dt_sm' %}
+                  <img width="100%" height="313" class="hidden-xs"
+                       src="{{ article.image_home|thumbnail_url:thumbsize_dt }}">
+                {% endwith %}
+                <img width="100%" height="189" class="visible-xs"
+                     src="{{ article.image_home|thumbnail_url:'news_mob' }}">
+              {% endif %}
+              <div class="news-details">
+                <div class="categorization">{% if article.match %}{{ article.match.season.short }}{% endif %}</div>
+                <h2>{{ article.title_home|default:'' }}</h2>
+                <p>{{ article.content_home|default:'' }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% if forloop.counter0 == 1 or forloop.counter0 == 4 %}
+          </div>
+          <div class="row">
+        {% endif %}
+      {% endwith %}
+    {% endfor %}
+    </div>
+</section>
