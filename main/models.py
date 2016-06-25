@@ -190,7 +190,7 @@ class Match(models.Model):
 class Article(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    match = models.ForeignKey(Match, on_delete=models.CASCADE)
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, blank=True, null=True)
     site = models.ForeignKey(Site, on_delete=models.SET_NULL, blank=True, null=True)
     is_published = models.BooleanField(default=False)
     priority_in_home = models.IntegerField(blank=True, null=True)
