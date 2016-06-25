@@ -677,7 +677,7 @@ a:hover {
     color: #032B2F;
     text-align: left;
     border: 1px solid #DFDFDF;
-    margin-bottom: 40px;
+    margin: 40px 0;
 }
 .article-preview .news-details{
     padding: 8px 5px 0 16px;
