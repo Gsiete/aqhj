@@ -704,3 +704,7 @@ a:hover {
 .article-preview.small .categorization {
     font-size: 10px;
 }
+
+.article-preview img {
+    width: 100%;
+}
