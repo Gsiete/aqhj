@@ -191,7 +191,7 @@ THUMBNAIL_MEDIA_URL = MEDIA_URL
 THUMBNAIL_ALIASES = {
     '': {
         'news_mob': {'size': (360, 189), 'crop': True},
-        'news_dt_sm': {'size': (273, 313), 'crop': True},
-        'news_dt_lg': {'size': (586, 313), 'crop': True}
+        'news_dt_sm': {'size': (271, 307), 'crop': True},
+        'news_dt_lg': {'size': (585, 307), 'crop': True}
     },
 }
