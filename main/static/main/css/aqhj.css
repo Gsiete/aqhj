@@ -673,7 +673,7 @@ a:hover {
     margin-bottom: 40px;
 }
 .article-preview .news-details{
-    padding: 8px 5px 14px 16px;
+    padding: 8px 5px 0 16px;
     border-top: 1px solid #DFDFDF;
 }
 
