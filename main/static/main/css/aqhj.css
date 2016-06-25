@@ -715,3 +715,9 @@ a:hover {
 .article-preview img {
     width: 100%;
 }
+
+@media screen and (max-width: 767px) {
+    .article-preview {
+        margin: 5px 0;
+    }
+}
