@@ -672,12 +672,13 @@ a:hover {
     letter-spacing: -0.24px;
     font-weight: 300;
     color: #032B2F;
+    margin-bottom: 40px;
 }
 .article-preview {
     color: #032B2F;
     text-align: left;
     border: 1px solid #DFDFDF;
-    margin: 40px 0;
+    margin-bottom: 40px;
 }
 .article-preview .news-details{
     padding: 8px 5px 0 16px;
@@ -718,6 +719,9 @@ a:hover {
 
 @media screen and (max-width: 767px) {
     .article-preview {
-        margin: 5px 0;
+        margin-bottom: 5px;
+    }
+    #news h4 {
+        margin-bottom: 20px;
     }
 }
