@@ -724,4 +724,7 @@ a:hover {
     #news h4 {
         margin-bottom: 20px;
     }
+    #news {
+        margin-bottom: 35px;
+    }
 }
