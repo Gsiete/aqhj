@@ -1,6 +1,7 @@
 {% load aqhj_tags %}
 {% load thumbnail %}
 <section id="news" class="big-gutter">
+  <h4>Últimas noticias de la Selección Argentina</h4>
   <div class="row">
     {% for article in articles %}
       {% with big_post=forloop.first|orfilter:forloop.last %}
