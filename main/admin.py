@@ -41,15 +41,16 @@ class TeamSeasonGroupAdmin(admin.ModelAdmin):
 
 
 class ThreeArticlesAdmin(SiteRelAdmin):
-    list_display = ('match', 'match_season_short', 'match_game_in_season', 'site', 'is_published')
+    list_display = ('match', 'match_season_short', 'match_game_in_season', 'site', 'is_published', 'priority_in_home')
 
 
 class SummaryAdmin(SiteRelAdmin):
-    list_display = ('match', 'match_season_short', 'match_game_in_season', 'site', 'is_published', 'title_shortened')
+    list_display = ('match', 'match_season_short', 'match_game_in_season', 'site', 'is_published', 'title_shortened',
+                    'priority_in_home')
 
 
 class LinkArticleAdmin(SiteRelAdmin):
-    list_display = ('title_short', 'link', 'site', 'is_published')
+    list_display = ('title_short', 'link', 'site', 'is_published', 'priority_in_home')
 
 
 admin.site.register(Match, admin_class=MatchAdmin)
