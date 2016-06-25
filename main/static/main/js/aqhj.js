@@ -51,3 +51,31 @@ function createFunctionWithTimeout(callback, opt_timeout) {
   setTimeout(fn, opt_timeout || 1000);
   return fn;
 }
+
+var shortenTitlesOnDesktop = function() {
+    if ($(window).width() > 767) {
+        $('#news').find('.article-preview').each(function(){
+            var limit = $(this).hasClass('big') ? 150 : 76,
+                $contentP = $(this).find('p');
+            if($contentP.text().length > limit) {
+               var shortenedText = $contentP.text().substr(0, limit-1) + '…';
+               $contentP.data('original-text', $contentP.text());
+               $contentP.text(shortenedText);
+            }
+        });
+    }
+};
+
+var unshortenTitlesOnMobile = function() {
+    if ($(window).width() < 767) {
+        $('#news').find('.article-preview p').each(function(){
+            if($(this).text().indexOf('…') && $(this).data('original-text')){
+                $(this).text($(this).data('original-text'));
+            }
+        });
+    }
+};
+
+$(document).ready(shortenTitlesOnDesktop);
+$(window).resize(shortenTitlesOnDesktop);
+$(window).resize(unshortenTitlesOnMobile);
