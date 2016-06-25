@@ -5,6 +5,7 @@ from django.contrib.sites.models import Site
 from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
+from model_utils.managers import InheritanceManager
 from redactor.fields import RedactorField
 
 from cities.models import City
@@ -193,6 +194,7 @@ class Article(models.Model):
     image_home = models.ImageField(upload_to='article/image/', null=True, blank=True)
     title_short = models.CharField('Short Title (to be shown in home)', blank=True, null=True, max_length=250)
     content_short = RedactorField('Short Content (to be shown in home)', blank=True, null=True)
+    objects = InheritanceManager()
 
     def __str__(self):
         return str(self.site) + ' - ' + str(self.match)
