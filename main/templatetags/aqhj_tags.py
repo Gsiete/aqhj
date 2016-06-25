@@ -26,6 +26,11 @@ def url_from_object(route, obj):
 
 
 @register.filter
+def orfilter(bool_a, bool_b):
+    return bool_a or bool_b
+
+
+@register.filter
 def timediff(match, user_city):
     td = match.stadium_time.utcoffset() - match.time.astimezone(user_city.timezone).utcoffset()
     hours = td.days * 24 + td.seconds // 3600
