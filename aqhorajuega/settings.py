@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'storages',
     'redactor',
     'compressor',
+    'easy_thumbnails',
 ]
 
 CITIES_LIGHT_APP_NAME = 'cities'
@@ -184,3 +185,13 @@ AQHJ_DOMAIN = 'http://54.93.126.245:8001'
 LOCALE_PATHS = (BASE_DIR + "/locale/",)
 BET_AFFILIATE_LINK = 'http://www.bet365.com/dl/~offer?affiliate=365_482502'
 SITE_ID = 1
+
+THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE
+THUMBNAIL_MEDIA_URL = MEDIA_URL
+THUMBNAIL_ALIASES = {
+    '': {
+        'news_mob': {'size': (360, 189), 'crop': True},
+        'news_dt_sm': {'size': (273, 313), 'crop': True},
+        'news_dt_lg': {'size': (586, 313), 'crop': True}
+    },
+}
