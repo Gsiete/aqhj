@@ -15,7 +15,9 @@
                 <img class="visible-xs" src="{{ article.image_home|thumbnail_url:'news_mob' }}">
               {% endif %}
               <div class="news-details">
-                <div class="categorization">{% if article.match %}{{ article.match.season.short }}{% endif %}</div>
+                <div class="categorization">
+                  {% if article.match %}{{ article.match.season.short }}{% else %}&nbsp;{% endif %}
+                </div>
                 <h2>{{ article.title_home|default:'' }}</h2>
                 <p>{{ article.content_home|default:'' }}</p>
               </div>
