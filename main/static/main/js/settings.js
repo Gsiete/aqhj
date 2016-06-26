@@ -52,7 +52,6 @@ $(document).ready(function(){
                 templateResult: addTZ,
                 templateSelection: addTZ
             });
-
             $select2.on("change", function (e) {
                 var $selectedCity = $cityElement.find('.city-elem'), cityName = $(this).text(), cityId = $(this).val();
                 $changeCityButton.removeClass('activated');
@@ -60,6 +59,7 @@ $(document).ready(function(){
                 $(document).trigger('tz-change', [$selectedCity.data('tz'), cityName, cityId]);
                 $cityElement.html(cityName.boldUntil(','));
             });
+            $select2.select2('open');
         }
     });
 });
