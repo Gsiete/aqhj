@@ -6,7 +6,7 @@
 {% block head %}
   {{ block.super }}
   <script src="{{ STATIC_URL }}main/js/bracket.js"></script>
-  <link href="{% static "main/css/bracket.css" %}" rel="stylesheet">
+  <link href="{{ STATIC_URL }}main/css/bracket.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
