@@ -400,6 +400,7 @@ body {
 }
 #settings-modal .btn {
     text-transform: uppercase;
+    line-height: 16px
 }
 #settings-modal .btn.btn-left, #settings-modal .btn.btn-right {
     background: #ffffff;
@@ -455,8 +456,8 @@ body {
 }
 #settings-modal .close-modal {
     margin: 15px auto 10px;
+    height: 45px;
 }
-
 
 #content .article-three {
     max-width: 540px;
