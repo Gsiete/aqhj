@@ -33,6 +33,7 @@
   </div>
 </div>
 
+<!--INFOLINKS_OFF-->
 <!-- Modal -->
 <div id="settings-modal" class="modal fade" role="dialog" data-show='{{ city_is_new|yesno:'yes,no' }}'>
   <div class="modal-dialog modal-sm">
@@ -44,6 +45,7 @@
     </div>
   </div>
 </div>
+<!--INFOLINKS_ON-->
 <div id="content" class="container">
   {% block content_title %}
     {% if route_conf %}
