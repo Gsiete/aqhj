@@ -16,7 +16,8 @@ $(document).on('tz-change', function (e, tz, cityName, cityId) {
 });
 
 $(document).on('tz-change', function (e, tz) {
-    var $stadiumTimeElem = $('.stadium-time'), $timeDiffElem = $('.var-time-diff');
+    var momentUTC = moment($('.local-time').data('time')),
+        $stadiumTimeElem = $('.stadium-time'), $timeDiffElem = $('.var-time-diff');
     if($stadiumTimeElem.length > 0 && $timeDiffElem.length > 0) {
         var stadiumTimeOffset = parseInt(momentUTC.tz($stadiumTimeElem.data('tz')).format('Z')),
             localTimeOffset = parseInt(momentUTC.tz(tz).format('Z')),
