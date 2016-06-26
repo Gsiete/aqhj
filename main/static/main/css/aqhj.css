@@ -717,7 +717,12 @@ a:hover {
     width: 100%;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 768px) {
+    .article-preview.big p {
+        margin-bottom: 21px;
+    }
+}
+@media screen and (max-width: 768px) {
     .article-preview {
         margin-bottom: 5px;
     }
