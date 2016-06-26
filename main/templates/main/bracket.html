@@ -1,0 +1,63 @@
+{% extends 'layout/layout.html' %}
+{% load tz %}
+{% load aqhj_tags %}
+{% load staticfiles %}
+
+{% block head %}
+  {{ block.super }}
+  <script src="{{ STATIC_URL }}main/js/bracket.js"></script>
+  <link href="{% static "main/css/bracket.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  {% timezone user_city.timezone %}
+    <div id="bracket" class="container-fluid three-phases">
+      <div class="hidden-xs big-gutter bracket-header">
+        <div class="row">
+          <div class="col-xs-4"><div class="phase-title">Cuartos de Final</div></div>
+          <div class="col-xs-4"><div class="phase-title">Semifinal</div></div>
+          <div class="col-xs-4"><div class="phase-title">Final</div></div>
+        </div>
+      </div>
+      <div class="visible-xs bracket-header">
+        <div class="row">
+          <div id='cuartos' class="col-xs-4 phase-choice phase-title active">Cuartos</div>
+          <div id='semi' class="col-xs-4 phase-choice phase-title">Semi</div>
+          <div id='final' class="col-xs-4 phase-choice phase-title">Final</div>
+        </div>
+      </div>
+      <div id="view-window">
+        <div id="inner-view">
+          {% for phase_matches in matches %}
+            {% if not forloop.first %}
+              {% include 'bracket/lines.html' %}
+            {% endif %}
+            <div class="column{{ forloop.counter }}">
+              {% for match in phase_matches %}
+                {% include 'bracket/match.html' %}
+              {% endfor %}
+
+              {% if forloop.first %}
+                <a href="{{ domain }}{{ 'group_positions'|url_from_object:main_season }}">
+                  <div class="phase-title group-phase-link hidden-xs">
+                    Fase de grupos
+                  </div>
+                </a>
+              {% endif %}
+
+              {% if forloop.last and third_place_match %}
+                <div class="phase-title thirdplace-title">Tercer Puesto</div>
+                {% include 'bracket/match.html' with match=third_place_match%}
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <a href="{{ domain }}{{ 'group_positions'|url_from_object:main_season }}">
+        <div class="phase-title group-phase-link visible-xs">
+          Fase de grupos
+        </div>
+      </a>
+    </div>
+  {% endtimezone %}
+{% endblock %}

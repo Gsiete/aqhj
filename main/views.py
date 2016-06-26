@@ -83,12 +83,39 @@ def group_round_positions(request, **kwargs):
     return aqhj_render(request, 'main/position-table.html', {'season': season, 'teamstats': teamstats})
 
 
-def add_check_credentials(q_filter, request, for_match=True):
+def final_phase_positions(request, **kwargs):
+    season = get_object_or_404(Season, **kwargs)
+    match_filter = add_check_credentials(Q(game_in_phase__isnull=False, season=season), request, True, False)
+    matches = Match.objects.filter(match_filter).order_by('game_in_season', 'game_in_phase').all()
+    phases_order = {'ronda-de-16': 1, 'cuartos-de-final': 2, 'semi-final': 3, 'final': 4}
+    phases_short = {'ronda-de-16': 'Octavos', 'cuartos-de-final': 'Cuartos', 'semi-final': 'Semi', 'final': 'Final'}
+    phases_long = {'ronda-de-16': 'Ronda de 16', 'cuartos-de-final': 'Cuartos de final', 'semi-final': 'Semifinal',
+                   'final': 'Final'}
+
+    matches_ordered = {'ronda-de-16': [], 'cuartos-de-final': [], 'semi-final': [], 'final': []}
+    for match in matches:
+        if match.game_in_season in matches_ordered.keys():
+            matches_ordered[match.game_in_season].append(match)
+    # Remove empty phases
+    matches_ordered = dict((k, v) for k, v in matches_ordered.items() if v)
+    # print(matches_ordered)
+    matches_ordered = [matches_ordered[k] for k in sorted(matches_ordered, key=phases_order.__getitem__)]
+    third_place_match_filter = add_check_credentials(Q(game_in_season='partido-tercer-puesto', season=season), request,
+                                                     True, False)
+    third_place_match = Match.objects.filter(third_place_match_filter).first()
+
+    return aqhj_render(request, 'main/bracket.html',
+                       {'matches': matches_ordered, 'phases': phases_long, 'phases_short': phases_short,
+                        'third_place_match': third_place_match, 'season': season})
+
+
+def add_check_credentials(q_filter, request, for_match=True, domain_filter=True):
     if not request.user.is_authenticated():
         q_filter &= Q(is_published=True)
-    if for_match:
-        q_filter &= Q(team_a__site=get_current_site(request)) | Q(team_b__site=get_current_site(request))
-    else:
-        q_filter &= Q(site=get_current_site(request))
+    if domain_filter:
+        if for_match:
+            q_filter &= Q(team_a__site=get_current_site(request)) | Q(team_b__site=get_current_site(request))
+        else:
+            q_filter &= Q(site=get_current_site(request))
 
     return q_filter

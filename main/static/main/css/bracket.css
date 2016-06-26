@@ -1,0 +1,189 @@
+#bracket.three-phases {
+    width: 665px
+}
+
+.column1, .column2, .column3, .column4 {
+    width: 187px;
+    float: left;
+}
+
+.lines {
+    float: left;
+}
+
+.lines table {
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 20px;
+}
+
+.lines td {
+    width: 50%;
+    height: 45px;
+    border: 0 solid #032B2F;
+}
+
+.lines td.l1 {
+    border-width: 1px 1px 0 0;
+}
+
+.lines td.l2 {
+    border-width: 0 1px 1px 0;
+}
+
+.lines td.r1 {
+    border-width: 0 0 1px 0;
+}
+
+.column1-lines table:first-child {
+    margin-top: 57px;
+}
+
+.column1-lines table {
+    height: 124px;
+    margin-bottom: 121px;
+}
+
+.column2-lines table:first-child {
+    margin-top: 118px;
+}
+
+.column2-lines table {
+    height: 246px;
+    margin-bottom: 127px;
+}
+
+.column1 table.match {
+    margin-bottom: 24px;
+}
+
+.column2 table.match {
+    margin-bottom: 146px;
+}
+
+.column2 .match-details:first-child {
+    margin-top: 61px;
+}
+
+.column3 .match-details:first-child {
+    margin-top: 183px;
+}
+
+#bracket img {
+    height: 21px;
+    float: left;
+    margin: 8px 7px 0 0;
+}
+
+#bracket h4 {
+    font-size: 18px;
+    text-align: left;
+    float: left;
+}
+
+#bracket .score h4 {
+    width: 100%;
+    text-align: right;
+    font-size: 18px;
+}
+
+#bracket table.match td.score {
+    width: 17%;
+}
+
+#bracket .score h4 .penalty {
+    font-size: 14px;
+}
+
+#bracket .match {
+    width: 100%;
+    border-top: 1px solid #032B2F;
+}
+
+#bracket .match .team {
+    border-bottom: 1px solid #DFDFDF;
+}
+
+#bracket .match-details {
+    color: #BEBFB6;
+    font-size: 12px;
+}
+
+#bracket .match-details .city {
+    float: left;
+}
+
+#bracket .match-details .date {
+    float: right;
+    text-align: right;
+}
+
+.phase-title {
+    float: left;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #032B2F;
+}
+.phase-title:not(.col-xs-4) {
+    width: 100%;
+    margin-right: 40px;
+}
+#bracket .bracket-header .phase-title, #bracket .phase-title.group-phase-link {
+    border: 1px solid #DFDFDF;
+}
+
+#bracket .phase-title.group-phase-link:hover, #bracket .team:hover {
+    background-color: #F0F2E7;
+}
+
+#bracket .phase-title.group-phase-link a {
+    text-decoration: none;
+}
+
+#bracket .phase-title.group-phase-link {
+    margin-top: 16px;
+}
+
+#bracket .bracket-header {
+    margin-bottom: 24px;
+}
+
+#bracket .match-details.container-fluid {
+    padding: 0;
+}
+
+#bracket .thirdplace-title {
+    margin-top: 128px;
+}
+
+@media screen and (max-width: 768px) {
+    #bracket.three-phases {
+        width: 100%
+    }
+
+    #view-window {
+        overflow: hidden;
+        width: 100%;
+        height: 546px;
+        margin: auto;
+        position: relative;
+    }
+
+    #inner-view {
+        position: absolute;
+        width: 400%;
+    }
+
+    .column1, .column2, .column3, .column4 {
+        width: calc(25% - 40px);
+    }
+
+    .phase-choice.active {
+        background-color: #F0F2E7;
+    }
+
+    .group-phase-link.visible-xs {
+        margin-bottom: 40px;
+    }
+
+}

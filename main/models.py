@@ -34,6 +34,7 @@ class Season(models.Model):
     end = models.DateTimeField('end of the tournament')
     is_main = models.BooleanField('indicate that this season is currently the main in the domain')
     groups_og_image = models.ImageField(upload_to='season/groups_og/', null=True, blank=True)
+    final_phase_og_image = models.ImageField(upload_to='season/final_phase_og/', null=True, blank=True)
     results_image = models.ImageField('Results OG image', upload_to='season/results/', null=True, blank=True)
 
     @property
@@ -77,7 +78,7 @@ class Match(models.Model):
         ordering = ["-time"]
 
     GAMES_IN_SEASON = ['Fase de grupo - Partido %d' % x for x in range(1, 4)] + \
-                      ['Ronda de 16', 'Cuartos de final', 'Semi-final', 'Final'] + \
+                      ['Ronda de 16', 'Cuartos de final', 'Semi-final', 'Final', 'Partido tercer Puesto'] + \
                       ['Fecha %d' % x for x in range(1, 40)]
     GAMES_IN_SEASON_CHOICES = [(slugify(gis), gis) for gis in GAMES_IN_SEASON]
 

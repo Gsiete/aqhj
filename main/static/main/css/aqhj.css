@@ -79,9 +79,11 @@
 
 .team-logo img {
     height: 36px;
+    float: left;
+}
+.match-box .team-logo img {
     margin-top: 24px;
     margin-left: 0;
-    float: left;
     margin-right: 15px;
 }
 
@@ -226,11 +228,13 @@
     height: 18px
 }
 
-.match-box h4 {
+#content h4 {
     font-size: 24px;
     letter-spacing: -0.24px;
     font-weight: 300;
     color: #032B2F;
+}
+.match-box h4 {
     margin-top: 29px;
 }
 
@@ -268,7 +272,6 @@
 
 #following-matches .left-column h4 {
     margin: 7px 0 0 0;
-    font-weight: 300;
 }
 
 #following-matches .left-column p {
@@ -474,7 +477,7 @@ body {
     font-size: 16px;
 }
 
-.match-info, .team-logo {
+.match-box .match-info, .match-box .team-logo {
     padding-left: 20px;
 }
 
@@ -488,9 +491,11 @@ body {
     height: auto;
 }
 
-.score h4 {
+.match-box .score h4 {
     margin-top: 28px;
     margin-left: 0;
+}
+#content .score h4 {
     font-size: 26px;
 }
 
@@ -523,7 +528,7 @@ body {
     padding-left: 28px;
 }
 
-.winner h4 {
+#content .winner h4 {
     font-weight: bold;
 }
 
@@ -668,10 +673,6 @@ a:hover {
 }
 #news h4 {
     text-align: left;
-    font-size: 24px;
-    letter-spacing: -0.24px;
-    font-weight: 300;
-    color: #032B2F;
     margin-bottom: 40px;
 }
 .article-preview {

@@ -23,7 +23,7 @@
       <a href="{{ domain }}{% url 'last_matches' %}">Resultados</a>
     </div>
     <div class="nav-el col-xs-6 col-sm-3">
-      <a href="{{ domain }}{{ 'group_positions'|url_from_object:main_season }}">Posiciones</a>
+      <a href="{{ domain }}{{ 'final_phase_positions'|url_from_object:main_season }}">Posiciones</a>
     </div>
     <div class="nav-el col-xs-6 col-sm-3">
       <a target="_blank" {% if GA %}data-track="1" {% endif %}class="dbl-link" rel="nofollow" href="{{ BET_AFFILIATE_LINK }}">

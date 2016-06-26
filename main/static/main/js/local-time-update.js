@@ -1,12 +1,5 @@
 $(document).on('tz-change', function (e, tz, cityName, cityId) {
-    var momentUTC = moment($('.local-time').data('time')),
-        stadiumTimeOffset = parseInt(momentUTC.tz($('.stadium-time').data('tz')).format('Z')),
-        localTimeOffset = parseInt(momentUTC.tz(tz).format('Z')),
-        diff = stadiumTimeOffset - localTimeOffset;
-    if(diff > 0) {
-        diff = '+' + diff;
-    }
-    $('.var-time-diff').text(diff);
+    var momentUTC = moment($('.local-time').data('time'));
     document.cookie = "city_code=" + cityId + "; path=/";
 
     $('.js-local-time').each(function () {
@@ -20,6 +13,20 @@ $(document).on('tz-change', function (e, tz, cityName, cityId) {
     $('#mce-COUNTRY').val(cityName.substr(startOfCountryName+1).trim());
 
     $('.var-city').text(cityName);
+});
+
+$(document).on('tz-change', function (e, tz) {
+    var $stadiumTimeElem = $('.stadium-time'), $timeDiffElem = $('.var-time-diff');
+    if($stadiumTimeElem.length > 0 && $timeDiffElem.length > 0) {
+        var stadiumTimeOffset = parseInt(momentUTC.tz($stadiumTimeElem.data('tz')).format('Z')),
+            localTimeOffset = parseInt(momentUTC.tz(tz).format('Z')),
+            diff = stadiumTimeOffset - localTimeOffset;
+
+        if(diff > 0) {
+            diff = '+' + diff;
+        }
+        $timeDiffElem.text(diff);
+    }
 });
 
 $(document).on('tformat-change', function (e, tz) {

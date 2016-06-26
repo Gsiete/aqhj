@@ -1,0 +1,28 @@
+<div class="container-fluid match-details">
+  <div class="city">{{ match.stadium.city.name }}</div>
+  <div class="date">{{ match.time|date:'j M H:i' }}</div>
+</div>
+<table class="match">
+  <tr class="team{% if match.team_a_winner %} winner{% endif %}">
+    <td class="team-logo">
+      <img src="{{ match.team_a.logo.url }}"><h4>{{ match.team_a }}</h4>
+    </td>
+    <td class="score">
+      <h4>
+        {{ match.score_team_a|default_if_none:'-' }}
+        {% if match.penalties_team_a %}<span class="penalty">({{ match.penalties_team_a }})</span>{% endif %}
+      </h4>
+    </td>
+  </tr>
+  <tr class="team{% if match.team_b_winner %} winner{% endif %}">
+    <td class="team-logo">
+      <img src="{{ match.team_b.logo.url }}"><h4>{{ match.team_b }}</h4>
+    </td>
+    <td class="score">
+      <h4>
+        {{ match.score_team_b|default_if_none:'-' }}
+        {% if match.penalties_team_b %}<span class="penalty">({{ match.penalties_team_b }})</span>{% endif %}
+      </h4>
+    </td>
+  </tr>
+</table>
