@@ -1,23 +1,35 @@
 {% load i18n %}
 {% spaceless %}
-<h2>{% trans '¡Bienvenido!' %}</h2>
-<div>{% trans 'Detectamos que tu zona horaria* es la de' %}</div>
+  <h2>{% trans '¡Bienvenido!' %}</h2>
+  <h4 class="settings-text">{% trans 'Detectamos que tu zona horaria* es la de' %}</h4>
 
-<section>
-    <div id="city"><b>{{ user_city.name }},</b> {{ user_city.country.name }}</div>
-    <button id="change-city" data-url="{% url 'city-autocomplete' %}" data-token="{{ csrf_token }}"
-            class="btn btn-left">
-      Cambiar
-    </button>
-    <button id="confirm-city" class="btn btn-right activated">Es correcto</button>
-</section>
+  <div id="settings-inner" class="container-fluid">
+    <section id="city-choice">
+      <div class="settings-text" id="city"><b>{{ user_city.name }},</b> {{ user_city.country.name }}</div>
+      <div class="row">
+        <button id="change-city" data-url="{% url 'city-autocomplete' %}" data-token="{{ csrf_token }}"
+                class="col-xs-6 btn btn-left">
+          Cambiar
+        </button>
+        <button id="confirm-city" class="col-xs-6 btn btn-right activated">Es correcto</button>
+      </div>
+    </section>
 
-<section>
-    <div>{% trans 'Elige tu formato horario' %}*</div>
-    <button id="format-12" class="btn btn-left{% if time_format == '12' %} activated{% endif %}">12-h (AM/PM)</button>
-    <button id="format-24" class="btn btn-right{% if time_format == '24' %} activated{% endif %}">24-h</button>
-</section>
+    <section id="time-format-choice">
+      <div class="settings-text">{% trans 'Elige tu formato horario' %}*</div>
+      <div class="row">
+        <button id="format-12" class="col-xs-6 btn btn-left{% if time_format == '12' %} activated{% endif %}">
+          12-h (AM/PM)
+        </button>
+        <button id="format-24" class="col-xs-6 btn btn-right{% if time_format == '24' %} activated{% endif %}">
+          24-h
+        </button>
+      </div>
+    </section>
 
-<button class="btn btn-primary" data-dismiss="modal">{% trans 'Al sitio' %}</button>
-<p class="clarification">*{% trans 'Podrás modificar tu configuración dentro del sitio.' %}</p>
+    <div class="row">
+      <button class="col-xs-12 btn btn-primary close-modal" data-dismiss="modal">{% trans 'Al sitio' %}</button>
+    </div>
+  </div>
+  <p class="clarification">*{% trans 'Podrás modificar tu configuración dentro del sitio.' %}</p>
 {% endspaceless %}
