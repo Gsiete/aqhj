@@ -85,8 +85,10 @@ class Match(models.Model):
     team_a = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_a')
     team_b = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='matches_as_b')
     score_team_a = models.IntegerField(null=True, blank=True)
+    penalties_team_a = models.IntegerField(null=True, blank=True)
     detail_goals_team_a = models.CharField(null=True, blank=True, max_length=100)
     score_team_b = models.IntegerField(null=True, blank=True)
+    penalties_team_b = models.IntegerField(null=True, blank=True)
     detail_goals_team_b = models.CharField(null=True, blank=True, max_length=100)
     stadium = models.ForeignKey(Stadium, on_delete=models.SET_NULL, null=True)
     season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)
@@ -96,14 +98,25 @@ class Match(models.Model):
     og_image = models.ImageField(upload_to='season/og/', null=True, blank=True)
     html_video = models.TextField(null=True, blank=True,
                                   help_text=escape('<iframe width="360" height="203" src="https://www.youtube.com/embed/CODIGO_DEL_VIDEO" frameborder="0" allowfullscreen=""></iframe>'))
+    game_in_phase = models.IntegerField(null=True, blank=True)
 
     @property
     def team_a_winner(self):
-        return self.score_team_a is not None and self.score_team_b is not None and self.score_team_a > self.score_team_b
+        if self.score_team_a is not None and self.score_team_b is not None:
+            if self.score_team_a != self.score_team_b:
+                return self.score_team_a > self.score_team_b
+            elif self.penalties_team_a is not None and self.penalties_team_b is not None:
+                return self.penalties_team_a > self.penalties_team_b
+        return False
 
     @property
     def team_b_winner(self):
-        return self.score_team_a is not None and self.score_team_b is not None and self.score_team_a < self.score_team_b
+        if self.score_team_a is not None and self.score_team_b is not None:
+            if self.score_team_a != self.score_team_b:
+                return self.score_team_b > self.score_team_a
+            elif self.penalties_team_a is not None and self.penalties_team_b is not None:
+                return self.penalties_team_b > self.penalties_team_a
+        return False
 
     @property
     def stadium_time(self):
