@@ -102,6 +102,14 @@ class Match(models.Model):
     game_in_phase = models.IntegerField(null=True, blank=True)
 
     @property
+    def results(self):
+        if self.penalties_team_a is None or self.penalties_team_b is None:
+            print(self.penalties_team_a, self.penalties_team_b)
+            return '(%d-%d)' % (self.score_team_a, self.score_team_b)
+        return '%d (%d) - %d (%d)' % (
+            self.score_team_a, self.penalties_team_a, self.score_team_b, self.penalties_team_b)
+
+    @property
     def team_a_winner(self):
         if self.score_team_a is not None and self.score_team_b is not None:
             if self.score_team_a != self.score_team_b:
