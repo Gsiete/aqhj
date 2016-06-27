@@ -12,7 +12,10 @@
             <h5>{{ match.detail_goals_team_a }}</h5>
           </div>
           <div class="col-xm-2 score">
-            <h4>{{ match.score_team_a|default_if_none:'' }}</h4>
+            <h4>
+              {{ match.score_team_a|default_if_none:'-' }}
+              {% if match.penalties_team_a %}<span class="penalty">({{ match.penalties_team_a }})</span>{% endif %}
+            </h4>
           </div>
         </div>
         <div class="row{% if match.team_b_winner %} winner{% endif %}">
@@ -21,8 +24,11 @@
             <h4>{{ match.team_b }}</h4>
             <h5>{{ match.detail_goals_team_b }}</h5>
           </div>
-          <div class="col-xm-2 score">
-            <h4>{{ match.score_team_b|default_if_none:'' }}</h4>
+          <div class="col-xm-2 score">            
+            <h4>
+              {{ match.score_team_b|default_if_none:'-' }}
+              {% if match.penalties_team_b %}<span class="penalty">({{ match.penalties_team_b }})</span>{% endif %}
+            </h4>
           </div>
         </div>
         <div class="row">
